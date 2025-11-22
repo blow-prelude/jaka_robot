@@ -1,0 +1,7 @@
+[01m[K/home/wtr/programs/cpp/ros2/jaka/src/user_commands/src/my_moveit.cpp:4:10:[m[K [01;31m[Kfatal error: [m[Kexample_interfaces/msg/bool.hpp: 没有那个文件或目录
+    4 | #include [01;31m[K<example_interfaces/msg/bool.hpp>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/my_moveit.dir/build.make:76：CMakeFiles/my_moveit.dir/src/my_moveit.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:137：CMakeFiles/my_moveit.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

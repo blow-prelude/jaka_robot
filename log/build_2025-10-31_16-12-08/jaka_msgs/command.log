@@ -1,0 +1,4 @@
+Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs -- -j8 -l8
+Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs -- -j8 -l8
+Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs
+Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs

@@ -1,0 +1,27 @@
+[0.026s] Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands': AMENT_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wtr/programs/cpp/ros2/jaka/src/build/user_commands -- -j8 -l8
+[0.087s] Consolidate compiler generated dependencies of target my_moveit
+[0.108s] [ 50%] Building CXX object CMakeFiles/my_moveit.dir/src/my_moveit.cpp.o
+[17.010s] [100%] Linking CXX executable my_moveit
+[17.850s] [100%] Built target my_moveit
+[30.013s] Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands' returned '0': AMENT_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wtr/programs/cpp/ros2/jaka/src/build/user_commands -- -j8 -l8
+[30.033s] Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands': AMENT_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wtr/programs/cpp/ros2/jaka/src/build/user_commands
+[30.039s] -- Install configuration: ""
+[30.039s] -- Execute custom install script
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/my_moveit
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/package_run_dependencies/user_commands
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/parent_prefix_path/user_commands
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.sh
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.dsv
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.sh
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.dsv
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.bash
+[30.039s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.sh
+[30.040s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.zsh
+[30.040s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.dsv
+[30.040s] -- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.dsv
+[30.058s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/packages/user_commands
+[30.058s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig.cmake
+[30.064s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig-version.cmake
+[30.064s] -- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.xml
+[30.065s] -- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/ui
+[30.065s] Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands' returned '0': AMENT_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wtr/programs/cpp/ros2/jaka/src/build/user_commands

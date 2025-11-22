@@ -1,0 +1,215 @@
+[0.000000] (-) TimerEvent: {}
+[0.000270] (-) JobUnselected: {'identifier': 'jaka_description'}
+[0.000440] (-) JobUnselected: {'identifier': 'jaka_driver'}
+[0.000475] (-) JobUnselected: {'identifier': 'jaka_msgs'}
+[0.000499] (-) JobUnselected: {'identifier': 'jaka_planner'}
+[0.000521] (-) JobUnselected: {'identifier': 'jaka_zu5_moveit_config'}
+[0.000546] (user_commands) JobQueued: {'identifier': 'user_commands', 'dependencies': OrderedDict([('jaka_msgs', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs')])}
+[0.000576] (user_commands) JobStarted: {'identifier': 'user_commands'}
+[0.008641] (user_commands) JobProgress: {'identifier': 'user_commands', 'progress': 'cmake'}
+[0.009187] (user_commands) JobProgress: {'identifier': 'user_commands', 'progress': 'build'}
+[0.009856] (user_commands) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands', '--', '-j8', '-l8'], 'cwd': '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wtr'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', 'true'), ('LD_LIBRARY_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/wtr'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1903'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '2096'), ('BUNDLED_DEBUGPY_PATH', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '566608'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wtr'), ('JOURNAL_STREAM', '8:26767'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wtr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/wtr/.local/bin:/home/wtr/.local/bin:/opt/ros/humble/bin:/home/wtr/.local/bin:/home/wtr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/wtr-virtual-machine:@/tmp/.ICE-unix/2064,unix/wtr-virtual-machine:/tmp/.ICE-unix/2064'), ('INVOCATION_ID', '3f022caf551c4031989aafb831bf9a75'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-5d2cb0c2fdcbc747.txt'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/wtr/.config/Code/User/workspaceStorage/d8fdde5fb6493932c9140f89a98124a9/ms-python.python/pythonrc.py'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UPS1F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b3d4fbe0ef.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/wtr/datasets/gazebo_models'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble')]), 'shell': False}
+[0.034921] (user_commands) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.102101] (-) TimerEvent: {}
+[0.131887] (user_commands) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.139005] (user_commands) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.158138] (user_commands) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.159640] (user_commands) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.164761] (user_commands) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.174464] (user_commands) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.178321] (user_commands) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.197862] (user_commands) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.198604] (user_commands) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.202268] (-) TimerEvent: {}
+[0.273517] (user_commands) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.302773] (-) TimerEvent: {}
+[0.303957] (user_commands) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[0.311354] (user_commands) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[0.403093] (-) TimerEvent: {}
+[0.423858] (user_commands) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[0.440623] (user_commands) StdoutLine: {'line': b'-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[0.444736] (user_commands) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.15 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[0.460181] (user_commands) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[0.492073] (user_commands) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[0.503332] (-) TimerEvent: {}
+[0.517407] (user_commands) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.603600] (-) TimerEvent: {}
+[0.615676] (user_commands) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[0.647260] (user_commands) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[0.668169] (user_commands) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[0.690218] (user_commands) StdoutLine: {'line': b'-- Found jaka_msgs: 0.0.0 (/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake)\n'}
+[0.704061] (-) TimerEvent: {}
+[0.707289] (user_commands) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.795850] (user_commands) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[0.796390] (user_commands) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[0.796560] (user_commands) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[0.796697] (user_commands) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[0.796830] (user_commands) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[0.797084] (user_commands) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[0.797402] (user_commands) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[0.797536] (user_commands) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[0.797855] (user_commands) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[0.798410] (user_commands) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.804337] (-) TimerEvent: {}
+[0.826545] (user_commands) StdoutLine: {'line': b'-- Generating done\n'}
+[0.835273] (user_commands) StdoutLine: {'line': b'-- Build files have been written to: /home/wtr/programs/cpp/ros2/jaka/src/build/user_commands\n'}
+[0.864912] (user_commands) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target my_moveit\x1b[0m\n'}
+[0.885631] (user_commands) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/my_moveit.dir/src/my_moveit.cpp.o\x1b[0m\n'}
+[0.904795] (-) TimerEvent: {}
+[1.006259] (-) TimerEvent: {}
+[1.107089] (-) TimerEvent: {}
+[1.208100] (-) TimerEvent: {}
+[1.308629] (-) TimerEvent: {}
+[1.409288] (-) TimerEvent: {}
+[1.510550] (-) TimerEvent: {}
+[1.611588] (-) TimerEvent: {}
+[1.712314] (-) TimerEvent: {}
+[1.812975] (-) TimerEvent: {}
+[1.913688] (-) TimerEvent: {}
+[2.014340] (-) TimerEvent: {}
+[2.115223] (-) TimerEvent: {}
+[2.215936] (-) TimerEvent: {}
+[2.316768] (-) TimerEvent: {}
+[2.417716] (-) TimerEvent: {}
+[2.518340] (-) TimerEvent: {}
+[2.619310] (-) TimerEvent: {}
+[2.720249] (-) TimerEvent: {}
+[2.821454] (-) TimerEvent: {}
+[2.922202] (-) TimerEvent: {}
+[3.027316] (-) TimerEvent: {}
+[3.134176] (-) TimerEvent: {}
+[3.234755] (-) TimerEvent: {}
+[3.335612] (-) TimerEvent: {}
+[3.436393] (-) TimerEvent: {}
+[3.537047] (-) TimerEvent: {}
+[3.637878] (-) TimerEvent: {}
+[3.738367] (-) TimerEvent: {}
+[3.838908] (-) TimerEvent: {}
+[3.939929] (-) TimerEvent: {}
+[4.040559] (-) TimerEvent: {}
+[4.141619] (-) TimerEvent: {}
+[4.242404] (-) TimerEvent: {}
+[4.343033] (-) TimerEvent: {}
+[4.443731] (-) TimerEvent: {}
+[4.544674] (-) TimerEvent: {}
+[4.645571] (-) TimerEvent: {}
+[4.746914] (-) TimerEvent: {}
+[4.847645] (-) TimerEvent: {}
+[4.948329] (-) TimerEvent: {}
+[5.048910] (-) TimerEvent: {}
+[5.149726] (-) TimerEvent: {}
+[5.250618] (-) TimerEvent: {}
+[5.351353] (-) TimerEvent: {}
+[5.451869] (-) TimerEvent: {}
+[5.552774] (-) TimerEvent: {}
+[5.653472] (-) TimerEvent: {}
+[5.754066] (-) TimerEvent: {}
+[5.854956] (-) TimerEvent: {}
+[5.955477] (-) TimerEvent: {}
+[6.056202] (-) TimerEvent: {}
+[6.156943] (-) TimerEvent: {}
+[6.258235] (-) TimerEvent: {}
+[6.359252] (-) TimerEvent: {}
+[6.460026] (-) TimerEvent: {}
+[6.560688] (-) TimerEvent: {}
+[6.661881] (-) TimerEvent: {}
+[6.762792] (-) TimerEvent: {}
+[6.863735] (-) TimerEvent: {}
+[6.964734] (-) TimerEvent: {}
+[7.065633] (-) TimerEvent: {}
+[7.166791] (-) TimerEvent: {}
+[7.267815] (-) TimerEvent: {}
+[7.369101] (-) TimerEvent: {}
+[7.470525] (-) TimerEvent: {}
+[7.571808] (-) TimerEvent: {}
+[7.675138] (-) TimerEvent: {}
+[7.775786] (-) TimerEvent: {}
+[7.877043] (-) TimerEvent: {}
+[7.977668] (-) TimerEvent: {}
+[8.078577] (-) TimerEvent: {}
+[8.179450] (-) TimerEvent: {}
+[8.284328] (-) TimerEvent: {}
+[8.385842] (-) TimerEvent: {}
+[8.487670] (-) TimerEvent: {}
+[8.588752] (-) TimerEvent: {}
+[8.690078] (-) TimerEvent: {}
+[8.790664] (-) TimerEvent: {}
+[8.891305] (-) TimerEvent: {}
+[8.992542] (-) TimerEvent: {}
+[9.093595] (-) TimerEvent: {}
+[9.194945] (-) TimerEvent: {}
+[9.295909] (-) TimerEvent: {}
+[9.398714] (-) TimerEvent: {}
+[9.499582] (-) TimerEvent: {}
+[9.600572] (-) TimerEvent: {}
+[9.701208] (-) TimerEvent: {}
+[9.801792] (-) TimerEvent: {}
+[9.902566] (-) TimerEvent: {}
+[10.003385] (-) TimerEvent: {}
+[10.104007] (-) TimerEvent: {}
+[10.204897] (-) TimerEvent: {}
+[10.305383] (-) TimerEvent: {}
+[10.406102] (-) TimerEvent: {}
+[10.507490] (-) TimerEvent: {}
+[10.608341] (-) TimerEvent: {}
+[10.708876] (-) TimerEvent: {}
+[10.809639] (-) TimerEvent: {}
+[10.910577] (-) TimerEvent: {}
+[11.012231] (-) TimerEvent: {}
+[11.113034] (-) TimerEvent: {}
+[11.214332] (-) TimerEvent: {}
+[11.315215] (-) TimerEvent: {}
+[11.415859] (-) TimerEvent: {}
+[11.516941] (-) TimerEvent: {}
+[11.618091] (-) TimerEvent: {}
+[11.718677] (-) TimerEvent: {}
+[11.819435] (-) TimerEvent: {}
+[11.920438] (-) TimerEvent: {}
+[12.021525] (-) TimerEvent: {}
+[12.122799] (-) TimerEvent: {}
+[12.223346] (-) TimerEvent: {}
+[12.324186] (-) TimerEvent: {}
+[12.425598] (-) TimerEvent: {}
+[12.527152] (-) TimerEvent: {}
+[12.628093] (-) TimerEvent: {}
+[12.728645] (-) TimerEvent: {}
+[12.829458] (-) TimerEvent: {}
+[12.930300] (-) TimerEvent: {}
+[13.031632] (-) TimerEvent: {}
+[13.132485] (-) TimerEvent: {}
+[13.233624] (-) TimerEvent: {}
+[13.334615] (-) TimerEvent: {}
+[13.360170] (user_commands) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable my_moveit\x1b[0m\n'}
+[13.435199] (-) TimerEvent: {}
+[13.535968] (-) TimerEvent: {}
+[13.637892] (-) TimerEvent: {}
+[13.740476] (-) TimerEvent: {}
+[13.841550] (-) TimerEvent: {}
+[13.945534] (-) TimerEvent: {}
+[13.991900] (user_commands) StdoutLine: {'line': b'[100%] Built target my_moveit\n'}
+[14.003856] (user_commands) CommandEnded: {'returncode': 0}
+[14.005290] (user_commands) JobProgress: {'identifier': 'user_commands', 'progress': 'install'}
+[14.015721] (user_commands) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands'], 'cwd': '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wtr'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', 'true'), ('LD_LIBRARY_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/wtr'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1903'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '2096'), ('BUNDLED_DEBUGPY_PATH', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '566608'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wtr'), ('JOURNAL_STREAM', '8:26767'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wtr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/wtr/.local/bin:/home/wtr/.local/bin:/opt/ros/humble/bin:/home/wtr/.local/bin:/home/wtr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/wtr-virtual-machine:@/tmp/.ICE-unix/2064,unix/wtr-virtual-machine:/tmp/.ICE-unix/2064'), ('INVOCATION_ID', '3f022caf551c4031989aafb831bf9a75'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-5d2cb0c2fdcbc747.txt'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/wtr/.config/Code/User/workspaceStorage/d8fdde5fb6493932c9140f89a98124a9/ms-python.python/pythonrc.py'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UPS1F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b3d4fbe0ef.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/wtr/datasets/gazebo_models'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble')]), 'shell': False}
+[14.029367] (user_commands) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[14.029830] (user_commands) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[14.030130] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/my_moveit\n'}
+[14.030489] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/package_run_dependencies/user_commands\n'}
+[14.030960] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/parent_prefix_path/user_commands\n'}
+[14.031052] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.sh\n'}
+[14.031102] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.dsv\n'}
+[14.031131] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.sh\n'}
+[14.031276] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.dsv\n'}
+[14.031559] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.bash\n'}
+[14.031668] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.sh\n'}
+[14.031913] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.zsh\n'}
+[14.032018] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.dsv\n'}
+[14.032157] (user_commands) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.dsv\n'}
+[14.043964] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/packages/user_commands\n'}
+[14.044696] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig.cmake\n'}
+[14.044999] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig-version.cmake\n'}
+[14.045089] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.xml\n'}
+[14.045124] (user_commands) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/ui\n'}
+[14.046127] (-) TimerEvent: {}
+[14.047656] (user_commands) CommandEnded: {'returncode': 0}
+[14.064592] (user_commands) JobEnded: {'identifier': 'user_commands', 'rc': 0}
+[14.065664] (-) EventReactorShutdown: {}

@@ -1,0 +1,4 @@
+build/
+install/
+.vscode
+user_commands.tar

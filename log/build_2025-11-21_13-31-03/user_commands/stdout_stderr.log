@@ -1,0 +1,20 @@
+[100%] Built target my_moveit
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/my_moveit
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/package_run_dependencies/user_commands
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/parent_prefix_path/user_commands
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.sh
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.dsv
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.bash
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.sh
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.zsh
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.dsv
+-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.dsv
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/packages/user_commands
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig.cmake
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig-version.cmake
+-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.xml
+-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/ui

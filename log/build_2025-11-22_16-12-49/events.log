@@ -1,0 +1,252 @@
+[0.000000] (-) TimerEvent: {}
+[0.000275] (-) JobUnselected: {'identifier': 'jaka_description'}
+[0.000313] (-) JobUnselected: {'identifier': 'jaka_driver'}
+[0.000382] (-) JobUnselected: {'identifier': 'jaka_msgs'}
+[0.000406] (-) JobUnselected: {'identifier': 'jaka_planner'}
+[0.001176] (-) JobUnselected: {'identifier': 'jaka_zu5_moveit_config'}
+[0.001207] (-) JobUnselected: {'identifier': 'my_jaka_zu5_moveit_config'}
+[0.001251] (user_commands) JobQueued: {'identifier': 'user_commands', 'dependencies': OrderedDict([('jaka_msgs', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs')])}
+[0.001284] (user_commands) JobStarted: {'identifier': 'user_commands'}
+[0.009589] (user_commands) JobProgress: {'identifier': 'user_commands', 'progress': 'cmake'}
+[0.010354] (user_commands) JobProgress: {'identifier': 'user_commands', 'progress': 'build'}
+[0.010879] (user_commands) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands', '--', '-j8', '-l8'], 'cwd': '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wtr'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', 'true'), ('LD_LIBRARY_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/wtr'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1869'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '2059'), ('BUNDLED_DEBUGPY_PATH', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3629'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wtr'), ('JOURNAL_STREAM', '8:15217'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wtr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/wtr/.local/bin:/home/wtr/.local/bin:/opt/ros/humble/bin:/home/wtr/.local/bin:/home/wtr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/wtr-virtual-machine:@/tmp/.ICE-unix/2034,unix/wtr-virtual-machine:/tmp/.ICE-unix/2034'), ('INVOCATION_ID', '4ef89b5ec3ba417aa44ff5a4805e6cdd'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-5d2cb0c2fdcbc747.txt'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/wtr/.config/Code/User/workspaceStorage/d8fdde5fb6493932c9140f89a98124a9/ms-python.python/pythonrc.py'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.A4JRG3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b3d4fbe0ef.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/wtr/datasets/gazebo_models'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/opt/ros/humble')]), 'shell': False}
+[0.095475] (-) TimerEvent: {}
+[0.117343] (user_commands) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/my_moveit.dir/src/my_moveit.cpp.o\x1b[0m\n'}
+[0.196041] (-) TimerEvent: {}
+[0.299401] (-) TimerEvent: {}
+[0.400274] (-) TimerEvent: {}
+[0.501518] (-) TimerEvent: {}
+[0.602043] (-) TimerEvent: {}
+[0.702936] (-) TimerEvent: {}
+[0.806463] (-) TimerEvent: {}
+[0.907951] (-) TimerEvent: {}
+[1.013377] (-) TimerEvent: {}
+[1.114349] (-) TimerEvent: {}
+[1.215721] (-) TimerEvent: {}
+[1.316498] (-) TimerEvent: {}
+[1.422381] (-) TimerEvent: {}
+[1.525360] (-) TimerEvent: {}
+[1.630440] (-) TimerEvent: {}
+[1.731985] (-) TimerEvent: {}
+[1.834243] (-) TimerEvent: {}
+[1.935893] (-) TimerEvent: {}
+[2.038218] (-) TimerEvent: {}
+[2.139721] (-) TimerEvent: {}
+[2.244034] (-) TimerEvent: {}
+[2.345105] (-) TimerEvent: {}
+[2.445916] (-) TimerEvent: {}
+[2.549913] (-) TimerEvent: {}
+[2.650498] (-) TimerEvent: {}
+[2.751072] (-) TimerEvent: {}
+[2.854969] (-) TimerEvent: {}
+[2.973095] (-) TimerEvent: {}
+[3.074525] (-) TimerEvent: {}
+[3.175468] (-) TimerEvent: {}
+[3.277047] (-) TimerEvent: {}
+[3.384506] (-) TimerEvent: {}
+[3.486859] (-) TimerEvent: {}
+[3.587411] (-) TimerEvent: {}
+[3.688422] (-) TimerEvent: {}
+[3.793862] (-) TimerEvent: {}
+[3.897060] (-) TimerEvent: {}
+[3.998107] (-) TimerEvent: {}
+[4.098980] (-) TimerEvent: {}
+[4.199838] (-) TimerEvent: {}
+[4.300744] (-) TimerEvent: {}
+[4.405409] (-) TimerEvent: {}
+[4.506774] (-) TimerEvent: {}
+[4.607471] (-) TimerEvent: {}
+[4.708616] (-) TimerEvent: {}
+[4.815323] (-) TimerEvent: {}
+[4.915873] (-) TimerEvent: {}
+[5.017340] (-) TimerEvent: {}
+[5.118659] (-) TimerEvent: {}
+[5.223582] (-) TimerEvent: {}
+[5.326683] (-) TimerEvent: {}
+[5.431800] (-) TimerEvent: {}
+[5.534948] (-) TimerEvent: {}
+[5.637437] (-) TimerEvent: {}
+[5.739932] (-) TimerEvent: {}
+[5.842071] (-) TimerEvent: {}
+[5.950902] (-) TimerEvent: {}
+[6.053170] (-) TimerEvent: {}
+[6.153684] (-) TimerEvent: {}
+[6.254304] (-) TimerEvent: {}
+[6.355898] (-) TimerEvent: {}
+[6.457779] (-) TimerEvent: {}
+[6.563742] (-) TimerEvent: {}
+[6.664414] (-) TimerEvent: {}
+[6.765107] (-) TimerEvent: {}
+[6.867408] (-) TimerEvent: {}
+[6.968575] (-) TimerEvent: {}
+[7.069171] (-) TimerEvent: {}
+[7.172195] (-) TimerEvent: {}
+[7.275121] (-) TimerEvent: {}
+[7.384138] (-) TimerEvent: {}
+[7.491404] (-) TimerEvent: {}
+[7.592181] (-) TimerEvent: {}
+[7.695371] (-) TimerEvent: {}
+[7.800567] (-) TimerEvent: {}
+[7.901688] (-) TimerEvent: {}
+[8.003258] (-) TimerEvent: {}
+[8.105426] (-) TimerEvent: {}
+[8.206014] (-) TimerEvent: {}
+[8.309989] (-) TimerEvent: {}
+[8.410591] (-) TimerEvent: {}
+[8.514818] (-) TimerEvent: {}
+[8.615371] (-) TimerEvent: {}
+[8.716606] (-) TimerEvent: {}
+[8.817849] (-) TimerEvent: {}
+[8.918711] (-) TimerEvent: {}
+[9.020370] (-) TimerEvent: {}
+[9.121041] (-) TimerEvent: {}
+[9.222310] (-) TimerEvent: {}
+[9.324863] (-) TimerEvent: {}
+[9.425386] (-) TimerEvent: {}
+[9.527462] (-) TimerEvent: {}
+[9.628647] (-) TimerEvent: {}
+[9.729945] (-) TimerEvent: {}
+[9.830577] (-) TimerEvent: {}
+[9.934605] (-) TimerEvent: {}
+[10.035069] (-) TimerEvent: {}
+[10.136249] (-) TimerEvent: {}
+[10.236937] (-) TimerEvent: {}
+[10.337408] (-) TimerEvent: {}
+[10.442737] (-) TimerEvent: {}
+[10.552518] (-) TimerEvent: {}
+[10.656784] (-) TimerEvent: {}
+[10.757408] (-) TimerEvent: {}
+[10.858060] (-) TimerEvent: {}
+[10.958590] (-) TimerEvent: {}
+[11.068447] (-) TimerEvent: {}
+[11.169444] (-) TimerEvent: {}
+[11.270302] (-) TimerEvent: {}
+[11.370904] (-) TimerEvent: {}
+[11.473597] (-) TimerEvent: {}
+[11.574299] (-) TimerEvent: {}
+[11.676465] (-) TimerEvent: {}
+[11.779169] (-) TimerEvent: {}
+[11.879960] (-) TimerEvent: {}
+[11.980620] (-) TimerEvent: {}
+[12.083536] (-) TimerEvent: {}
+[12.184011] (-) TimerEvent: {}
+[12.284620] (-) TimerEvent: {}
+[12.385343] (-) TimerEvent: {}
+[12.485758] (-) TimerEvent: {}
+[12.586914] (-) TimerEvent: {}
+[12.691944] (-) TimerEvent: {}
+[12.793051] (-) TimerEvent: {}
+[12.898931] (-) TimerEvent: {}
+[12.999523] (-) TimerEvent: {}
+[13.100321] (-) TimerEvent: {}
+[13.213456] (-) TimerEvent: {}
+[13.315711] (-) TimerEvent: {}
+[13.416517] (-) TimerEvent: {}
+[13.517187] (-) TimerEvent: {}
+[13.618228] (-) TimerEvent: {}
+[13.719687] (-) TimerEvent: {}
+[13.820876] (-) TimerEvent: {}
+[13.921869] (-) TimerEvent: {}
+[14.023351] (-) TimerEvent: {}
+[14.124081] (-) TimerEvent: {}
+[14.225194] (-) TimerEvent: {}
+[14.330458] (-) TimerEvent: {}
+[14.431905] (-) TimerEvent: {}
+[14.534255] (-) TimerEvent: {}
+[14.636434] (-) TimerEvent: {}
+[14.738331] (-) TimerEvent: {}
+[14.842286] (-) TimerEvent: {}
+[14.943136] (-) TimerEvent: {}
+[15.045539] (-) TimerEvent: {}
+[15.146633] (-) TimerEvent: {}
+[15.247382] (-) TimerEvent: {}
+[15.348732] (-) TimerEvent: {}
+[15.449322] (-) TimerEvent: {}
+[15.549844] (-) TimerEvent: {}
+[15.650479] (-) TimerEvent: {}
+[15.758174] (-) TimerEvent: {}
+[15.862985] (-) TimerEvent: {}
+[15.967230] (-) TimerEvent: {}
+[16.070115] (-) TimerEvent: {}
+[16.171207] (-) TimerEvent: {}
+[16.281349] (-) TimerEvent: {}
+[16.383099] (-) TimerEvent: {}
+[16.484084] (-) TimerEvent: {}
+[16.585147] (-) TimerEvent: {}
+[16.687531] (-) TimerEvent: {}
+[16.788272] (-) TimerEvent: {}
+[16.889020] (-) TimerEvent: {}
+[16.989605] (-) TimerEvent: {}
+[17.090388] (-) TimerEvent: {}
+[17.192858] (-) TimerEvent: {}
+[17.294784] (-) TimerEvent: {}
+[17.399606] (-) TimerEvent: {}
+[17.500507] (-) TimerEvent: {}
+[17.601047] (-) TimerEvent: {}
+[17.702330] (-) TimerEvent: {}
+[17.802992] (-) TimerEvent: {}
+[17.903842] (-) TimerEvent: {}
+[18.008267] (-) TimerEvent: {}
+[18.112246] (-) TimerEvent: {}
+[18.216479] (-) TimerEvent: {}
+[18.317627] (-) TimerEvent: {}
+[18.421119] (-) TimerEvent: {}
+[18.530088] (-) TimerEvent: {}
+[18.630930] (-) TimerEvent: {}
+[18.731795] (-) TimerEvent: {}
+[18.833933] (-) TimerEvent: {}
+[18.935736] (-) TimerEvent: {}
+[19.036755] (-) TimerEvent: {}
+[19.137565] (-) TimerEvent: {}
+[19.238345] (-) TimerEvent: {}
+[19.340552] (-) TimerEvent: {}
+[19.445492] (-) TimerEvent: {}
+[19.546172] (-) TimerEvent: {}
+[19.646907] (-) TimerEvent: {}
+[19.749599] (-) TimerEvent: {}
+[19.850046] (-) TimerEvent: {}
+[19.952462] (-) TimerEvent: {}
+[20.063535] (-) TimerEvent: {}
+[20.164426] (-) TimerEvent: {}
+[20.270747] (-) TimerEvent: {}
+[20.371825] (-) TimerEvent: {}
+[20.469251] (user_commands) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable my_moveit\x1b[0m\n'}
+[20.473380] (-) TimerEvent: {}
+[20.573751] (-) TimerEvent: {}
+[20.674268] (-) TimerEvent: {}
+[20.776761] (-) TimerEvent: {}
+[20.879297] (-) TimerEvent: {}
+[20.980910] (-) TimerEvent: {}
+[21.085757] (-) TimerEvent: {}
+[21.186337] (-) TimerEvent: {}
+[21.287015] (-) TimerEvent: {}
+[21.391154] (-) TimerEvent: {}
+[21.491904] (-) TimerEvent: {}
+[21.592614] (-) TimerEvent: {}
+[21.671490] (user_commands) StdoutLine: {'line': b'[100%] Built target my_moveit\n'}
+[21.691707] (user_commands) CommandEnded: {'returncode': 0}
+[21.693003] (-) TimerEvent: {}
+[21.694088] (user_commands) JobProgress: {'identifier': 'user_commands', 'progress': 'install'}
+[21.703306] (user_commands) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands'], 'cwd': '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wtr'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', 'true'), ('LD_LIBRARY_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/wtr'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1869'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '2059'), ('BUNDLED_DEBUGPY_PATH', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3629'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wtr'), ('JOURNAL_STREAM', '8:15217'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wtr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/wtr/.local/bin:/home/wtr/.local/bin:/opt/ros/humble/bin:/home/wtr/.local/bin:/home/wtr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/wtr-virtual-machine:@/tmp/.ICE-unix/2034,unix/wtr-virtual-machine:/tmp/.ICE-unix/2034'), ('INVOCATION_ID', '4ef89b5ec3ba417aa44ff5a4805e6cdd'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-5d2cb0c2fdcbc747.txt'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/wtr/.config/Code/User/workspaceStorage/d8fdde5fb6493932c9140f89a98124a9/ms-python.python/pythonrc.py'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.A4JRG3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b3d4fbe0ef.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/wtr/datasets/gazebo_models'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wtr/programs/cpp/ros2/jaka/src/build/user_commands'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/opt/ros/humble')]), 'shell': False}
+[21.719747] (user_commands) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[21.721411] (user_commands) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[21.722497] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/my_moveit\n'}
+[21.722766] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/package_run_dependencies/user_commands\n'}
+[21.724368] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/parent_prefix_path/user_commands\n'}
+[21.724465] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.sh\n'}
+[21.724552] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/ament_prefix_path.dsv\n'}
+[21.724637] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.sh\n'}
+[21.724722] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/environment/path.dsv\n'}
+[21.724805] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.bash\n'}
+[21.724888] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.sh\n'}
+[21.726330] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.zsh\n'}
+[21.730950] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/local_setup.dsv\n'}
+[21.731170] (user_commands) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.dsv\n'}
+[21.735777] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/ament_index/resource_index/packages/user_commands\n'}
+[21.735957] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig.cmake\n'}
+[21.736004] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/cmake/user_commandsConfig-version.cmake\n'}
+[21.736037] (user_commands) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/share/user_commands/package.xml\n'}
+[21.736067] (user_commands) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/user_commands/lib/user_commands/ui\n'}
+[21.746425] (user_commands) CommandEnded: {'returncode': 0}
+[21.769122] (user_commands) JobEnded: {'identifier': 'user_commands', 'rc': 0}
+[21.770572] (-) EventReactorShutdown: {}

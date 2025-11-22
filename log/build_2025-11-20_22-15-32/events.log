@@ -1,0 +1,663 @@
+[0.000000] (-) TimerEvent: {}
+[0.000568] (-) JobUnselected: {'identifier': 'jaka_description'}
+[0.000612] (-) JobUnselected: {'identifier': 'jaka_driver'}
+[0.000652] (-) JobUnselected: {'identifier': 'jaka_planner'}
+[0.000679] (-) JobUnselected: {'identifier': 'jaka_zu5_moveit_config'}
+[0.000695] (-) JobUnselected: {'identifier': 'user_commands'}
+[0.000712] (jaka_msgs) JobQueued: {'identifier': 'jaka_msgs', 'dependencies': OrderedDict()}
+[0.000743] (jaka_msgs) JobStarted: {'identifier': 'jaka_msgs'}
+[0.006629] (jaka_msgs) JobProgress: {'identifier': 'jaka_msgs', 'progress': 'cmake'}
+[0.007490] (jaka_msgs) JobProgress: {'identifier': 'jaka_msgs', 'progress': 'build'}
+[0.008318] (jaka_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs', '--', '-j8', '-l8'], 'cwd': '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wtr'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', 'true'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/wtr'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1903'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '2096'), ('BUNDLED_DEBUGPY_PATH', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '566608'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wtr'), ('JOURNAL_STREAM', '8:26767'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wtr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/wtr/.local/bin:/home/wtr/.local/bin:/opt/ros/humble/bin:/home/wtr/.local/bin:/home/wtr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/wtr-virtual-machine:@/tmp/.ICE-unix/2064,unix/wtr-virtual-machine:/tmp/.ICE-unix/2064'), ('INVOCATION_ID', '3f022caf551c4031989aafb831bf9a75'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-5d2cb0c2fdcbc747.txt'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/wtr/.config/Code/User/workspaceStorage/d8fdde5fb6493932c9140f89a98124a9/ms-python.python/pythonrc.py'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UPS1F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b3d4fbe0ef.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/wtr/datasets/gazebo_models'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.039287] (jaka_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099991] (-) TimerEvent: {}
+[0.125142] (jaka_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.130406] (jaka_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.131321] (jaka_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.132814] (jaka_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.155664] (jaka_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.171465] (jaka_msgs) StdoutLine: {'line': b'-- Found std_msgs: 4.9.0 (/opt/ros/humble/share/std_msgs/cmake)\n'}
+[0.187648] (jaka_msgs) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.200287] (-) TimerEvent: {}
+[0.203403] (jaka_msgs) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.204286] (jaka_msgs) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.278772] (jaka_msgs) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.300891] (-) TimerEvent: {}
+[0.302886] (jaka_msgs) StdoutLine: {'line': b'-- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)\n'}
+[0.401129] (-) TimerEvent: {}
+[0.501833] (-) TimerEvent: {}
+[0.601825] (jaka_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[0.602063] (-) TimerEvent: {}
+[0.702607] (-) TimerEvent: {}
+[0.776692] (jaka_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.803063] (-) TimerEvent: {}
+[0.903813] (-) TimerEvent: {}
+[1.004054] (jaka_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.004256] (-) TimerEvent: {}
+[1.026121] (jaka_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.048704] (jaka_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.049006] (jaka_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.049050] (jaka_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.082278] (jaka_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.104564] (-) TimerEvent: {}
+[1.140401] (jaka_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[1.154765] (jaka_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs\n'}
+[1.177995] (jaka_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.186646] (jaka_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.193441] (jaka_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_symlink_jaka_msgs\n'}
+[1.204952] (-) TimerEvent: {}
+[1.305819] (-) TimerEvent: {}
+[1.392915] (jaka_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[1.393417] (jaka_msgs) StdoutLine: {'line': b'writing jaka_msgs.egg-info/PKG-INFO\n'}
+[1.393467] (jaka_msgs) StdoutLine: {'line': b'writing dependency_links to jaka_msgs.egg-info/dependency_links.txt\n'}
+[1.393955] (jaka_msgs) StdoutLine: {'line': b'writing top-level names to jaka_msgs.egg-info/top_level.txt\n'}
+[1.397354] (jaka_msgs) StdoutLine: {'line': b"reading manifest file 'jaka_msgs.egg-info/SOURCES.txt'\n"}
+[1.397698] (jaka_msgs) StdoutLine: {'line': b"writing manifest file 'jaka_msgs.egg-info/SOURCES.txt'\n"}
+[1.406419] (-) TimerEvent: {}
+[1.425337] (jaka_msgs) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_build_jaka_msgs_egg\n'}
+[1.506813] (-) TimerEvent: {}
+[1.608201] (-) TimerEvent: {}
+[1.709002] (-) TimerEvent: {}
+[1.809871] (-) TimerEvent: {}
+[1.910622] (-) TimerEvent: {}
+[2.015299] (-) TimerEvent: {}
+[2.097186] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_generator_c\x1b[0m\n'}
+[2.113615] (jaka_msgs) StdoutLine: {'line': b'[  2%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/msg/detail/my_pose_cmd__functions.c.o\x1b[0m\n'}
+[2.115934] (jaka_msgs) StdoutLine: {'line': b'[  2%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/msg/detail/robot_msg__functions.c.o\x1b[0m\n'}
+[2.116180] (-) TimerEvent: {}
+[2.126039] (jaka_msgs) StdoutLine: {'line': b'[  3%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/move__functions.c.o\x1b[0m\n'}
+[2.138639] (jaka_msgs) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/servo_move_enable__functions.c.o\x1b[0m\n'}
+[2.144075] (jaka_msgs) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/servo_move__functions.c.o\x1b[0m\n'}
+[2.154017] (jaka_msgs) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/set_tcp_frame__functions.c.o\x1b[0m\n'}
+[2.173269] (jaka_msgs) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/set_user_frame__functions.c.o\x1b[0m\n'}
+[2.196952] (jaka_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/set_payload__functions.c.o\x1b[0m\n'}
+[2.205352] (jaka_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/set_collision__functions.c.o\x1b[0m\n'}
+[2.216290] (jaka_msgs) StdoutLine: {'line': b'[  7%] Built target jaka_msgs__cpp\n'}
+[2.216584] (-) TimerEvent: {}
+[2.226874] (jaka_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/set_io__functions.c.o\x1b[0m\n'}
+[2.227168] (jaka_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/get_io__functions.c.o\x1b[0m\n'}
+[2.227800] (jaka_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/clear_error__functions.c.o\x1b[0m\n'}
+[2.228387] (jaka_msgs) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.230424] (jaka_msgs) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.272541] (jaka_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/get_fk__functions.c.o\x1b[0m\n'}
+[2.276469] (jaka_msgs) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[2.279089] (jaka_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_c.dir/rosidl_generator_c/jaka_msgs/srv/detail/get_ik__functions.c.o\x1b[0m\n'}
+[2.317104] (-) TimerEvent: {}
+[2.341435] (jaka_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32m\x1b[1mLinking C shared library libjaka_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[2.413850] (jaka_msgs) StdoutLine: {'line': b'[ 14%] Built target jaka_msgs__rosidl_generator_c\n'}
+[2.417257] (-) TimerEvent: {}
+[2.431892] (jaka_msgs) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.432226] (jaka_msgs) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[2.436383] (jaka_msgs) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.518261] (-) TimerEvent: {}
+[2.623641] (-) TimerEvent: {}
+[2.728182] (-) TimerEvent: {}
+[2.808979] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_cpp\x1b[0m\n'}
+[2.829874] (-) TimerEvent: {}
+[2.830837] (jaka_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/msg/my_pose_cmd__type_support.cpp.o\x1b[0m\n'}
+[2.831027] (jaka_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/msg/robot_msg__type_support.cpp.o\x1b[0m\n'}
+[2.847588] (jaka_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/move__type_support.cpp.o\x1b[0m\n'}
+[2.931645] (-) TimerEvent: {}
+[3.032762] (-) TimerEvent: {}
+[3.130625] (jaka_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/servo_move_enable__type_support.cpp.o\x1b[0m\n'}
+[3.134804] (-) TimerEvent: {}
+[3.166676] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_c\x1b[0m\n'}
+[3.177365] (jaka_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/servo_move__type_support.cpp.o\x1b[0m\n'}
+[3.185700] (jaka_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/set_tcp_frame__type_support.cpp.o\x1b[0m\n'}
+[3.188020] (jaka_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/msg/robot_msg__type_support.cpp.o\x1b[0m\n'}
+[3.241110] (-) TimerEvent: {}
+[3.245156] (jaka_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/msg/my_pose_cmd__type_support.cpp.o\x1b[0m\n'}
+[3.338864] (jaka_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/move__type_support.cpp.o\x1b[0m\n'}
+[3.341353] (-) TimerEvent: {}
+[3.393281] (jaka_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/servo_move_enable__type_support.cpp.o\x1b[0m\n'}
+[3.423491] (jaka_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/set_user_frame__type_support.cpp.o\x1b[0m\n'}
+[3.443717] (-) TimerEvent: {}
+[3.452704] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[3.452992] (jaka_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/set_payload__type_support.cpp.o\x1b[0m\n'}
+[3.453087] (jaka_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/servo_move__type_support.cpp.o\x1b[0m\n'}
+[3.474288] (jaka_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/msg/detail/robot_msg__type_support.cpp.o\x1b[0m\n'}
+[3.493589] (jaka_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/set_tcp_frame__type_support.cpp.o\x1b[0m\n'}
+[3.506601] (jaka_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/set_collision__type_support.cpp.o\x1b[0m\n'}
+[3.528586] (jaka_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/set_user_frame__type_support.cpp.o\x1b[0m\n'}
+[3.546701] (-) TimerEvent: {}
+[3.560693] (jaka_msgs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/set_payload__type_support.cpp.o\x1b[0m\n'}
+[3.607269] (jaka_msgs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/set_collision__type_support.cpp.o\x1b[0m\n'}
+[3.652789] (-) TimerEvent: {}
+[3.662961] (jaka_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/set_io__type_support.cpp.o\x1b[0m\n'}
+[3.668482] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[3.692008] (jaka_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/msg/detail/robot_msg__type_support.c.o\x1b[0m\n'}
+[3.734816] (jaka_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/get_io__type_support.cpp.o\x1b[0m\n'}
+[3.754500] (jaka_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/clear_error__type_support.cpp.o\x1b[0m\n'}
+[3.754779] (-) TimerEvent: {}
+[3.754901] (jaka_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/msg/detail/my_pose_cmd__type_support.c.o\x1b[0m\n'}
+[3.771145] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[3.779936] (jaka_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/servo_move_enable__type_support.c.o\x1b[0m\n'}
+[3.783903] (jaka_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/get_fk__type_support.cpp.o\x1b[0m\n'}
+[3.792380] (jaka_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/msg/detail/dds_fastrtps/robot_msg__type_support.cpp.o\x1b[0m\n'}
+[3.799750] (jaka_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/move__type_support.c.o\x1b[0m\n'}
+[3.809890] (jaka_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/set_io__type_support.cpp.o\x1b[0m\n'}
+[3.837114] (jaka_msgs) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/get_io__type_support.cpp.o\x1b[0m\n'}
+[3.839574] (jaka_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/jaka_msgs/srv/get_ik__type_support.cpp.o\x1b[0m\n'}
+[3.845054] (jaka_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/servo_move__type_support.c.o\x1b[0m\n'}
+[3.854497] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[3.856645] (-) TimerEvent: {}
+[3.861503] (jaka_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/set_tcp_frame__type_support.c.o\x1b[0m\n'}
+[3.885455] (jaka_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/set_user_frame__type_support.c.o\x1b[0m\n'}
+[3.891181] (jaka_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/msg/detail/robot_msg__type_support_c.cpp.o\x1b[0m\n'}
+[3.911913] (jaka_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32m\x1b[1mLinking CXX shared library libjaka_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[3.912191] (jaka_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/msg/detail/my_pose_cmd__type_support.cpp.o\x1b[0m\n'}
+[3.937343] (jaka_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/set_payload__type_support.c.o\x1b[0m\n'}
+[3.949950] (jaka_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/set_collision__type_support.c.o\x1b[0m\n'}
+[3.957564] (-) TimerEvent: {}
+[4.003457] (jaka_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/move__type_support.cpp.o\x1b[0m\n'}
+[4.021832] (jaka_msgs) StdoutLine: {'line': b'[ 48%] Built target jaka_msgs__rosidl_typesupport_c\n'}
+[4.032897] (jaka_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/set_io__type_support.c.o\x1b[0m\n'}
+[4.040838] (jaka_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/get_io__type_support.c.o\x1b[0m\n'}
+[4.057718] (-) TimerEvent: {}
+[4.058643] (jaka_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/clear_error__type_support.cpp.o\x1b[0m\n'}
+[4.107723] (jaka_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/servo_move_enable__type_support.cpp.o\x1b[0m\n'}
+[4.111442] (jaka_msgs) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/clear_error__type_support.c.o\x1b[0m\n'}
+[4.149561] (jaka_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/msg/detail/dds_fastrtps/my_pose_cmd__type_support.cpp.o\x1b[0m\n'}
+[4.157950] (-) TimerEvent: {}
+[4.169731] (jaka_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/get_fk__type_support.c.o\x1b[0m\n'}
+[4.213831] (jaka_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/move__type_support.cpp.o\x1b[0m\n'}
+[4.226254] (jaka_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/jaka_msgs/srv/detail/get_ik__type_support.c.o\x1b[0m\n'}
+[4.259769] (-) TimerEvent: {}
+[4.300269] (jaka_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32m\x1b[1mLinking C shared library libjaka_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[4.328800] (jaka_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/msg/detail/my_pose_cmd__type_support_c.cpp.o\x1b[0m\n'}
+[4.360354] (-) TimerEvent: {}
+[4.386205] (jaka_msgs) StdoutLine: {'line': b'[ 54%] Built target jaka_msgs__rosidl_typesupport_introspection_c\n'}
+[4.393950] (jaka_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/servo_move_enable__type_support.cpp.o\x1b[0m\n'}
+[4.433226] (jaka_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/servo_move__type_support.cpp.o\x1b[0m\n'}
+[4.463645] (-) TimerEvent: {}
+[4.498405] (jaka_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/get_fk__type_support.cpp.o\x1b[0m\n'}
+[4.553818] (jaka_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/move__type_support_c.cpp.o\x1b[0m\n'}
+[4.567675] (-) TimerEvent: {}
+[4.585150] (jaka_msgs) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/servo_move__type_support.cpp.o\x1b[0m\n'}
+[4.594234] (jaka_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/servo_move_enable__type_support_c.cpp.o\x1b[0m\n'}
+[4.667969] (-) TimerEvent: {}
+[4.687904] (jaka_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/servo_move__type_support_c.cpp.o\x1b[0m\n'}
+[4.719236] (jaka_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/set_tcp_frame__type_support.cpp.o\x1b[0m\n'}
+[4.771204] (-) TimerEvent: {}
+[4.797858] (jaka_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/jaka_msgs/srv/get_ik__type_support.cpp.o\x1b[0m\n'}
+[4.818509] (jaka_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/set_tcp_frame__type_support_c.cpp.o\x1b[0m\n'}
+[4.871666] (-) TimerEvent: {}
+[4.972235] (-) TimerEvent: {}
+[5.040601] (jaka_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/set_user_frame__type_support_c.cpp.o\x1b[0m\n'}
+[5.057921] (jaka_msgs) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libjaka_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[5.073705] (-) TimerEvent: {}
+[5.083326] (jaka_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/set_user_frame__type_support.cpp.o\x1b[0m\n'}
+[5.090674] (jaka_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/set_payload__type_support_c.cpp.o\x1b[0m\n'}
+[5.096563] (jaka_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/set_tcp_frame__type_support.cpp.o\x1b[0m\n'}
+[5.140104] (jaka_msgs) StdoutLine: {'line': b'[ 67%] Built target jaka_msgs__rosidl_typesupport_cpp\n'}
+[5.159328] (jaka_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/set_payload__type_support.cpp.o\x1b[0m\n'}
+[5.183073] (-) TimerEvent: {}
+[5.236908] (jaka_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/set_collision__type_support.cpp.o\x1b[0m\n'}
+[5.266238] (jaka_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/set_user_frame__type_support.cpp.o\x1b[0m\n'}
+[5.304937] (jaka_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/set_io__type_support.cpp.o\x1b[0m\n'}
+[5.305461] (-) TimerEvent: {}
+[5.392433] (jaka_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/set_collision__type_support_c.cpp.o\x1b[0m\n'}
+[5.406274] (-) TimerEvent: {}
+[5.482272] (jaka_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/set_io__type_support_c.cpp.o\x1b[0m\n'}
+[5.512856] (-) TimerEvent: {}
+[5.561579] (jaka_msgs) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/get_io__type_support_c.cpp.o\x1b[0m\n'}
+[5.613069] (-) TimerEvent: {}
+[5.667312] (jaka_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/set_payload__type_support.cpp.o\x1b[0m\n'}
+[5.681084] (jaka_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/set_collision__type_support.cpp.o\x1b[0m\n'}
+[5.681973] (jaka_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/get_io__type_support.cpp.o\x1b[0m\n'}
+[5.713929] (-) TimerEvent: {}
+[5.816013] (-) TimerEvent: {}
+[5.846436] (jaka_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/clear_error__type_support_c.cpp.o\x1b[0m\n'}
+[5.865192] (jaka_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/set_io__type_support.cpp.o\x1b[0m\n'}
+[5.893093] (jaka_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/clear_error__type_support.cpp.o\x1b[0m\n'}
+[5.920504] (-) TimerEvent: {}
+[5.991275] (jaka_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/get_ik__type_support_c.cpp.o\x1b[0m\n'}
+[5.991516] (jaka_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/jaka_msgs/srv/detail/get_fk__type_support_c.cpp.o\x1b[0m\n'}
+[6.022841] (-) TimerEvent: {}
+[6.118781] (jaka_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/get_io__type_support.cpp.o\x1b[0m\n'}
+[6.123914] (-) TimerEvent: {}
+[6.142304] (jaka_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/get_fk__type_support.cpp.o\x1b[0m\n'}
+[6.225918] (-) TimerEvent: {}
+[6.238923] (jaka_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/jaka_msgs/srv/detail/get_ik__type_support.cpp.o\x1b[0m\n'}
+[6.292952] (jaka_msgs) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/clear_error__type_support.cpp.o\x1b[0m\n'}
+[6.331197] (-) TimerEvent: {}
+[6.372474] (jaka_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/get_fk__type_support.cpp.o\x1b[0m\n'}
+[6.437827] (-) TimerEvent: {}
+[6.445792] (jaka_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding CXX object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/jaka_msgs/srv/detail/dds_fastrtps/get_ik__type_support.cpp.o\x1b[0m\n'}
+[6.458232] (jaka_msgs) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX shared library libjaka_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[6.538294] (-) TimerEvent: {}
+[6.553086] (jaka_msgs) StdoutLine: {'line': b'[ 83%] Built target jaka_msgs__rosidl_typesupport_fastrtps_c\n'}
+[6.646939] (-) TimerEvent: {}
+[6.687334] (jaka_msgs) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking CXX shared library libjaka_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[6.747466] (-) TimerEvent: {}
+[6.781364] (jaka_msgs) StdoutLine: {'line': b'[ 84%] Built target jaka_msgs__rosidl_typesupport_introspection_cpp\n'}
+[6.847661] (-) TimerEvent: {}
+[6.873790] (jaka_msgs) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking CXX shared library libjaka_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[6.942586] (jaka_msgs) StdoutLine: {'line': b'[ 84%] Built target jaka_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[6.950385] (-) TimerEvent: {}
+[6.957767] (jaka_msgs) StdoutLine: {'line': b'[ 84%] Built target jaka_msgs\n'}
+[6.981124] (jaka_msgs) StdoutLine: {'line': b'[ 85%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[7.050977] (-) TimerEvent: {}
+[7.151982] (-) TimerEvent: {}
+[7.252574] (-) TimerEvent: {}
+[7.353647] (-) TimerEvent: {}
+[7.454371] (-) TimerEvent: {}
+[7.555229] (-) TimerEvent: {}
+[7.656338] (-) TimerEvent: {}
+[7.756836] (-) TimerEvent: {}
+[7.857454] (-) TimerEvent: {}
+[7.958634] (-) TimerEvent: {}
+[8.059717] (-) TimerEvent: {}
+[8.160406] (-) TimerEvent: {}
+[8.260908] (-) TimerEvent: {}
+[8.336572] (jaka_msgs) StdoutLine: {'line': b'[ 85%] Built target jaka_msgs__py\n'}
+[8.346545] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_generator_py\x1b[0m\n'}
+[8.362106] (jaka_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_move_s.c.o\x1b[0m\n'}
+[8.362306] (-) TimerEvent: {}
+[8.362999] (jaka_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_set_tcp_frame_s.c.o\x1b[0m\n'}
+[8.363451] (jaka_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/msg/_my_pose_cmd_s.c.o\x1b[0m\n'}
+[8.364985] (jaka_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/msg/_robot_msg_s.c.o\x1b[0m\n'}
+[8.365082] (jaka_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_servo_move_enable_s.c.o\x1b[0m\n'}
+[8.365117] (jaka_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_servo_move_s.c.o\x1b[0m\n'}
+[8.366487] (jaka_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_set_payload_s.c.o\x1b[0m\n'}
+[8.372832] (jaka_msgs) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_set_user_frame_s.c.o\x1b[0m\n'}
+[8.462588] (-) TimerEvent: {}
+[8.516005] (jaka_msgs) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_set_io_s.c.o\x1b[0m\n'}
+[8.517888] (jaka_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_set_collision_s.c.o\x1b[0m\n'}
+[8.540367] (jaka_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_get_io_s.c.o\x1b[0m\n'}
+[8.548712] (jaka_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_clear_error_s.c.o\x1b[0m\n'}
+[8.553501] (jaka_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_get_fk_s.c.o\x1b[0m\n'}
+[8.554189] (jaka_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_generator_py.dir/rosidl_generator_py/jaka_msgs/srv/_get_ik_s.c.o\x1b[0m\n'}
+[8.570507] (-) TimerEvent: {}
+[8.660807] (jaka_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/jaka_msgs/libjaka_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[8.670873] (-) TimerEvent: {}
+[8.698438] (jaka_msgs) StdoutLine: {'line': b'[ 96%] Built target jaka_msgs__rosidl_generator_py\n'}
+[8.708678] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[8.709095] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[8.709902] (jaka_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target jaka_msgs__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[8.719514] (jaka_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/jaka_msgs/_jaka_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[8.720101] (jaka_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/jaka_msgs/_jaka_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[8.720575] (jaka_msgs) StdoutLine: {'line': b'[ 99%] \x1b[32mBuilding C object CMakeFiles/jaka_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/jaka_msgs/_jaka_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[8.773556] (-) TimerEvent: {}
+[8.854223] (jaka_msgs) StdoutLine: {'line': b'[ 99%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/jaka_msgs/jaka_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.857700] (jaka_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/jaka_msgs/jaka_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.873806] (-) TimerEvent: {}
+[8.886268] (jaka_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/jaka_msgs/jaka_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[8.886494] (jaka_msgs) StdoutLine: {'line': b'[100%] Built target jaka_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[8.893179] (jaka_msgs) StdoutLine: {'line': b'[100%] Built target jaka_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[8.926160] (jaka_msgs) StdoutLine: {'line': b'[100%] Built target jaka_msgs__rosidl_typesupport_c__pyext\n'}
+[8.937419] (jaka_msgs) CommandEnded: {'returncode': 0}
+[8.938831] (jaka_msgs) JobProgress: {'identifier': 'jaka_msgs', 'progress': 'install'}
+[8.946478] (jaka_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs'], 'cwd': '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'zh_CN:en'), ('USER', 'wtr'), ('LC_TIME', 'zh_CN.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', 'true'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/wtr'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1903'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '2096'), ('BUNDLED_DEBUGPY_PATH', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '566608'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wtr'), ('JOURNAL_STREAM', '8:26767'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wtr'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/wtr/.local/bin:/home/wtr/.local/bin:/opt/ros/humble/bin:/home/wtr/.local/bin:/home/wtr/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/wtr-virtual-machine:@/tmp/.ICE-unix/2064,unix/wtr-virtual-machine:/tmp/.ICE-unix/2064'), ('INVOCATION_ID', '3f022caf551c4031989aafb831bf9a75'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/wtr/.vscode/extensions/ms-python.debugpy-2025.16.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-5d2cb0c2fdcbc747.txt'), ('LANG', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/wtr/.config/Code/User/workspaceStorage/d8fdde5fb6493932c9140f89a98124a9/ms-python.python/pythonrc.py'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UPS1F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b3d4fbe0ef.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'zh_CN.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('IGN_GAZEBO_RESOURCE_PATH', '/home/wtr/datasets/gazebo_models'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wtr/programs/cpp/ros2/jaka/src/build/jaka_msgs'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'xim'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[8.951766] (jaka_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[8.952271] (jaka_msgs) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[8.952474] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/ament_index/resource_index/rosidl_interfaces/jaka_msgs\n'}
+[8.953030] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__functions.h\n'}
+[8.959702] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__struct.h\n'}
+[8.965794] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__type_support.h\n'}
+[8.973962] (-) TimerEvent: {}
+[8.977816] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__functions.h\n'}
+[8.978245] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__struct.h\n'}
+[8.978591] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__type_support.h\n'}
+[8.978701] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/my_pose_cmd.h\n'}
+[8.985618] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/robot_msg.h\n'}
+[8.988720] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[8.989270] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/clear_error.h\n'}
+[8.989323] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__functions.h\n'}
+[8.989356] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__struct.h\n'}
+[8.989784] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__type_support.h\n'}
+[8.989846] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__functions.h\n'}
+[8.989912] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__struct.h\n'}
+[8.990329] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__type_support.h\n'}
+[8.990358] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__functions.h\n'}
+[8.990385] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__struct.h\n'}
+[8.990685] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__type_support.h\n'}
+[8.990963] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__functions.h\n'}
+[8.990994] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__struct.h\n'}
+[8.991020] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__type_support.h\n'}
+[8.991046] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__functions.h\n'}
+[8.991098] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__struct.h\n'}
+[8.991126] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__type_support.h\n'}
+[8.991151] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__functions.h\n'}
+[8.991714] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__struct.h\n'}
+[8.991766] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__type_support.h\n'}
+[8.991992] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__functions.h\n'}
+[8.992019] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__struct.h\n'}
+[8.992063] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__type_support.h\n'}
+[8.992093] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__functions.h\n'}
+[8.992154] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__struct.h\n'}
+[8.992224] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__type_support.h\n'}
+[8.992917] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__functions.h\n'}
+[8.992953] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__struct.h\n'}
+[8.992980] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__type_support.h\n'}
+[8.993006] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__functions.h\n'}
+[8.993037] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__struct.h\n'}
+[8.993061] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__type_support.h\n'}
+[8.993086] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__functions.h\n'}
+[8.993113] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__struct.h\n'}
+[8.993139] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__type_support.h\n'}
+[8.993164] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__functions.h\n'}
+[8.993189] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__struct.h\n'}
+[8.993213] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__type_support.h\n'}
+[8.993237] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/get_fk.h\n'}
+[8.993263] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/get_ik.h\n'}
+[8.993296] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/get_io.h\n'}
+[8.993323] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/move.h\n'}
+[8.993348] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/servo_move.h\n'}
+[8.993372] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/servo_move_enable.h\n'}
+[8.993396] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_collision.h\n'}
+[8.993421] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_io.h\n'}
+[8.993445] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_payload.h\n'}
+[8.993470] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_tcp_frame.h\n'}
+[8.993494] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_user_frame.h\n'}
+[8.993519] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/library_path.sh\n'}
+[8.994957] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/library_path.dsv\n'}
+[8.995000] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__rosidl_typesupport_fastrtps_c.h\n'}
+[9.003228] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__rosidl_typesupport_fastrtps_c.h\n'}
+[9.003456] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[9.003628] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__rosidl_typesupport_fastrtps_c.h\n'}
+[9.003683] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__rosidl_typesupport_fastrtps_c.h\n'}
+[9.003714] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__rosidl_typesupport_fastrtps_c.h\n'}
+[9.003857] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__rosidl_typesupport_fastrtps_c.h\n'}
+[9.003992] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004115] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004146] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004254] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004336] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004452] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004582] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__rosidl_typesupport_fastrtps_c.h\n'}
+[9.004716] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__rosidl_typesupport_fastrtps_c.h\n'}
+[9.005335] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__rosidl_typesupport_introspection_c.h\n'}
+[9.014138] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__rosidl_typesupport_introspection_c.h\n'}
+[9.014410] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[9.014504] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__rosidl_typesupport_introspection_c.h\n'}
+[9.014573] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__rosidl_typesupport_introspection_c.h\n'}
+[9.014840] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__rosidl_typesupport_introspection_c.h\n'}
+[9.015041] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__rosidl_typesupport_introspection_c.h\n'}
+[9.015086] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__rosidl_typesupport_introspection_c.h\n'}
+[9.015116] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__rosidl_typesupport_introspection_c.h\n'}
+[9.015145] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__rosidl_typesupport_introspection_c.h\n'}
+[9.015182] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__rosidl_typesupport_introspection_c.h\n'}
+[9.015208] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__rosidl_typesupport_introspection_c.h\n'}
+[9.015233] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__rosidl_typesupport_introspection_c.h\n'}
+[9.015258] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__rosidl_typesupport_introspection_c.h\n'}
+[9.015282] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__rosidl_typesupport_introspection_c.h\n'}
+[9.015462] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__builder.hpp\n'}
+[9.022424] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__struct.hpp\n'}
+[9.029148] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__traits.hpp\n'}
+[9.036446] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__type_support.hpp\n'}
+[9.043378] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__builder.hpp\n'}
+[9.043560] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__struct.hpp\n'}
+[9.043598] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__traits.hpp\n'}
+[9.043734] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__type_support.hpp\n'}
+[9.043834] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/my_pose_cmd.hpp\n'}
+[9.050463] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/robot_msg.hpp\n'}
+[9.050765] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[9.050879] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/clear_error.hpp\n'}
+[9.051160] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__builder.hpp\n'}
+[9.051439] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__struct.hpp\n'}
+[9.051629] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__traits.hpp\n'}
+[9.051665] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__type_support.hpp\n'}
+[9.051695] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__builder.hpp\n'}
+[9.051722] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__struct.hpp\n'}
+[9.051748] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__traits.hpp\n'}
+[9.051775] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__type_support.hpp\n'}
+[9.051799] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__builder.hpp\n'}
+[9.051825] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__struct.hpp\n'}
+[9.051851] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__traits.hpp\n'}
+[9.051887] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__type_support.hpp\n'}
+[9.051921] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__builder.hpp\n'}
+[9.052024] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__struct.hpp\n'}
+[9.052060] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__traits.hpp\n'}
+[9.052091] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__type_support.hpp\n'}
+[9.052123] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__builder.hpp\n'}
+[9.052149] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__struct.hpp\n'}
+[9.052177] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__traits.hpp\n'}
+[9.052298] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__type_support.hpp\n'}
+[9.052410] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__builder.hpp\n'}
+[9.052447] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__struct.hpp\n'}
+[9.052473] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__traits.hpp\n'}
+[9.052501] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__type_support.hpp\n'}
+[9.052527] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__builder.hpp\n'}
+[9.052552] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__struct.hpp\n'}
+[9.052578] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__traits.hpp\n'}
+[9.052602] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__type_support.hpp\n'}
+[9.052625] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__builder.hpp\n'}
+[9.052650] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__struct.hpp\n'}
+[9.052676] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__traits.hpp\n'}
+[9.052700] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__type_support.hpp\n'}
+[9.052726] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__builder.hpp\n'}
+[9.052925] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__struct.hpp\n'}
+[9.053005] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__traits.hpp\n'}
+[9.053101] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__type_support.hpp\n'}
+[9.053130] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__builder.hpp\n'}
+[9.053157] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__struct.hpp\n'}
+[9.053182] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__traits.hpp\n'}
+[9.053207] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__type_support.hpp\n'}
+[9.053241] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__builder.hpp\n'}
+[9.053312] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__struct.hpp\n'}
+[9.053341] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__traits.hpp\n'}
+[9.053648] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__type_support.hpp\n'}
+[9.053722] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__builder.hpp\n'}
+[9.053780] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__struct.hpp\n'}
+[9.053843] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__traits.hpp\n'}
+[9.054049] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__type_support.hpp\n'}
+[9.054105] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/get_fk.hpp\n'}
+[9.054194] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/get_ik.hpp\n'}
+[9.054223] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/get_io.hpp\n'}
+[9.054249] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/move.hpp\n'}
+[9.054275] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/servo_move.hpp\n'}
+[9.054300] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/servo_move_enable.hpp\n'}
+[9.054326] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_collision.hpp\n'}
+[9.054349] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_io.hpp\n'}
+[9.054374] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_payload.hpp\n'}
+[9.054399] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_tcp_frame.hpp\n'}
+[9.054424] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/set_user_frame.hpp\n'}
+[9.054568] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.061700] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.061956] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[9.062063] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062151] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062420] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062525] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062564] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062597] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062630] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062669] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062700] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062725] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062750] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.062775] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.063048] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/my_pose_cmd__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.073762] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/msg/detail/robot_msg__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.074055] (-) TimerEvent: {}
+[9.074220] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/clear_error__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.074330] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_fk__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.074395] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_ik__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.074451] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/get_io__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.074873] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/move__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075235] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075276] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/servo_move_enable__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075308] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_collision__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075338] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_io__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075366] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_payload__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075448] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_tcp_frame__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075475] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/include/jaka_msgs/jaka_msgs/srv/detail/set_user_frame__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.075872] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/pythonpath.sh\n'}
+[9.076300] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/pythonpath.dsv\n'}
+[9.076369] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[9.076402] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[9.076430] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[9.076457] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[9.076505] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/__init__.py\n'}
+[9.076532] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/_jaka_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[9.076558] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/_jaka_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[9.076583] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/_jaka_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[9.076608] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/jaka_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.076632] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/jaka_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.076661] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/jaka_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.076685] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/libjaka_msgs__rosidl_generator_py.so\n'}
+[9.076708] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/__init__.py\n'}
+[9.076732] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/_my_pose_cmd.py\n'}
+[9.088614] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/_my_pose_cmd_s.c\n'}
+[9.102047] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/_robot_msg.py\n'}
+[9.102272] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/_robot_msg_s.c\n'}
+[9.102313] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/__init__.py\n'}
+[9.102343] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_clear_error.py\n'}
+[9.102372] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_clear_error_s.c\n'}
+[9.102399] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_fk.py\n'}
+[9.102425] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_fk_s.c\n'}
+[9.102451] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_ik.py\n'}
+[9.102476] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_ik_s.c\n'}
+[9.102501] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_io.py\n'}
+[9.102525] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_io_s.c\n'}
+[9.102549] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_move.py\n'}
+[9.102573] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_move_s.c\n'}
+[9.102597] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_servo_move.py\n'}
+[9.102623] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_servo_move_enable.py\n'}
+[9.102655] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_servo_move_enable_s.c\n'}
+[9.102688] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_servo_move_s.c\n'}
+[9.102713] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_collision.py\n'}
+[9.102739] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_collision_s.c\n'}
+[9.102764] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_io.py\n'}
+[9.102788] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_io_s.c\n'}
+[9.102812] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_payload.py\n'}
+[9.102835] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_payload_s.c\n'}
+[9.102859] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_tcp_frame.py\n'}
+[9.102882] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_tcp_frame_s.c\n'}
+[9.102906] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_user_frame.py\n'}
+[9.102929] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_user_frame_s.c\n'}
+[9.102953] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/jaka_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.103202] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/jaka_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.103628] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/jaka_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.103887] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/msg/RobotMsg.idl\n'}
+[9.104168] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/msg/MyPoseCmd.idl\n'}
+[9.112514] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/Move.idl\n'}
+[9.112805] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMoveEnable.idl\n'}
+[9.113019] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMove.idl\n'}
+[9.113168] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetTcpFrame.idl\n'}
+[9.113313] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetUserFrame.idl\n'}
+[9.113465] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetPayload.idl\n'}
+[9.113673] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetCollision.idl\n'}
+[9.113758] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetIO.idl\n'}
+[9.113818] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIO.idl\n'}
+[9.113864] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ClearError.idl\n'}
+[9.113910] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetFK.idl\n'}
+[9.113964] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIK.idl\n'}
+[9.114011] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/msg/RobotMsg.msg\n'}
+[9.114058] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/msg/MyPoseCmd.msg\n'}
+[9.121366] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/Move.srv\n'}
+[9.121628] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/Move_Request.msg\n'}
+[9.121705] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/Move_Response.msg\n'}
+[9.122002] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMoveEnable.srv\n'}
+[9.122267] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMoveEnable_Request.msg\n'}
+[9.122371] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMoveEnable_Response.msg\n'}
+[9.122438] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMove.srv\n'}
+[9.122479] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMove_Request.msg\n'}
+[9.122554] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ServoMove_Response.msg\n'}
+[9.122893] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetTcpFrame.srv\n'}
+[9.123051] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetTcpFrame_Request.msg\n'}
+[9.123104] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetTcpFrame_Response.msg\n'}
+[9.123132] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetUserFrame.srv\n'}
+[9.123160] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetUserFrame_Request.msg\n'}
+[9.123187] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetUserFrame_Response.msg\n'}
+[9.123213] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetPayload.srv\n'}
+[9.123247] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetPayload_Request.msg\n'}
+[9.123273] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetPayload_Response.msg\n'}
+[9.123298] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetCollision.srv\n'}
+[9.123323] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetCollision_Request.msg\n'}
+[9.123347] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetCollision_Response.msg\n'}
+[9.123491] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetIO.srv\n'}
+[9.123643] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetIO_Request.msg\n'}
+[9.123710] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/SetIO_Response.msg\n'}
+[9.124175] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIO.srv\n'}
+[9.124290] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIO_Request.msg\n'}
+[9.124473] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIO_Response.msg\n'}
+[9.124518] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ClearError.srv\n'}
+[9.124548] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ClearError_Request.msg\n'}
+[9.124576] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/ClearError_Response.msg\n'}
+[9.124613] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetFK.srv\n'}
+[9.124640] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetFK_Request.msg\n'}
+[9.124666] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetFK_Response.msg\n'}
+[9.124691] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIK.srv\n'}
+[9.124715] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIK_Request.msg\n'}
+[9.124740] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/srv/GetIK_Response.msg\n'}
+[9.124773] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/ament_index/resource_index/package_run_dependencies/jaka_msgs\n'}
+[9.124801] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/ament_index/resource_index/parent_prefix_path/jaka_msgs\n'}
+[9.124825] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/ament_prefix_path.sh\n'}
+[9.124851] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/ament_prefix_path.dsv\n'}
+[9.124892] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/path.sh\n'}
+[9.125172] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/environment/path.dsv\n'}
+[9.125329] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/local_setup.bash\n'}
+[9.125376] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/local_setup.sh\n'}
+[9.125406] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/local_setup.zsh\n'}
+[9.125435] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/local_setup.dsv\n'}
+[9.125461] (jaka_msgs) StdoutLine: {'line': b'-- Symlinking: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/package.dsv\n'}
+[9.135842] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/ament_index/resource_index/packages/jaka_msgs\n'}
+[9.136483] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[9.136523] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[9.136553] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[9.136581] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[9.136872] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[9.136965] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[9.137000] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[9.137029] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgsConfig.cmake\n'}
+[9.137059] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgsConfig-version.cmake\n'}
+[9.137086] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/package.xml\n'}
+[9.138925] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_generator_c.so\n'}
+[9.139740] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_generator_c.so" to ""\n'}
+[9.140422] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[9.140914] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[9.141055] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_introspection_c.so\n'}
+[9.141325] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[9.141883] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_c.so\n'}
+[9.142376] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_c.so" to ""\n'}
+[9.142597] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[9.143270] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[9.143495] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[9.143810] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[9.143883] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_cpp.so\n'}
+[9.144116] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[9.174371] (-) TimerEvent: {}
+[9.196100] (jaka_msgs) StdoutLine: {'line': b"Listing '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs'...\n"}
+[9.196308] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/__init__.py'...\n"}
+[9.196352] (jaka_msgs) StdoutLine: {'line': b"Listing '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg'...\n"}
+[9.196381] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/__init__.py'...\n"}
+[9.196412] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/_my_pose_cmd.py'...\n"}
+[9.196440] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/msg/_robot_msg.py'...\n"}
+[9.196469] (jaka_msgs) StdoutLine: {'line': b"Listing '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv'...\n"}
+[9.196496] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/__init__.py'...\n"}
+[9.196521] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_clear_error.py'...\n"}
+[9.196546] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_fk.py'...\n"}
+[9.196571] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_ik.py'...\n"}
+[9.196597] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_get_io.py'...\n"}
+[9.196623] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_move.py'...\n"}
+[9.196649] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_servo_move.py'...\n"}
+[9.196683] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_servo_move_enable.py'...\n"}
+[9.196708] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_collision.py'...\n"}
+[9.196732] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_io.py'...\n"}
+[9.196757] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_payload.py'...\n"}
+[9.196784] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_tcp_frame.py'...\n"}
+[9.196809] (jaka_msgs) StdoutLine: {'line': b"Compiling '/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/local/lib/python3.10/dist-packages/jaka_msgs/srv/_set_user_frame.py'...\n"}
+[9.201106] (jaka_msgs) StdoutLine: {'line': b'-- Installing: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_generator_py.so\n'}
+[9.201456] (jaka_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/lib/libjaka_msgs__rosidl_generator_py.so" to ""\n'}
+[9.201753] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_generator_cExport.cmake\n'}
+[9.201886] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[9.202009] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[9.202155] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[9.202343] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[9.202411] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[9.202478] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_cExport.cmake\n'}
+[9.202527] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[9.202574] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_generator_cppExport.cmake\n'}
+[9.202625] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[9.202681] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[9.202739] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[9.202800] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[9.202869] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[9.203084] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/jaka_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[9.203148] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_generator_pyExport.cmake\n'}
+[9.203181] (jaka_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs/share/jaka_msgs/cmake/export_jaka_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[9.204855] (jaka_msgs) CommandEnded: {'returncode': 0}
+[9.223737] (jaka_msgs) JobEnded: {'identifier': 'jaka_msgs', 'rc': 0}
+[9.224990] (-) EventReactorShutdown: {}

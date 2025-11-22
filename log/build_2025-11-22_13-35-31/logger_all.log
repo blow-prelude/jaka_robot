@@ -1,0 +1,193 @@
+[0.072s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'my_jaka_zu5_moveit_config', '--symlink-install']
+[0.072s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['my_jaka_zu5_moveit_config'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7b54ab94c9d0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7b54ab94c4f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7b54ab94c4f0>>)
+[0.172s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.173s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.173s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/wtr/programs/cpp/ros2/jaka/src'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.173s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.181s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extensions ['ignore', 'ignore_ament_install']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extension 'ignore'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extension 'ignore_ament_install'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extensions ['colcon_pkg']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extension 'colcon_pkg'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extensions ['colcon_meta']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extension 'colcon_meta'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extensions ['ros']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_description) by extension 'ros'
+[0.184s] DEBUG:colcon.colcon_core.package_identification:Package 'jaka_description' with type 'ros.ament_cmake' and name 'jaka_description'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_driver) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'jaka_driver' with type 'ros.ament_cmake' and name 'jaka_driver'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_msgs) by extension 'ros'
+[0.186s] DEBUG:colcon.colcon_core.package_identification:Package 'jaka_msgs' with type 'ros.ament_cmake' and name 'jaka_msgs'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_planner) by extension 'ros'
+[0.187s] DEBUG:colcon.colcon_core.package_identification:Package 'jaka_planner' with type 'ros.ament_cmake' and name 'jaka_planner'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(jaka_zu5_moveit_config) by extension 'ros'
+[0.188s] DEBUG:colcon.colcon_core.package_identification:Package 'jaka_zu5_moveit_config' with type 'ros.ament_cmake' and name 'jaka_zu5_moveit_config'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extension 'colcon_pkg'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(my_jaka_zu5_moveit_config) by extension 'ros'
+[0.189s] DEBUG:colcon.colcon_core.package_identification:Package 'my_jaka_zu5_moveit_config' with type 'ros.ament_cmake' and name 'my_jaka_zu5_moveit_config'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extension 'ignore_ament_install'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extensions ['colcon_pkg']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extension 'colcon_meta'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extensions ['ros']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(user_commands) by extension 'ros'
+[0.190s] DEBUG:colcon.colcon_core.package_identification:Package 'user_commands' with type 'ros.ament_cmake' and name 'user_commands'
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaka_description' in 'jaka_description'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaka_msgs' in 'jaka_msgs'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaka_driver' in 'jaka_driver'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaka_planner' in 'jaka_planner'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jaka_zu5_moveit_config' in 'jaka_zu5_moveit_config'
+[0.212s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'user_commands' in 'user_commands'
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.212s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.213s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/wtr/programs/cpp/ros2/jaka/src/install
+[0.214s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 383 installed packages in /opt/ros/humble
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'cmake_target' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'cmake_clean_cache' from command line to 'False'
+[0.247s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'cmake_clean_first' from command line to 'False'
+[0.247s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'cmake_force_configure' from command line to 'False'
+[0.247s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'ament_cmake_args' from command line to 'None'
+[0.247s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'catkin_cmake_args' from command line to 'None'
+[0.247s] Level 5:colcon.colcon_core.verb:set package 'my_jaka_zu5_moveit_config' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.247s] DEBUG:colcon.colcon_core.verb:Building package 'my_jaka_zu5_moveit_config' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config', 'merge_install': False, 'path': '/home/wtr/programs/cpp/ros2/jaka/src/my_jaka_zu5_moveit_config', 'symlink_install': True, 'test_result_base': None}
+[0.247s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.248s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.248s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/wtr/programs/cpp/ros2/jaka/src/my_jaka_zu5_moveit_config' with build type 'ament_cmake'
+[0.249s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/wtr/programs/cpp/ros2/jaka/src/my_jaka_zu5_moveit_config'
+[0.251s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.251s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.251s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.273s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config': CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble /usr/bin/cmake /home/wtr/programs/cpp/ros2/jaka/src/my_jaka_zu5_moveit_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config
+[0.917s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config' returned '0': CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble /usr/bin/cmake /home/wtr/programs/cpp/ros2/jaka/src/my_jaka_zu5_moveit_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config
+[0.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config': CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble /usr/bin/cmake --build /home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config -- -j8 -l8
+[0.944s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config' returned '0': CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble /usr/bin/cmake --build /home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config -- -j8 -l8
+[0.952s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config': CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble /usr/bin/cmake --install /home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config
+[1.194s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_jaka_zu5_moveit_config)
+[1.195s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config' returned '0': CMAKE_PREFIX_PATH=/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_description:/home/wtr/programs/cpp/ros2/jaka/src/install/user_commands:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_zu5_moveit_config:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_planner:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_driver:/home/wtr/programs/cpp/ros2/jaka/src/install/jaka_msgs:/opt/ros/humble /usr/bin/cmake --install /home/wtr/programs/cpp/ros2/jaka/src/build/my_jaka_zu5_moveit_config
+[1.196s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config' for CMake module files
+[1.197s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config' for CMake config files
+[1.197s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_jaka_zu5_moveit_config', 'cmake_prefix_path')
+[1.197s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/hook/cmake_prefix_path.ps1'
+[1.197s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/hook/cmake_prefix_path.dsv'
+[1.198s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/hook/cmake_prefix_path.sh'
+[1.198s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/bin'
+[1.198s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/lib/pkgconfig/my_jaka_zu5_moveit_config.pc'
+[1.199s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/lib/python3.10/site-packages'
+[1.199s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/bin'
+[1.199s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.ps1'
+[1.199s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.dsv'
+[1.200s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.sh'
+[1.200s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.bash'
+[1.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.zsh'
+[1.202s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/colcon-core/packages/my_jaka_zu5_moveit_config)
+[1.202s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_jaka_zu5_moveit_config)
+[1.202s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config' for CMake module files
+[1.203s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config' for CMake config files
+[1.203s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_jaka_zu5_moveit_config', 'cmake_prefix_path')
+[1.203s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/hook/cmake_prefix_path.ps1'
+[1.203s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/hook/cmake_prefix_path.dsv'
+[1.204s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/hook/cmake_prefix_path.sh'
+[1.204s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/bin'
+[1.204s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/lib/pkgconfig/my_jaka_zu5_moveit_config.pc'
+[1.205s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/lib/python3.10/site-packages'
+[1.205s] Level 1:colcon.colcon_core.environment:checking '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/bin'
+[1.205s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.ps1'
+[1.205s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.dsv'
+[1.206s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.sh'
+[1.206s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.bash'
+[1.206s] INFO:colcon.colcon_core.shell:Creating package script '/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/my_jaka_zu5_moveit_config/package.zsh'
+[1.207s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/wtr/programs/cpp/ros2/jaka/src/install/my_jaka_zu5_moveit_config/share/colcon-core/packages/my_jaka_zu5_moveit_config)
+[1.207s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.207s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.208s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.208s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.212s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.212s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.212s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.227s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.227s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/wtr/programs/cpp/ros2/jaka/src/install/local_setup.ps1'
+[1.230s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/wtr/programs/cpp/ros2/jaka/src/install/_local_setup_util_ps1.py'
+[1.231s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/wtr/programs/cpp/ros2/jaka/src/install/setup.ps1'
+[1.232s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/wtr/programs/cpp/ros2/jaka/src/install/local_setup.sh'
+[1.233s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/wtr/programs/cpp/ros2/jaka/src/install/_local_setup_util_sh.py'
+[1.233s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/wtr/programs/cpp/ros2/jaka/src/install/setup.sh'
+[1.234s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/wtr/programs/cpp/ros2/jaka/src/install/local_setup.bash'
+[1.235s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/wtr/programs/cpp/ros2/jaka/src/install/setup.bash'
+[1.236s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/wtr/programs/cpp/ros2/jaka/src/install/local_setup.zsh'
+[1.237s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/wtr/programs/cpp/ros2/jaka/src/install/setup.zsh'
