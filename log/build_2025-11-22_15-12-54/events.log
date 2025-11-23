@@ -1,9 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000336] (-) JobUnselected: {'identifier': 'jaka_description'}
-[0.000399] (-) JobUnselected: {'identifier': 'jaka_driver'}
-[0.000414] (-) JobUnselected: {'identifier': 'jaka_msgs'}
-[0.000438] (-) JobUnselected: {'identifier': 'jaka_planner'}
-[0.000446] (-) JobUnselected: {'identifier': 'jaka_zu5_moveit_config'}
-[0.000455] (-) JobUnselected: {'identifier': 'my_jaka_zu5_moveit_config'}
-[0.000463] (-) JobUnselected: {'identifier': 'user_commands'}
-[0.000812] (-) EventReactorShutdown: {}

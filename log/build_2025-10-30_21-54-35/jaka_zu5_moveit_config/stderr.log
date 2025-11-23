@@ -1,4 +1,0 @@
-[31mCMake Error at CMakeLists.txt:16 (catkin_install_python):
-  Unknown CMake command "catkin_install_python".
-
-[0m
