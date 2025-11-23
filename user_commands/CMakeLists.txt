@@ -18,17 +18,35 @@ ament_target_dependencies(
   my_moveit
   rclcpp
   moveit_ros_planning_interface
+  moveit_msgs
   geometry_msgs
   tf2
   jaka_msgs
 )
 
+
 install(
   PROGRAMS
-    script/ui.py
+    script/main_window.py 
   DESTINATION lib/${PROJECT_NAME}
-  RENAME ui
+  RENAME main_window 
 )
+
+install(
+  PROGRAMS
+    script/linear_move_ui.py 
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME linear_move_ui 
+)
+
+install(
+  PROGRAMS
+    script/virtual_ui.py 
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME virtual_ui 
+)
+
+
 
 install(TARGETS my_moveit DESTINATION lib/${PROJECT_NAME})
 

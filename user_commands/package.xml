@@ -7,13 +7,33 @@
   <maintainer email="wtr@todo.todo">wtr</maintainer>
   <license>TODO: License declaration</license>
 
+  <!-- 构建工具 -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>rclcpp</depend>
-  <exec_depend>rclpy</exec_depend>
+  <!-- cpp构建依赖 -->
+  <build_depend>rclcpp</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>tf2_geometry_msgs</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>moveit_msgs</build_depend>
+  <build_depend>jaka_msgs</build_depend>
+
+  <!-- cpp运行依赖 -->
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>tf2</exec_depend>
+  <exec_depend>tf2_geometry_msgs</exec_depend>
+  <exec_depend>moveit_msgs</exec_depend>
+  <exec_depend>moveit_ros_planning_interface</exec_depend>
   <exec_depend>jaka_msgs</exec_depend>
+
+  <!-- python运行依赖 -->
   <exec_depend>python3</exec_depend>
-  <exec_depend>python3-tk</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <!-- <exec_depend>PyQt5</exec_depend> -->
+  <!-- jaka_msg 上面已经添加，省略 -->
+  
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

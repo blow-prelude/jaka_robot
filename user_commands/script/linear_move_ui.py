@@ -11,8 +11,8 @@ from PyQt5 import QtCore, QtWidgets
 from jaka_msgs.srv import Move
 
 INITIAL_POSE: List[float] = [-170.0, 480.0, 700.0, -1.57, 0.0, 0.0]
-DEFAULT_STEP = 0.05
-STEP_INCREMENT = 0.01
+DEFAULT_STEP = 50
+STEP_INCREMENT = 5
 
 AXES = [
     ("x", 0),
@@ -39,7 +39,7 @@ def init_ros():
         return
     if not rclpy.ok():
         rclpy.init(args=None)
-    node = rclpy.create_node("virtual_controller_ui")
+    node = rclpy.create_node("linear_move_ui")
     linear_move_client = node.create_client(Move, "/jaka_driver/linear_move")
 
 
@@ -104,18 +104,21 @@ def request_linear_move():
         node.get_logger().warn("linear_move 调用超时")
 
 
-class PoseControllerWindow(QtWidgets.QWidget):
+class LinearMoveWindow(QtWidgets.QWidget):
+    """该类继承了 QWidget 这个窗口组件"""
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("virtual_controller")
-        self.setFixedSize(480, 960)
+        self.setWindowTitle("linear_move")
+        self.setFixedSize(480, 640)
         self._build_ui()
 
     def _build_ui(self):
-        title = QtWidgets.QLabel("virtual_controller")
+        # 创建居中标题
+        title = QtWidgets.QLabel("linear_move")
         title.setAlignment(QtCore.Qt.AlignCenter)
         title.setStyleSheet("font-size: 16px;")
 
+        # 创建网络布局
         grid = QtWidgets.QGridLayout()
         grid.setSpacing(10)
 
@@ -126,11 +129,16 @@ class PoseControllerWindow(QtWidgets.QWidget):
         for row, (axis, idx) in enumerate(AXES):
             plus_button = QtWidgets.QPushButton(f"+{axis}")
             minus_button = QtWidgets.QPushButton(f"-{axis}")
+            self.set_button_size(plus_button,60,40)
+            self.set_button_size(minus_button,60,40)
+
+            # 信号槽 
             plus_button.clicked.connect(lambda _, i=idx: self.adjust_pose(i, 1.0))
             minus_button.clicked.connect(lambda _, i=idx: self.adjust_pose(i, -1.0))
 
             value_label = QtWidgets.QLabel(f"{axis}: {pose[idx]:.4f}")
             pose_value_labels[axis] = value_label
+            self.set_button_size(value_label,180,40)
 
             grid.addWidget(plus_button, row, 0)
             grid.addWidget(minus_button, row, 1)
@@ -138,10 +146,14 @@ class PoseControllerWindow(QtWidgets.QWidget):
 
         reset_button = QtWidgets.QPushButton("reset")
         reset_button.clicked.connect(self.on_reset)
+        # 起始在len(AXES)这一行。0这一列，  1行3列
         grid.addWidget(reset_button, len(AXES), 0, 1, 3)
 
         plus_step_button = QtWidgets.QPushButton("+step")
         minus_step_button = QtWidgets.QPushButton("-step")
+        self.set_button_size(plus_step_button,60,40)
+        self.set_button_size(minus_step_button,60,40)
+        
         plus_step_button.clicked.connect(self.on_plus_step)
         minus_step_button.clicked.connect(self.on_minus_step)
 
@@ -195,10 +207,14 @@ class PoseControllerWindow(QtWidgets.QWidget):
         event.accept()
 
 
+    def set_button_size(self, button, width, height):
+        button.setFixedSize(width, height)
+
+
 def main():
     init_ros()
     app = QtWidgets.QApplication(sys.argv)
-    window = PoseControllerWindow()
+    window = LinearMoveWindow()
     update_pose_display()
     update_step_display()
     window.show()
