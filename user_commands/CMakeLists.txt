@@ -36,14 +36,18 @@ install(
   PROGRAMS
     script/linear_move_ui.py 
   DESTINATION lib/${PROJECT_NAME}
-  RENAME linear_move_ui 
+)
+
+install(
+  PROGRAMS
+    script/joint_move_ui.py 
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(
   PROGRAMS
     script/virtual_ui.py 
   DESTINATION lib/${PROJECT_NAME}
-  RENAME virtual_ui 
 )
 
 

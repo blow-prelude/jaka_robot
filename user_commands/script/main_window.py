@@ -1,4 +1,10 @@
+#!/usr/bin/env python3
+
 from PyQt5 import QtCore, QtWidgets
+
+from linear_move_ui import LinearMoveWindow
+
+from joint_move_ui import JointMoveWindow
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
@@ -67,12 +73,12 @@ class MainWindow(QtWidgets.QWidget):
 
 
     def linear_move_cb(self):
-        win = SubWindow("Linear Move")
+        win = LinearMoveWindow()
         win.show()
         self.child_windows.append(win)
 
     def joint_move_cb(self):
-        win = SubWindow("Joint Move")
+        win = JointMoveWindow()
         win.show()
         self.child_windows.append(win)
 
