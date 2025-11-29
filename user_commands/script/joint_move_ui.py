@@ -290,7 +290,7 @@ class JointMoveWindow(QtWidgets.QWidget):
 
         x = clamp_mod(x, -900.0, 900.0)
         y = clamp_mod(y, -900.0, 900.0)
-        z = clamp_mod(z, 150.0, 900.0)
+        z = clamp_mod(z, -350.0, 900.0)
         rx = clamp_mod(rx, -3.14, 3.14)
         ry = clamp_mod(ry, -3.14, 3.14)
         rz = clamp_mod(rz, -3.14, 3.14)

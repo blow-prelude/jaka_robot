@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 from typing import List, Dict
+import math
 
 import rclpy
 from rclpy.node import Node
 from PyQt5 import QtCore, QtWidgets
+from geometry_msgs.msg import TwistStamped
 from jaka_msgs.srv import Move
 
 
@@ -21,7 +23,8 @@ class LinearMoveWindow(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.pose: List[float] = [-170.0, 480.0, 700.0, -1.57, 0.0, 0.0]
+        self.pose: List[float] = [-170.0, 180.0, 700.0, -1.57, 0.0, 0.0]
+        self.target_pose: List[float] = []
         self.step_size: float = 50.0
         self.STEP_INCREMENT = 5.0
 
@@ -32,6 +35,8 @@ class LinearMoveWindow(QtWidgets.QWidget):
         # ---- ROS ----
         self.node: Node = None
         self.linear_move_client = None
+        self.tool_position_sub = None
+        self.ros_timer: QtCore.QTimer = None
         self.init_ros()
 
         # ---- UI ----
@@ -48,8 +53,26 @@ class LinearMoveWindow(QtWidgets.QWidget):
         self.node = rclpy.create_node("linear_move_ui")
         # 请求 Move 类型的服务
         self.linear_move_client = self.node.create_client(Move, "/jaka_driver/linear_move")
+        # 订阅末端实时位姿
+        self.tool_position_sub = self.node.create_subscription(
+            TwistStamped,
+            "/jaka_driver/tool_position",
+            self.tool_position_callback,
+            10,
+        )
+
+        # 使用 QTimer 定期调用 spin_once，让订阅回调在 Qt 线程中执行
+        self.ros_timer = QtCore.QTimer(self)
+        self.ros_timer.timeout.connect(self.ros_spin_once)
+        self.ros_timer.start(50)
+
+    def ros_spin_once(self):
+        if self.node is not None:
+            rclpy.spin_once(self.node, timeout_sec=0.0)
 
     def shutdown_ros(self):
+        if self.ros_timer is not None:
+            self.ros_timer.stop()
         if self.node is not None:
             self.node.destroy_node()
         if rclpy.ok():
@@ -128,18 +151,23 @@ class LinearMoveWindow(QtWidgets.QWidget):
         self.step_value_label.setText(f"step: {self.step_size:.4f}")
 
     def adjust_pose(self, index: int, delta: float):
-        self.pose[index] += delta
-        self.update_pose_display()
+        # 以当前订阅到的实际位姿为基础生成目标位姿，
+        # 这样在只调整 x/y/z 时不会无意改变当前姿态。
+        self.target_pose = list(self.pose)
+        self.target_pose[index] += delta
+        self.node.get_logger().info(
+            f"current pose: {self.pose},  target pose: {self.target_pose}"
+        )
         self.request_linear_move()
         self.node.get_logger().info(
-            f"move axis {index}: delta {delta}, now {self.pose[index]}"
+            f"move axis {index}: delta {delta}, toward {self.target_pose[index]}"
         )
 
     def on_reset(self):
-        self.pose = [-170.0, 480.0, 700.0, -1.57, 0.0, 0.0]
-        self.update_pose_display()
+        # 重置为初始位姿，同时保持与 pose 的表示方式一致（mm, rad）
+        self.target_pose = [-170.0, 480.0, 700.0, -1.57, 0.0, 0.0]
         self.request_linear_move()
-        self.node.get_logger().info(f"reset ,move to {self.pose}")
+        self.node.get_logger().info(f"reset ,move to {self.target_pose}")
 
     def on_plus_step(self):
         self.step_size += self.STEP_INCREMENT
@@ -152,6 +180,18 @@ class LinearMoveWindow(QtWidgets.QWidget):
         self.node.get_logger().info(f"minus move step to {self.step_size}")
 
 
+    def tool_position_callback(self, msg: TwistStamped):
+        # 将订阅的末端位姿转换为内部表示（平移 mm，姿态 rad）
+        x = msg.twist.linear.x
+        y = msg.twist.linear.y
+        z = msg.twist.linear.z
+        rx = math.radians(msg.twist.angular.x)
+        ry = math.radians(msg.twist.angular.y)
+        rz = math.radians(msg.twist.angular.z)
+
+        self.pose = [x, y, z, rx, ry, rz]
+        self.update_pose_display()
+
     # 请求服务
     def request_linear_move(self):
         if not self.linear_move_client.wait_for_service(timeout_sec=0.5):
@@ -159,7 +199,10 @@ class LinearMoveWindow(QtWidgets.QWidget):
             return
 
         req = Move.Request()
-        req.pose = list(map(float, self.pose))
+        # 直接将目标位姿以 [x, y, z, rx, ry, rz] 形式发送，
+        # 与 jaka_driver 中 linear_move_callback 的 RPY 约定一致。
+        req.pose = list(map(float, self.target_pose))
+        self.node.get_logger().info(f"req pose: {req.pose}")
         req.has_ref = False
         req.ref_joint = [0.0]
         req.mvvelo = 300.0
@@ -170,8 +213,22 @@ class LinearMoveWindow(QtWidgets.QWidget):
         req.index = 0
 
         future = self.linear_move_client.call_async(req)
-        # TODO 根据 future.result() 判断运动是否成功 等等
-        rclpy.spin_until_future_complete(self.node, future)
+        rclpy.spin_until_future_complete(self.node, future, timeout_sec=10.0)
+        if future.done():
+            response = future.result()
+            if response is None:
+                self.node.get_logger().error("linear_move 调用失败，未获得响应")
+                return
+            if response.ret == 0:
+                self.node.get_logger().info(
+                    f"linear_move 成功，ret={response.ret}, message={response.message}"
+                )
+            else:
+                self.node.get_logger().warn(
+                    f"linear_move 失败，ret={response.ret}, message={response.message}"
+                )
+        else:
+            self.node.get_logger().warn("linear_move 调用超时")
 
 
     def closeEvent(self, event):

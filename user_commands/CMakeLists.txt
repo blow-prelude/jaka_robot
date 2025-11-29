@@ -24,6 +24,15 @@ ament_target_dependencies(
   jaka_msgs
 )
 
+# SDK 头文件和库，只给 rob_shutdown 用
+add_executable(rob_shutdown src/rob_shutdown.cpp)
+target_include_directories(rob_shutdown
+  PUBLIC
+    include
+)
+set(LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+target_link_directories(rob_shutdown PUBLIC ${LIBRARY_DIR})
+target_link_libraries(rob_shutdown jakaAPI)
 
 install(
   PROGRAMS
@@ -52,7 +61,12 @@ install(
 
 
 
-install(TARGETS my_moveit DESTINATION lib/${PROJECT_NAME})
+install(TARGETS 
+  my_moveit rob_shutdown
+  DESTINATION
+  lib/${PROJECT_NAME})
+
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

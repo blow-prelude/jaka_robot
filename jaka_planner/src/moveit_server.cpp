@@ -209,8 +209,8 @@ int main(int argc, char *argv[])
     auto node = rclcpp::Node::make_shared("moveit_server");
 
     // Read parameters
-    string default_ip = "10.5.5.100";
-    string default_model = "zu3";
+    string default_ip = "192.168.1.100";
+    string default_model = "zu5";
     string robot_ip = node->declare_parameter("ip", default_ip);
     string robot_model = node->declare_parameter("model", default_model);
 
@@ -228,7 +228,8 @@ int main(int argc, char *argv[])
     // Power on + enable
     robot.power_on();
     rclcpp::sleep_for(chrono::seconds(8));
-    robot.enable_robot();
+    int no_err = robot.enable_robot();
+    std::cout << "enable_robot: " << no_err << std::endl;
     rclcpp::sleep_for(chrono::seconds(4));
 
     // Publisher for /joint_states

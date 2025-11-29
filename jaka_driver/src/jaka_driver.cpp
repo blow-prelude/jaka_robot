@@ -76,30 +76,25 @@ bool linear_move_callback(const shared_ptr<jaka_msgs::srv::Move::Request> reques
     double speed = static_cast<double>(request->mvvelo);
     double accel = static_cast<double>(request->mvacc);
     double tol = 0.5;
-    // Rpy rpy;
     OptionalCond *option_cond = nullptr;
     end_pose.tran.x = request->pose[0];
     end_pose.tran.y = request->pose[1];
     end_pose.tran.z = request->pose[2];
-    Eigen::Vector3d Angaxis = {request->pose[3], request->pose[4], request->pose[5]};
-    RotMatrix Rot = Angaxis2Rot(Angaxis);
-    robot.rot_matrix_to_rpy(&Rot, &(end_pose.rpy));
-    
-    // Eigen::AngleAxisd rotation_vector(Angaxis.norm(), Angaxis.normalized());
-    // auto rpy = rotation_vector.matrix().eulerAngles(0, 1, 2);
-    // end_pose.rpy.rx = rpy.x();
-    // end_pose.rpy.ry = rpy.y();
-    // end_pose.rpy.rz = rpy.z();
+    // 直接将服务请求中的姿态视为 RPY（弧度），
+    // 与 user_commands 中的 UI 表示保持一致。
+    end_pose.rpy.rx = request->pose[3];
+    end_pose.rpy.ry = request->pose[4];
+    end_pose.rpy.rz = request->pose[5];
     
     int ret = robot.linear_move(&end_pose, MoveMode::ABS, TRUE, speed, accel, tol, option_cond);
     switch(ret)
     {
         case 0:
-            response->ret = 1;
+            response->ret = 0;
             response->message = "linear_move has been executed";
             break;
         default:
-            response->ret = 0;
+            response->ret = 1;
             response->message = "error occurred:" + mapErr[ret];
             return false;
     }
