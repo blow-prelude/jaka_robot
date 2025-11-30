@@ -240,6 +240,7 @@ int main(int argc, char *argv[])
         node,
         "/jaka_" + robot_model + "_controller/follow_joint_trajectory",
         // Goal callback
+        // 接收目标请求后调用这个函数，决定是否接收
         [](const rclcpp_action::GoalUUID &uuid,
            shared_ptr<const control_msgs::action::FollowJointTrajectory::Goal> goal) {
             RCLCPP_INFO(rclcpp::get_logger("moveit_server"), "Received goal request");
@@ -253,8 +254,10 @@ int main(int argc, char *argv[])
         //     RCLCPP_INFO(rclcpp::get_logger("moveit_server"), "Received cancel request");
         //     return rclcpp_action::CancelResponse::ACCEPT;
         // },
+        // 请求取消一个正在执行的目标时，这个回调函数会被调用
         nullptr,  // Cancel callback removed
         // Execute callback
+        // 目标被接收后，调用这个函数实际执行任务
         [](const shared_ptr<rclcpp_action::ServerGoalHandle<control_msgs::action::FollowJointTrajectory>> goal_handle) {
             RCLCPP_INFO(rclcpp::get_logger("moveit_server"), "Executing goal");
             goalCb(goal_handle); 

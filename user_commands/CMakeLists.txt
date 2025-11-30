@@ -53,11 +53,11 @@ install(
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(
-  PROGRAMS
-    script/virtual_ui.py 
-  DESTINATION lib/${PROJECT_NAME}
-)
+# install(
+#   PROGRAMS
+#     script/virtual_ui.py 
+#   DESTINATION lib/${PROJECT_NAME}
+# )
 
 
 

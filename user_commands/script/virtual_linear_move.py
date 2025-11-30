@@ -25,17 +25,12 @@ class LinearMoveWindow(QtWidgets.QWidget):
 
         self.pose: List[float] = [-170.0, 180.0, 700.0, -1.57, 0.0, 0.0]
         self.target_pose: List[float] = []
-        # 直线平移步长（作用于 x,y,z）
-        self.move_step: float = 50.0
-        # 姿态旋转步长（作用于 rx,ry,rz，单位弧度）
-        self.rotate_step: float = 0.05
-        self.MOVE_STEP_INCREMENT: float = 5.0
-        self.ROTATE_STEP_INCREMENT: float = 0.01
+        self.step_size: float = 50.0
+        self.STEP_INCREMENT = 5.0
 
         # ---- UI 组件存储 ----
         self.pose_value_labels: Dict[str, QtWidgets.QLabel] = {}
-        self.move_step_label: QtWidgets.QLabel = None
-        self.rotate_step_label: QtWidgets.QLabel = None
+        self.step_value_label: QtWidgets.QLabel = None
 
         # ---- ROS ----
         self.node: Node = None
@@ -98,21 +93,8 @@ class LinearMoveWindow(QtWidgets.QWidget):
             plus_btn = QtWidgets.QPushButton(f"+{axis}")
             minus_btn = QtWidgets.QPushButton(f"-{axis}")
 
-            # 对位置轴 (x,y,z) 使用 move_step，对姿态轴 (rx,ry,rz) 使用 rotate_step
-            if idx <= 2:
-                plus_btn.clicked.connect(
-                    lambda _, i=idx: self.adjust_pose(i, +self.move_step)
-                )
-                minus_btn.clicked.connect(
-                    lambda _, i=idx: self.adjust_pose(i, -self.move_step)
-                )
-            else:
-                plus_btn.clicked.connect(
-                    lambda _, i=idx: self.adjust_pose(i, +self.rotate_step)
-                )
-                minus_btn.clicked.connect(
-                    lambda _, i=idx: self.adjust_pose(i, -self.rotate_step)
-                )
+            plus_btn.clicked.connect(lambda _, i=idx: self.adjust_pose(i, +self.step_size))
+            minus_btn.clicked.connect(lambda _, i=idx: self.adjust_pose(i, -self.step_size))
 
             plus_btn.setFixedSize(60, 40)
             minus_btn.setFixedSize(60, 40)
@@ -132,39 +114,24 @@ class LinearMoveWindow(QtWidgets.QWidget):
         reset_btn.clicked.connect(self.on_reset)
         grid.addWidget(reset_btn, len(self.AXES), 0, 1, 3)
 
-        # --- Step 调整：平移步长 ---
-        plus_move_step = QtWidgets.QPushButton("+move_step")
-        minus_move_step = QtWidgets.QPushButton("-move_step")
-        plus_move_step.clicked.connect(self.on_plus_move_step)
-        minus_move_step.clicked.connect(self.on_minus_move_step)
-        plus_move_step.setFixedSize(80, 40)
-        minus_move_step.setFixedSize(80, 40)
+        # --- Step 调整 ---
+        plus_step = QtWidgets.QPushButton("+step")
+        minus_step = QtWidgets.QPushButton("-step")
 
-        self.move_step_label = QtWidgets.QLabel(f"move_step: {self.move_step:.4f}")
-        self.move_step_label.setFixedSize(200, 40)
-        self.move_step_label.setAlignment(QtCore.Qt.AlignCenter)
+        plus_step.clicked.connect(self.on_plus_step)
+        minus_step.clicked.connect(self.on_minus_step)
+
+        plus_step.setFixedSize(60, 40)
+        minus_step.setFixedSize(60, 40)
+
+        self.step_value_label = QtWidgets.QLabel(f"step: {self.step_size:.4f}")
+        self.step_value_label.setFixedSize(180, 40)
+        self.step_value_label.setAlignment(QtCore.Qt.AlignCenter)
 
         step_row = len(self.AXES) + 1
-        grid.addWidget(plus_move_step, step_row, 0)
-        grid.addWidget(minus_move_step, step_row, 1)
-        grid.addWidget(self.move_step_label, step_row, 2)
-
-        # --- Step 调整：旋转步长 ---
-        plus_rotate_step = QtWidgets.QPushButton("+rotate_step")
-        minus_rotate_step = QtWidgets.QPushButton("-rotate_step")
-        plus_rotate_step.clicked.connect(self.on_plus_rotate_step)
-        minus_rotate_step.clicked.connect(self.on_minus_rotate_step)
-        plus_rotate_step.setFixedSize(80, 40)
-        minus_rotate_step.setFixedSize(80, 40)
-
-        self.rotate_step_label = QtWidgets.QLabel(f"rotate_step: {self.rotate_step:.4f}")
-        self.rotate_step_label.setFixedSize(200, 40)
-        self.rotate_step_label.setAlignment(QtCore.Qt.AlignCenter)
-
-        rotate_row = step_row + 1
-        grid.addWidget(plus_rotate_step, rotate_row, 0)
-        grid.addWidget(minus_rotate_step, rotate_row, 1)
-        grid.addWidget(self.rotate_step_label, rotate_row, 2)
+        grid.addWidget(plus_step, step_row, 0)
+        grid.addWidget(minus_step, step_row, 1)
+        grid.addWidget(self.step_value_label, step_row, 2)
 
         layout = QtWidgets.QVBoxLayout()
         layout.addWidget(title)
@@ -181,10 +148,7 @@ class LinearMoveWindow(QtWidgets.QWidget):
                 label.setText(f"{axis}: {self.pose[idx]:.4f}")
 
     def update_step_display(self):
-        if self.move_step_label is not None:
-            self.move_step_label.setText(f"move_step: {self.move_step:.4f}")
-        if self.rotate_step_label is not None:
-            self.rotate_step_label.setText(f"rotate_step: {self.rotate_step:.4f}")
+        self.step_value_label.setText(f"step: {self.step_size:.4f}")
 
     def adjust_pose(self, index: int, delta: float):
         # 以当前订阅到的实际位姿为基础生成目标位姿，
@@ -205,25 +169,15 @@ class LinearMoveWindow(QtWidgets.QWidget):
         self.request_linear_move()
         self.node.get_logger().info(f"reset ,move to {self.target_pose}")
 
-    def on_plus_move_step(self):
-        self.move_step += self.MOVE_STEP_INCREMENT
+    def on_plus_step(self):
+        self.step_size += self.STEP_INCREMENT
         self.update_step_display()
-        self.node.get_logger().info(f"plus move_step to {self.move_step}")
+        self.node.get_logger().info(f"plus move step to {self.step_size}")
 
-    def on_minus_move_step(self):
-        self.move_step = max(self.MOVE_STEP_INCREMENT, self.move_step - self.MOVE_STEP_INCREMENT)
+    def on_minus_step(self):
+        self.step_size = max(self.STEP_INCREMENT, self.step_size - self.STEP_INCREMENT)
         self.update_step_display()
-        self.node.get_logger().info(f"minus move_step to {self.move_step}")
-
-    def on_plus_rotate_step(self):
-        self.rotate_step += self.ROTATE_STEP_INCREMENT
-        self.update_step_display()
-        self.node.get_logger().info(f"plus rotate_step to {self.rotate_step}")
-
-    def on_minus_rotate_step(self):
-        self.rotate_step = max(self.ROTATE_STEP_INCREMENT, self.rotate_step - self.ROTATE_STEP_INCREMENT)
-        self.update_step_display()
-        self.node.get_logger().info(f"minus rotate_step to {self.rotate_step}")
+        self.node.get_logger().info(f"minus move step to {self.step_size}")
 
 
     def tool_position_callback(self, msg: TwistStamped):

@@ -136,6 +136,8 @@ private:
     void process_commands(){
         std::unique_lock<std::mutex> lock(_command_mutex);
         while(!_stop_worker){
+            // 阻塞线程等待，直到另外一个线程调用唤醒
+            // 唤醒后执行lambda表达式，只有返回值为1才会执行接下来的程序
             _command_cv.wait(lock, [this](){
                 return _stop_worker || _pending_pose_cmd.has_value();
             });

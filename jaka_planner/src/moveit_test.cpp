@@ -30,7 +30,7 @@ int main(int argc, char **argv)
     auto node = rclcpp::Node::make_shared("jaka_planner", options);
 
     // Declare the parameter for robot model with a default value of "zu3"
-    string model = node->declare_parameter<string>("model", "zu3");
+    string model = node->declare_parameter<string>("model", "zu5");
 
     // Automatically construct the PLANNING_GROUP by concatenating "jaka_" + model
     string PLANNING_GROUP = "jaka_" + model;
@@ -50,8 +50,10 @@ int main(int argc, char **argv)
     // By creating an instance of the planning_interface:`MoveGroupInterface` class, you can easily connect, control, or plan a planning group
     moveit::planning_interface::MoveGroupInterface move_group(node, PLANNING_GROUP);
     // Add or remove obstacles in the virtual world by using the planning_scene_interface: `PlanningSceneInterface` class
+    // 一个用来和规划场景交互的接口，包含对周围环境的内部认知
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
     // Get the state of the robotic arm
+    // 得到指定规划组的详细模型信息
     const moveit::core::JointModelGroup* joint_model_group = move_group.getCurrentState()->getJointModelGroup(PLANNING_GROUP);
 
     
@@ -75,7 +77,7 @@ int main(int argc, char **argv)
     moveit::planning_interface::MoveGroupInterface::Plan my_plan;
     //Use a Boolean variable to mark whether the motion planning is successful
     bool success =(move_group.plan(my_plan)== moveit::core::MoveItErrorCode::SUCCESS);
-    // ROS_INFO("Visualizing plan 1 (cartesian space goal) %s",success?"":"FAILED");
+    // ROS_INFO("Visualizing plan 1 (cartesnian space goal) %s",success?"":"FAILED");
     // ROS_INFO("OK");
 
     // move_group.move();   //The move() function is used to perform motion planning and execution operations, and parameters cannot be passed
@@ -91,6 +93,7 @@ int main(int argc, char **argv)
 
     // Next get the current set of joint values for the group.
     vector<double> joint_group_positions;
+    // 拷贝操作
     current_state->copyJointGroupPositions(joint_model_group, joint_group_positions);
     // move_group.setStartStateToCurrentState();
 
