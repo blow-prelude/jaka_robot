@@ -13,9 +13,9 @@ find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(jaka_msgs REQUIRED)
 
-add_executable(my_moveit src/my_moveit.cpp)
+add_executable(moveit_client src/moveit_client.cpp)
 ament_target_dependencies(
-  my_moveit
+  moveit_client
   rclcpp
   moveit_ros_planning_interface
   moveit_msgs
@@ -53,16 +53,29 @@ install(
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# install(
-#   PROGRAMS
-#     script/virtual_ui.py 
-#   DESTINATION lib/${PROJECT_NAME}
-# )
 
+install(
+  PROGRAMS
+    script/new_main_window.py 
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME new_main_window 
+)
+
+install(
+  PROGRAMS
+    script/new_linear_move.py 
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+  PROGRAMS
+    script/new_joint_move.py 
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 
 install(TARGETS 
-  my_moveit rob_shutdown
+  moveit_client rob_shutdown
   DESTINATION
   lib/${PROJECT_NAME})
 

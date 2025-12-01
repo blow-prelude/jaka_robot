@@ -19,6 +19,11 @@
 #include "moveit_msgs/moveit_msgs/msg/attached_collision_object.hpp"
 #include "moveit_msgs/moveit_msgs/msg/collision_object.hpp"
 
+#include <moveit/robot_trajectory/robot_trajectory.h>
+#include <moveit/trajectory_processing/iterative_time_parameterization.h>
+
+
+
 using MoveGroupInterface = moveit::planning_interface::MoveGroupInterface;
 using namespace std::placeholders;
 
@@ -32,11 +37,28 @@ public:
         // 创建规划组
         std::string PLANNING_GROUP = "jaka_" + model;
         RCLCPP_INFO(_node->get_logger(), "Using PLANNING_GROUP: %s", PLANNING_GROUP.c_str());
-
         _arm = std::make_shared<MoveGroupInterface>(_node,PLANNING_GROUP);
-        _arm->setMaxVelocityScalingFactor(1.0);
-        _arm->setMaxAccelerationScalingFactor(1.0);
 
+        //设置目标位置所使用的参考坐标系
+        std::string reference_frame = "Link_0";
+        _arm->setPoseReferenceFrame(reference_frame);
+
+        //当运动规划失败后，允许重新规划
+        _arm->allowReplanning(true);
+
+        //设置位置(单位：米)和姿态（单位：弧度）的允许误差
+        _arm->setGoalPositionTolerance(0.001);
+        _arm->setGoalOrientationTolerance(0.01);
+
+        //设置允许的最大速度和加速度
+        _arm->setMaxAccelerationScalingFactor(1.0);
+        _arm->setMaxVelocityScalingFactor(1.0);
+
+        //获取终端link的名称
+        end_effector_link = _arm->getEndEffectorLink();  
+        RCLCPP_INFO(_node->get_logger(),"end effector link name: %s",end_effector_link.c_str()); 
+
+        // 订阅末端位姿移动话题
         _pose_cmd_sub = node->create_subscription<jaka_msgs::msg::MyPoseCmd>(
             "pose_cmd", 10, std::bind(&Commander::pose_cmd_callback, this, _1));
 
@@ -95,18 +117,64 @@ public:
         }
 
         else{
+            // 获取当前位姿数据最为机械臂运动的起始位姿
+            geometry_msgs::msg::Pose start_pose = _arm->getCurrentPose(end_effector_link).pose;
             std::vector<geometry_msgs::msg::Pose> waypoints;
+            waypoints.push_back(start_pose);
             waypoints.push_back(target_pose.pose);
             moveit_msgs::msg::RobotTrajectory trajectory;
+            double fraction = 0.0;
+            int attempts = 0;     //已经尝试规划次数
 
-            double fraction = _arm->computeCartesianPath(waypoints,0.01,0.01,trajectory);
+
+            while(fraction < 1.0 && attempts < this->max_tries)
+            {
+                fraction = _arm->computeCartesianPath(waypoints, this->eef_step, this->jump_threshold, trajectory);
+                attempts++;
+        
+                if(attempts % 10 == 0)
+                    RCLCPP_INFO(_node->get_logger(), "Still trying after %d attempts...", attempts);
+            }
+
 
             if(fraction == 1){
-                _arm->execute(trajectory);
+                RCLCPP_INFO(_node->get_logger(),"successfullly do cartesian plan");
+
+                // 生成机械臂的运动规划数据
+	            moveit::planning_interface::MoveGroupInterface::Plan plan;
+	            plan.trajectory_ = trajectory;
+                // 遍历所有时间序列上的关节状态采样点，包括位姿、速度、受力等
+                for(auto it : trajectory.joint_trajectory.points){
+                    // 遍历一个关节采样点的位姿信息
+                    for(auto posit : it.positions){
+                        RCLCPP_INFO(_node->get_logger(),"%f ",posit);
+                    }
+                }
+
+                // 做时间参数化
+
+                // 创建一个 robot_trajectory 类型的变量，比msg类型更适合做时间参数化、插值等 ，   存储关节路径的轨迹
+                robot_trajectory::RobotTrajectory rt(_arm->getRobotModel(), _arm->getName());
+                rt.setRobotTrajectoryMsg(*_arm->getCurrentState(), trajectory);
+                // 创建一个时间参数化的对象，用来给轨迹里的每个点分配时间，根据速度、加速度平滑轨迹
+                trajectory_processing::IterativeParabolicTimeParameterization iptp;
+                // 根据速度、加速度约束给轨迹重新打上时间戳，计算各点速度、加速度信息
+                bool retrysuccess = iptp.computeTimeStamps(rt, 0.5, 0.5);
+                RCLCPP_INFO(_node->get_logger(),"result of retry :%d",retrysuccess);
+
+                // 把做完时间参数化的对象再次转回msg类型,传给参数对象
+                rt.getRobotTrajectoryMsg(trajectory);
+                 plan.trajectory_ = trajectory;
+                _arm->execute(plan);
+            }
+
+            else{
+                RCLCPP_INFO(_node->get_logger(),"Path planning failed with only %0.6f success after %d attempts.", fraction, max_tries);
             }
         }
-
     }
+
+    
 
 private:
 
@@ -154,13 +222,15 @@ private:
                 current_cmd.rx,
                 current_cmd.ry,
                 current_cmd.rz,
-                false);
+                current_cmd.cartesian_path);
             lock.lock();
         }
     }
 
 
     std::shared_ptr<rclcpp::Node> _node;
+
+    std::string end_effector_link;
 
     // 机械臂控制器
     std::shared_ptr<MoveGroupInterface> _arm;
@@ -171,6 +241,12 @@ private:
     std::optional<jaka_msgs::msg::MyPoseCmd> _pending_pose_cmd;
     std::thread _worker;
     bool _stop_worker{false};
+
+
+    // 笛卡尔空间下的路径规划
+	const double jump_threshold = 0.0;
+	const double eef_step = 0.01;
+    int max_tries = 100;   //最大尝试规划次数
 
 };
 

@@ -2,9 +2,9 @@
 
 from PyQt5 import QtCore, QtWidgets
 
-from virtual_linear_move import LinearMoveWindow
+from new_linear_move import NewLinearMoveWindow as LinearMoveWindow
 
-from virtual_joint_move import JointMoveWindow
+from new_joint_move import NewJointMoveWindow as JointMoveWindow
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
