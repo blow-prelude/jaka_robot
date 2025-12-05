@@ -266,6 +266,7 @@ int main(int argc, char *argv[])
 
     RCLCPP_INFO(rclcpp::get_logger("moveit_server"), "==================Moveit Start==================");
 
+    // 发布机械臂关节状态到 /joint_states 话题上
     // Main spin loop
     while (rclcpp::ok())
     {

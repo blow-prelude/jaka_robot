@@ -24,6 +24,7 @@ ament_target_dependencies(
   jaka_msgs
 )
 
+
 # SDK 头文件和库，只给 rob_shutdown 用
 add_executable(rob_shutdown src/rob_shutdown.cpp)
 target_include_directories(rob_shutdown
@@ -34,50 +35,48 @@ set(LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 target_link_directories(rob_shutdown PUBLIC ${LIBRARY_DIR})
 target_link_libraries(rob_shutdown jakaAPI)
 
-install(
-  PROGRAMS
-    script/main_window.py 
-  DESTINATION lib/${PROJECT_NAME}
-  RENAME main_window 
-)
 
 install(
   PROGRAMS
-    script/linear_move_ui.py 
+    script/sim_main_window.py 
   DESTINATION lib/${PROJECT_NAME}
+  RENAME sim_main_window 
 )
-
 install(
   PROGRAMS
-    script/joint_move_ui.py 
+    script/sim_linear_move_ui.py 
   DESTINATION lib/${PROJECT_NAME}
 )
-
-
+install(
+  PROGRAMS
+    script/sim_joint_move_ui.py 
+  DESTINATION lib/${PROJECT_NAME}
+)
 install(
   PROGRAMS
     script/new_main_window.py 
   DESTINATION lib/${PROJECT_NAME}
   RENAME new_main_window 
 )
-
 install(
   PROGRAMS
     script/new_linear_move.py 
   DESTINATION lib/${PROJECT_NAME}
 )
-
 install(
   PROGRAMS
     script/new_joint_move.py 
   DESTINATION lib/${PROJECT_NAME}
 )
-
-
 install(TARGETS 
   moveit_client rob_shutdown
   DESTINATION
   lib/${PROJECT_NAME})
+
+# 安装launch文件
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch
+)
 
 
 

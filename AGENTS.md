@@ -4,7 +4,7 @@
 本 ROS2 工作区内容集中在 `src/` 下的多个包。`jaka_driver` 提供底层驱动、控制器插件以及示例节点；`jaka_description`、`jaka_zu5_moveit_config` 与 `my_jaka_zu5_moveit_config` 保持 URDF、MoveIt 和 xacro 参数；`jaka_msgs` 维护自定义消息接口；`jaka_planner` 汇集规划样例与工具；`user_commands` 存放示教脚本与数据。构建产物位于根目录下的 `build/`、`install/` 与 `log/`，无需手动修改这些目录。
 
 ## 构建、测试与开发命令
-在工作区根目录执行 `source /opt/ros/humble/setup.bash && colcon build --symlink-install` 进行全量构建；如需缩小范围，可添加 `--packages-select jaka_driver jaka_planner`。使用 `colcon test` 或 `colcon test --packages-select jaka_driver` 运行单包测试。调试前运行 `source install/setup.bash`，再用 `ros2 launch jaka_driver bringup.launch.py robot_ip:=<地址>` 或 `ros2 launch jaka_planner demo.launch.py` 启动控制与规划；示教脚本可通过 `ros2 run jaka_driver user_command_player` 调用。
+在工作区根目录执行 `source /opt/ros/humble/setup.bash && colcon build --symlink-install` 进行全量构建；如需缩小范围，可添加 `--packages-select jaka_driver jaka_planner`。使用 `colcon test` 或 `colcon test --packages-select jaka_driver` 运行单包测试。调试前运行 `source install/setup.bash`，再用 `ros2 launch jaka_driver bringup.launch.py robot_ip:=<地址>` 或 `ros2 launch jaka_planner demo.launch.py` 启动控制与规划；示教脚本可通过 `ros2 run jaka_driver user_command_player` 调用; 仿真时启动UI页面可以通过 `ros2 launch user_command sim_ui.launch.py` 调用，而操控实体机械臂时通过 `ros2 launch user_command ui.launch.py` 调用。
 
 ## 编码风格与命名约定
 C++ 源码采用 C++17 与 `ament_cmake`，统一四空格缩进。类名使用 `CamelCase`，函数、主题与帧名保持 `snake_case`，消息文件以 `VerbNoun.msg` 格式命名。头文件统一放入 `include/<pkg>/`；公共常量集中在 `include/.../constants.hpp`。提交前运行 `ament_clang_format` 或 `ament_uncrustify`（可通过 `colcon test --event-handlers console_direct+` 自动触发）以保证风格一致。
