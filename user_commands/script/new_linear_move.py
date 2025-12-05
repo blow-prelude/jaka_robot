@@ -6,6 +6,7 @@ from typing import List, Dict, Optional
 import rclpy
 from rclpy.node import Node
 from rclpy.time import Time
+from rclpy.duration import Duration
 from PyQt5 import QtCore, QtWidgets
 
 import tf2_ros
@@ -31,6 +32,11 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
 
     def __init__(self):
         super().__init__()
+
+        # 是否使用实体机械臂：True 时界面采用毫米显示，内部仍用米计算
+        self.use_realrb: bool = False
+        # 位置显示缩放系数：仿真用 1.0（米），实物用 1000.0（毫米）
+        self.position_scale: float = 1.0
 
         # pose / target_pose 使用 [x, y, z, roll, pitch, yaw]，单位：m, rad
         self.pose: List[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -69,6 +75,13 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         if not rclpy.ok():
             rclpy.init()
         self.node = rclpy.create_node("new_linear_move_ui")
+
+        # 读取参数：是否使用实体机械臂（决定 UI 显示单位）
+        self.node.declare_parameter("use_real_robot", False)
+        self.use_realrb = (
+            self.node.get_parameter("use_real_robot").get_parameter_value().bool_value
+        )
+        self.position_scale = 1000.0 if self.use_realrb else 1.0
 
         # 发布 /pose_cmd
         self.pose_cmd_pub = self.node.create_publisher(MyPoseCmd, "pose_cmd", 10)
@@ -195,11 +208,16 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         for axis, idx in self.AXES:
             label = self.pose_value_labels.get(axis)
             if label:
-                label.setText(f"{axis}: {self.pose[idx]:.4f}")
+                value = self.pose[idx]
+                # 对 x,y,z 使用位置缩放（米或毫米），姿态保持弧度
+                if idx <= 2:
+                    value *= self.position_scale
+                label.setText(f"{axis}: {value:.4f}")
 
     def update_step_display(self):
         if self.move_step_label is not None:
-            self.move_step_label.setText(f"move_step: {self.move_step:.4f}")
+            move_display = self.move_step * self.position_scale
+            self.move_step_label.setText(f"move_step: {move_display:.4f}")
         if self.rotate_step_label is not None:
             self.rotate_step_label.setText(f"rotate_step: {self.rotate_step:.4f}")
 
@@ -253,7 +271,7 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
                 self.BASE_FRAME,
                 self.EEF_FRAME,
                 Time(),
-                timeout=rclpy.duration.Duration(seconds=0.1),
+                timeout=Duration(seconds=0.1),
             )
         except Exception as exc:  # tf2_ros exceptions 在 Python 端不一定逐个可用
             if self.node is not None:
@@ -299,21 +317,23 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         if self.pose_cmd_pub is None:
             return
         msg = MyPoseCmd()
+        # 内部统一用米，发送给 MoveIt 时不做单位切换，仅影响显示
         msg.x = float(self.target_pose[0])
         msg.y = float(self.target_pose[1])
         msg.z = float(self.target_pose[2])
         msg.rx = float(self.target_pose[3])
         msg.ry = float(self.target_pose[4])
         msg.rz = float(self.target_pose[5])
-        # 目前先使用标准 MoveIt 规划（joint/pose 规划），
-        # 以确保与 new_joint_move 一致、能正常执行。
-        # 如果后续需要严格的笛卡尔路径，可以再在 moveit_client.cpp 中
-        # 增强 cartesian_path=true 分支的日志与回退逻辑。
         msg.cartesian_path = True
 
         self.pose_cmd_pub.publish(msg)
+        # 日志中位置按当前显示单位输出，方便对照界面
+        unit = "mm" if self.use_realrb else "m"
+        log_x = msg.x * self.position_scale
+        log_y = msg.y * self.position_scale
+        log_z = msg.z * self.position_scale
         self.node.get_logger().info(
-            f"publish /pose_cmd: x={msg.x:.4f}, y={msg.y:.4f}, z={msg.z:.4f}, "
+            f"publish /pose_cmd ({unit}): x={log_x:.4f}, y={log_y:.4f}, z={log_z:.4f}, "
             f"rx={msg.rx:.4f}, ry={msg.ry:.4f}, rz={msg.rz:.4f}, cartesian_path={msg.cartesian_path}"
         )
 

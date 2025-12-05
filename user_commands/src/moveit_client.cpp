@@ -143,13 +143,13 @@ public:
                 // 生成机械臂的运动规划数据
 	            moveit::planning_interface::MoveGroupInterface::Plan plan;
 	            plan.trajectory_ = trajectory;
-                // 遍历所有时间序列上的关节状态采样点，包括位姿、速度、受力等
-                for(auto it : trajectory.joint_trajectory.points){
-                    // 遍历一个关节采样点的位姿信息
-                    for(auto posit : it.positions){
-                        RCLCPP_INFO(_node->get_logger(),"%f ",posit);
-                    }
-                }
+                // // 遍历所有时间序列上的关节状态采样点，包括位姿、速度、受力等
+                // for(auto it : trajectory.joint_trajectory.points){
+                //     // 遍历一个关节采样点的位姿信息
+                //     for(auto posit : it.positions){
+                //         RCLCPP_INFO(_node->get_logger(),"%f ",posit);
+                //     }
+                // }
 
                 // 做时间参数化
 
