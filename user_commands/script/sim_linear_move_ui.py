@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-from typing import List, Dict
+import sys
 import math
+from typing import List, Dict, Optional
 
 import rclpy
 from rclpy.node import Node
+from rclpy.time import Time
+from rclpy.duration import Duration
 from PyQt5 import QtCore, QtWidgets
-from geometry_msgs.msg import TwistStamped
-from jaka_msgs.srv import Move
+
+import tf2_ros
+from jaka_msgs.msg import MyPoseCmd
 
 
-class LinearMoveWindow(QtWidgets.QWidget):
-    """独立的 Linear Move 控制窗口，可被 MainWindow 调用"""
+class NewLinearMoveWindow(QtWidgets.QWidget):
+    """仿真用：基于 /tf 和 /pose_cmd 的笛卡尔控制窗口."""
+
     AXES = [
         ("x", 0),
         ("y", 1),
@@ -20,60 +25,76 @@ class LinearMoveWindow(QtWidgets.QWidget):
         ("rz", 5),
     ]
 
+    # 末端执行器 TF 帧名，按当前 URDF/MoveIt 约定使用 Link_6
+    EEF_FRAME = "Link_6"
+    # 基坐标系，与 moveit_client 中 header.frame_id 保持一致
+    BASE_FRAME = "Link_0"
+
     def __init__(self):
         super().__init__()
 
-        self.pose: List[float] = [-170.0, 180.0, 700.0, -1.57, 0.0, 0.0]
-        self.target_pose: List[float] = []
-        # 直线平移步长（作用于 x,y,z）
-        self.move_step: float = 50.0
-        # 姿态旋转步长（作用于 rx,ry,rz，单位弧度）
+        # 仿真环境：界面与内部均使用米
+        self.position_scale: float = 1.0
+
+        # pose / target_pose 使用 [x, y, z, roll, pitch, yaw]，单位：m, rad
+        self.pose: List[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.target_pose: List[float] = list(self.pose)
+
+        # 平移步长（作用于 x,y,z）
+        self.move_step: float = 0.05
+        # 旋转步长（作用于 rx,ry,rz）
         self.rotate_step: float = 0.05
-        self.MOVE_STEP_INCREMENT: float = 5.0
+        self.MOVE_STEP_INCREMENT: float = 0.01
         self.ROTATE_STEP_INCREMENT: float = 0.01
 
-        # ---- UI 组件存储 ----
+        # UI 组件
         self.pose_value_labels: Dict[str, QtWidgets.QLabel] = {}
-        self.move_step_label: QtWidgets.QLabel = None
-        self.rotate_step_label: QtWidgets.QLabel = None
+        self.move_step_label: Optional[QtWidgets.QLabel] = None
+        self.rotate_step_label: Optional[QtWidgets.QLabel] = None
 
-        # ---- ROS ----
-        self.node: Node = None
-        self.linear_move_client = None
-        self.tool_position_sub = None
-        self.ros_timer: QtCore.QTimer = None
+        # ROS 相关
+        self.node: Optional[Node] = None
+        self.pose_cmd_pub = None
+        self.tf_buffer: Optional[tf2_ros.Buffer] = None
+        self.tf_listener: Optional[tf2_ros.TransformListener] = None
+        self.ros_timer: Optional[QtCore.QTimer] = None
+
         self.init_ros()
 
-        # ---- UI ----
-        self.setWindowTitle("linear_move")
-        self.setFixedSize(480, 640)
+        # UI 布局
+        self.setWindowTitle("new_linear_move")
+        self.setFixedSize(520, 680)
         self._build_ui()
         self.update_pose_display()
         self.update_step_display()
 
-
+    # -------- ROS 初始化与关闭 --------
     def init_ros(self):
         if not rclpy.ok():
             rclpy.init()
-        self.node = rclpy.create_node("linear_move_ui")
-        # 请求 Move 类型的服务
-        self.linear_move_client = self.node.create_client(Move, "/jaka_driver/linear_move")
-        # 订阅末端实时位姿
-        self.tool_position_sub = self.node.create_subscription(
-            TwistStamped,
-            "/jaka_driver/tool_position",
-            self.tool_position_callback,
-            10,
-        )
+        self.node = rclpy.create_node("sim_linear_move_ui")
+
+        # 发布 /pose_cmd
+        self.pose_cmd_pub = self.node.create_publisher(MyPoseCmd, "pose_cmd", 10)
+
+        # 使用 tf2_ros 订阅 /tf，后续通过 lookup_transform 获取末端在基坐标系下的位姿
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self.node, spin_thread=False)
 
         # 使用 QTimer 定期调用 spin_once，让订阅回调在 Qt 线程中执行
         self.ros_timer = QtCore.QTimer(self)
-        self.ros_timer.timeout.connect(self.ros_spin_once)
-        self.ros_timer.start(50)
+        self.ros_timer.timeout.connect(self.on_ros_timer)
+        self.ros_timer.start(20)
 
     def ros_spin_once(self):
         if self.node is not None:
             rclpy.spin_once(self.node, timeout_sec=0.0)
+
+    def on_ros_timer(self):
+        # 处理 ROS 回调
+        self.ros_spin_once()
+        # 尝试从 TF 中更新末端位姿
+        self.update_pose_from_tf()
 
     def shutdown_ros(self):
         if self.ros_timer is not None:
@@ -83,22 +104,21 @@ class LinearMoveWindow(QtWidgets.QWidget):
         if rclpy.ok():
             rclpy.shutdown()
 
-
-
+    # -------- UI 构建 --------
     def _build_ui(self):
-        title = QtWidgets.QLabel("linear_move")
+        title = QtWidgets.QLabel("new_linear_move (tf -> pose_cmd)")
         title.setAlignment(QtCore.Qt.AlignCenter)
         title.setStyleSheet("font-size: 16px;")
 
         grid = QtWidgets.QGridLayout()
         grid.setSpacing(10)
 
-        # --- 位姿相关控件 ---
+        # 位姿控制按钮和显示
         for row, (axis, idx) in enumerate(self.AXES):
             plus_btn = QtWidgets.QPushButton(f"+{axis}")
             minus_btn = QtWidgets.QPushButton(f"-{axis}")
 
-            # 对位置轴 (x,y,z) 使用 move_step，对姿态轴 (rx,ry,rz) 使用 rotate_step
+            # 位置轴使用 move_step，姿态轴使用 rotate_step
             if idx <= 2:
                 plus_btn.clicked.connect(
                     lambda _, i=idx: self.adjust_pose(i, +self.move_step)
@@ -114,11 +134,11 @@ class LinearMoveWindow(QtWidgets.QWidget):
                     lambda _, i=idx: self.adjust_pose(i, -self.rotate_step)
                 )
 
-            plus_btn.setFixedSize(60, 40)
-            minus_btn.setFixedSize(60, 40)
+            plus_btn.setFixedSize(70, 40)
+            minus_btn.setFixedSize(70, 40)
 
             label = QtWidgets.QLabel(f"{axis}: {self.pose[idx]:.4f}")
-            label.setFixedSize(180, 40)
+            label.setFixedSize(220, 40)
             label.setAlignment(QtCore.Qt.AlignCenter)
             self.pose_value_labels[axis] = label
 
@@ -126,22 +146,22 @@ class LinearMoveWindow(QtWidgets.QWidget):
             grid.addWidget(minus_btn, row, 1)
             grid.addWidget(label, row, 2)
 
-        # --- Reset ---
-        reset_btn = QtWidgets.QPushButton("reset")
-        reset_btn.setFixedSize(240, 40)
-        reset_btn.clicked.connect(self.on_reset)
+        # Reset 按钮：将目标位姿设为当前订阅位姿并发送一次
+        reset_btn = QtWidgets.QPushButton("reset_to_current")
+        reset_btn.setFixedSize(260, 40)
+        reset_btn.clicked.connect(self.on_reset_to_current)
         grid.addWidget(reset_btn, len(self.AXES), 0, 1, 3)
 
-        # --- Step 调整：平移步长 ---
+        # 平移步长调节
         plus_move_step = QtWidgets.QPushButton("+move_step")
         minus_move_step = QtWidgets.QPushButton("-move_step")
         plus_move_step.clicked.connect(self.on_plus_move_step)
         minus_move_step.clicked.connect(self.on_minus_move_step)
-        plus_move_step.setFixedSize(80, 40)
-        minus_move_step.setFixedSize(80, 40)
+        plus_move_step.setFixedSize(100, 40)
+        minus_move_step.setFixedSize(100, 40)
 
         self.move_step_label = QtWidgets.QLabel(f"move_step: {self.move_step:.4f}")
-        self.move_step_label.setFixedSize(200, 40)
+        self.move_step_label.setFixedSize(220, 40)
         self.move_step_label.setAlignment(QtCore.Qt.AlignCenter)
 
         step_row = len(self.AXES) + 1
@@ -149,16 +169,18 @@ class LinearMoveWindow(QtWidgets.QWidget):
         grid.addWidget(minus_move_step, step_row, 1)
         grid.addWidget(self.move_step_label, step_row, 2)
 
-        # --- Step 调整：旋转步长 ---
+        # 旋转步长调节
         plus_rotate_step = QtWidgets.QPushButton("+rotate_step")
         minus_rotate_step = QtWidgets.QPushButton("-rotate_step")
         plus_rotate_step.clicked.connect(self.on_plus_rotate_step)
         minus_rotate_step.clicked.connect(self.on_minus_rotate_step)
-        plus_rotate_step.setFixedSize(80, 40)
-        minus_rotate_step.setFixedSize(80, 40)
+        plus_rotate_step.setFixedSize(100, 40)
+        minus_rotate_step.setFixedSize(100, 40)
 
-        self.rotate_step_label = QtWidgets.QLabel(f"rotate_step: {self.rotate_step:.4f}")
-        self.rotate_step_label.setFixedSize(200, 40)
+        self.rotate_step_label = QtWidgets.QLabel(
+            f"rotate_step: {self.rotate_step:.4f}"
+        )
+        self.rotate_step_label.setFixedSize(220, 40)
         self.rotate_step_label.setAlignment(QtCore.Qt.AlignCenter)
 
         rotate_row = step_row + 1
@@ -172,38 +194,41 @@ class LinearMoveWindow(QtWidgets.QWidget):
         layout.addStretch(1)
         self.setLayout(layout)
 
-
-
+    # -------- UI 更新 --------
     def update_pose_display(self):
         for axis, idx in self.AXES:
             label = self.pose_value_labels.get(axis)
             if label:
-                label.setText(f"{axis}: {self.pose[idx]:.4f}")
+                value = self.pose[idx]
+                # 对 x,y,z 使用位置缩放（米或毫米），姿态保持弧度
+                if idx <= 2:
+                    value *= self.position_scale
+                label.setText(f"{axis}: {value:.4f}")
 
     def update_step_display(self):
         if self.move_step_label is not None:
-            self.move_step_label.setText(f"move_step: {self.move_step:.4f}")
+            move_display = self.move_step * self.position_scale
+            self.move_step_label.setText(f"move_step: {move_display:.4f}")
         if self.rotate_step_label is not None:
             self.rotate_step_label.setText(f"rotate_step: {self.rotate_step:.4f}")
 
+    # -------- 按钮回调 --------
     def adjust_pose(self, index: int, delta: float):
-        # 以当前订阅到的实际位姿为基础生成目标位姿，
-        # 这样在只调整 x/y/z 时不会无意改变当前姿态。
+        # 以当前末端位姿为基础生成目标位姿并发布 /pose_cmd
         self.target_pose = list(self.pose)
         self.target_pose[index] += delta
-        self.node.get_logger().debug(
-            f"current pose: {self.pose},  target pose: {self.target_pose}"
-        )
-        self.request_linear_move()
         self.node.get_logger().info(
-            f"move axis {index}: delta {delta}, toward {self.target_pose[index]}"
+            f"adjust axis {index}: delta {delta}, current pose {self.pose}, target pose {self.target_pose}"
         )
+        self.publish_pose_cmd()
 
-    def on_reset(self):
-        # 重置为初始位姿，同时保持与 pose 的表示方式一致（mm, rad）
-        self.target_pose = [-170.0, 480.0, 700.0, -1.57, 0.0, 0.0]
-        self.request_linear_move()
-        self.node.get_logger().info(f"reset ,move to {self.target_pose}")
+    def on_reset_to_current(self):
+        # 将目标位姿重置为当前末端位姿并发布一次
+        self.target_pose = list(self.pose)
+        self.node.get_logger().info(
+            f"reset target pose to current pose: {self.target_pose}"
+        )
+        self.publish_pose_cmd()
 
     def on_plus_move_step(self):
         self.move_step += self.MOVE_STEP_INCREMENT
@@ -221,62 +246,100 @@ class LinearMoveWindow(QtWidgets.QWidget):
         self.node.get_logger().info(f"plus rotate_step to {self.rotate_step}")
 
     def on_minus_rotate_step(self):
-        self.rotate_step = max(self.ROTATE_STEP_INCREMENT, self.rotate_step - self.ROTATE_STEP_INCREMENT)
+        self.rotate_step = max(
+            self.ROTATE_STEP_INCREMENT, self.rotate_step - self.ROTATE_STEP_INCREMENT
+        )
         self.update_step_display()
         self.node.get_logger().info(f"minus rotate_step to {self.rotate_step}")
 
-
-    def tool_position_callback(self, msg: TwistStamped):
-        # 将订阅的末端位姿转换为内部表示（平移 mm，姿态 rad）
-        x = msg.twist.linear.x
-        y = msg.twist.linear.y
-        z = msg.twist.linear.z
-        rx = math.radians(msg.twist.angular.x)
-        ry = math.radians(msg.twist.angular.y)
-        rz = math.radians(msg.twist.angular.z)
-
-        self.pose = [x, y, z, rx, ry, rz]
-        self.update_pose_display()
-
-    # 请求服务
-    def request_linear_move(self):
-        if not self.linear_move_client.wait_for_service(timeout_sec=0.5):
-            self.node.get_logger().warn("linear_move service unavailable")
+    # -------- 从 TF 更新当前末端位姿 --------
+    def update_pose_from_tf(self):
+        if self.tf_buffer is None:
+            return
+        try:
+            # 查询末端在基坐标系 BASE_FRAME 下的最新位姿
+            transform = self.tf_buffer.lookup_transform(
+                self.BASE_FRAME,
+                self.EEF_FRAME,
+                Time(),
+                timeout=Duration(seconds=0.1),
+            )
+        except Exception as exc:  # tf2_ros exceptions 在 Python 端不一定逐个可用
+            if self.node is not None:
+                self.node.get_logger().debug(f"lookup_transform failed: {exc}")
             return
 
-        req = Move.Request()
-        # 直接将目标位姿以 [x, y, z, rx, ry, rz] 形式发送，
-        # 与 jaka_driver 中 linear_move_callback 的 RPY 约定一致。
-        req.pose = list(map(float, self.target_pose))
-        self.node.get_logger().debug(f"req pose: {req.pose}")
-        req.has_ref = False
-        req.ref_joint = [0.0]
-        req.mvvelo = 300.0
-        req.mvacc = 400.0
-        req.mvtime = 0.0
-        req.mvradii = 0.0
-        req.coord_mode = 0
-        req.index = 0
+        t = transform.transform.translation
+        r = transform.transform.rotation
 
-        future = self.linear_move_client.call_async(req)
-        rclpy.spin_until_future_complete(self.node, future, timeout_sec=10.0)
-        if future.done():
-            response = future.result()
-            if response is None:
-                self.node.get_logger().error("linear_move 调用失败，未获得响应")
-                return
-            if response.ret == 0:
-                self.node.get_logger().info(
-                    f"linear_move 成功，ret={response.ret}, message={response.message}"
-                )
-            else:
-                self.node.get_logger().warn(
-                    f"linear_move 失败，ret={response.ret}, message={response.message}"
-                )
+        x = float(t.x)
+        y = float(t.y)
+        z = float(t.z)
+        roll, pitch, yaw = self.quaternion_to_rpy(r.x, r.y, r.z, r.w)
+
+        self.pose = [x, y, z, roll, pitch, yaw]
+        self.update_pose_display()
+
+    @staticmethod
+    def quaternion_to_rpy(qx: float, qy: float, qz: float, qw: float):
+        """将四元数转换为 RPY（弧度）."""
+        # 参考标准 ZYX 顺序（yaw-pitch-roll）
+        # roll (x-axis rotation)
+        sinr_cosp = 2.0 * (qw * qx + qy * qz)
+        cosr_cosp = 1.0 - 2.0 * (qx * qx + qy * qy)
+        roll = math.atan2(sinr_cosp, cosr_cosp)
+
+        # pitch (y-axis rotation)
+        sinp = 2.0 * (qw * qy - qz * qx)
+        if abs(sinp) >= 1.0:
+            pitch = math.copysign(math.pi / 2.0, sinp)
         else:
-            self.node.get_logger().warn("linear_move 调用超时")
+            pitch = math.asin(sinp)
 
+        # yaw (z-axis rotation)
+        siny_cosp = 2.0 * (qw * qz + qx * qy)
+        cosy_cosp = 1.0 - 2.0 * (qy * qy + qz * qz)
+        yaw = math.atan2(siny_cosp, cosy_cosp)
 
+        return roll, pitch, yaw
+
+    # -------- 发布 /pose_cmd --------
+    def publish_pose_cmd(self):
+        if self.pose_cmd_pub is None:
+            return
+        msg = MyPoseCmd()
+        # 内部统一用米，发送给 MoveIt 时不做单位切换，仅影响显示
+        msg.x = float(self.target_pose[0])
+        msg.y = float(self.target_pose[1])
+        msg.z = float(self.target_pose[2])
+        msg.rx = float(self.target_pose[3])
+        msg.ry = float(self.target_pose[4])
+        msg.rz = float(self.target_pose[5])
+        msg.cartesian_path = True
+
+        self.pose_cmd_pub.publish(msg)
+        # 日志中位置按当前显示单位输出，方便对照界面
+        unit = "m"
+        log_x = msg.x * self.position_scale
+        log_y = msg.y * self.position_scale
+        log_z = msg.z * self.position_scale
+        self.node.get_logger().info(
+            f"publish /pose_cmd ({unit}): x={log_x:.4f}, y={log_y:.4f}, z={log_z:.4f}, "
+            f"rx={msg.rx:.4f}, ry={msg.ry:.4f}, rz={msg.rz:.4f}, cartesian_path={msg.cartesian_path}"
+        )
+
+    # -------- Qt 关闭事件 --------
     def closeEvent(self, event):
         self.shutdown_ros()
         event.accept()
+
+
+def main():
+    app = QtWidgets.QApplication(sys.argv)
+    window = NewLinearMoveWindow()
+    window.show()
+    app.exec_()
+
+
+if __name__ == "__main__":
+    main()

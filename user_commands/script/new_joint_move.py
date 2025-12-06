@@ -8,6 +8,7 @@ from PyQt5 import QtCore, QtWidgets
 import rclpy
 from rclpy.node import Node
 
+from sensor_msgs.msg import JointState
 from jaka_msgs.msg import MyPoseCmd
 
 
@@ -23,9 +24,15 @@ class NewJointMoveWindow(QtWidgets.QWidget):
         # 存储每个轴对应的输入框
         self.pose_inputs: Dict[str, QtWidgets.QLineEdit] = {}
 
+        # 当前关节角（rad），以及对应的显示标签
+        self.joint_positions: List[float] = [0.0] * 6
+        self.joint_value_labels: Dict[int, QtWidgets.QLabel] = {}
+
         # ROS 相关
         self.node: Optional[Node] = None
         self.pose_cmd_pub = None
+        self.joint_sub = None
+        self.ros_timer: Optional[QtCore.QTimer] = None
 
         self._build_ui()
         self.init_ros()
@@ -65,6 +72,22 @@ class NewJointMoveWindow(QtWidgets.QWidget):
             grid.addLayout(cell_layout, row, col)
             self.pose_inputs[axis] = edit
 
+        # 当前关节角显示
+        joint_title = QtWidgets.QLabel("current joint (rad)")
+        joint_title.setAlignment(QtCore.Qt.AlignLeft)
+        joint_title.setStyleSheet("font-size: 14px;")
+
+        joint_grid = QtWidgets.QGridLayout()
+        joint_grid.setSpacing(10)
+        for i in range(6):
+            row = i // 3
+            col = i % 3
+            lbl = QtWidgets.QLabel(f"j{i + 1}: {self.joint_positions[i]:.4f}")
+            lbl.setAlignment(QtCore.Qt.AlignCenter)
+            lbl.setFixedSize(120, 30)
+            joint_grid.addWidget(lbl, row, col)
+            self.joint_value_labels[i] = lbl
+
         # 底部按钮：只有 exec
         button_layout = QtWidgets.QHBoxLayout()
         self.exec_button = QtWidgets.QPushButton("exec")
@@ -78,6 +101,8 @@ class NewJointMoveWindow(QtWidgets.QWidget):
         layout.addWidget(title)
         layout.addWidget(pose_label)
         layout.addLayout(grid)
+        layout.addWidget(joint_title)
+        layout.addLayout(joint_grid)
         layout.addLayout(button_layout)
         layout.addStretch(1)
 
@@ -94,7 +119,24 @@ class NewJointMoveWindow(QtWidgets.QWidget):
         self.node = rclpy.create_node("new_joint_move_ui")
         self.pose_cmd_pub = self.node.create_publisher(MyPoseCmd, "pose_cmd", 10)
 
+        # 订阅 /joint_states 获取当前关节角
+        self.joint_sub = self.node.create_subscription(
+            JointState, "/joint_states", self.joint_states_callback, 10
+        )
+
+        # 使用 QTimer 定期 spin_once，让订阅回调在 Qt 线程中执行
+        self.ros_timer = QtCore.QTimer(self)
+        self.ros_timer.timeout.connect(self.on_ros_timer)
+        self.ros_timer.start(20)
+
+    def on_ros_timer(self):
+        if self.node is not None:
+            rclpy.spin_once(self.node, timeout_sec=0.0)
+
     def shutdown_ros(self):
+        if self.ros_timer is not None:
+            self.ros_timer.stop()
+
         if self.node is not None:
             self.node.destroy_node()
 
@@ -104,6 +146,27 @@ class NewJointMoveWindow(QtWidgets.QWidget):
     def closeEvent(self, event):
         self.shutdown_ros()
         event.accept()
+
+    # ---------------- 关节角显示相关 ----------------
+    def joint_states_callback(self, msg: JointState):
+        # 优先根据关节名 joint_1 ... joint_6 进行映射
+        positions: List[float] = [0.0] * 6
+        if msg.name:
+            name_to_pos = {name: pos for name, pos in zip(msg.name, msg.position)}
+            for i in range(6):
+                positions[i] = float(name_to_pos.get(f"joint_{i + 1}", 0.0))
+        else:
+            for i in range(min(6, len(msg.position))):
+                positions[i] = float(msg.position[i])
+
+        self.joint_positions = positions
+        self.update_joint_display()
+
+    def update_joint_display(self):
+        for i in range(6):
+            lbl = self.joint_value_labels.get(i)
+            if lbl is not None:
+                lbl.setText(f"j{i + 1}: {self.joint_positions[i]:.4f}")
 
     # ---------------- 按钮回调 ----------------
     def exec_cb(self):

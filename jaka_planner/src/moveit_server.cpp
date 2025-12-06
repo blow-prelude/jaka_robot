@@ -3,6 +3,7 @@
 #include "std_srvs/srv/empty.hpp"
 #include "std_srvs/srv/set_bool.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
+#include "geometry_msgs/msg/twist_stamped.hpp"
 
 #include "jaka_planner/JAKAZuRobot.h"
 #include "jaka_planner/jkerr.h"
@@ -26,6 +27,7 @@ const double PI = 3.1415926;
 
 typedef rclcpp_action::Server<control_msgs::action::FollowJointTrajectory> Server;
 rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_states_pub;
+rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr tcp_pose_pub;
 
 // Map error codes to messages
 map<int, string> mapErr = {
@@ -197,6 +199,29 @@ void joint_states_callback(rclcpp::Publisher<sensor_msgs::msg::JointState>::Shar
     joint_states_pub->publish(joint_msg);
 }
 
+void tcp_pose_callback(rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr &tcp_pose_pub){
+    if (!tcp_pose_pub)
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("tcp_pose_callback"), "TCP pose publisher not initialized!");
+        return;
+    }
+
+    geometry_msgs::msg::TwistStamped tcp_msg;
+    CartesianPose tcp_pose;
+    robot.get_tcp_position(&tcp_pose);
+
+    tcp_msg.twist.linear.x = tcp_pose.tran.x;
+    tcp_msg.twist.linear.y = tcp_pose.tran.y;
+    tcp_msg.twist.linear.z = tcp_pose.tran.z;
+
+    tcp_msg.twist.angular.x = tcp_pose.rpy.rx / PI * 180.0;
+    tcp_msg.twist.angular.y = tcp_pose.rpy.ry / PI * 180.0;
+    tcp_msg.twist.angular.z = tcp_pose.rpy.rz / PI * 180.0;
+
+    tcp_msg.header.stamp = rclcpp::Clock().now();
+    tcp_pose_pub->publish(tcp_msg);
+}
+
 void sigintHandler(int /*sig*/) {
     rclcpp::shutdown();
 }
@@ -234,6 +259,7 @@ int main(int argc, char *argv[])
 
     // Publisher for /joint_states
     joint_states_pub = node->create_publisher<sensor_msgs::msg::JointState>("/joint_states", 10);
+    tcp_pose_pub = node->create_publisher<geometry_msgs::msg::TwistStamped>("/tcp_pose", 10);
 
     // Create Action Server for FollowJointTrajectory
     auto moveit_server = rclcpp_action::create_server<control_msgs::action::FollowJointTrajectory>(
@@ -266,12 +292,13 @@ int main(int argc, char *argv[])
 
     RCLCPP_INFO(rclcpp::get_logger("moveit_server"), "==================Moveit Start==================");
 
-    // 发布机械臂关节状态到 /joint_states 话题上
+    // 发布机械臂关节状态到 /joint_states 话题上，发送末端位姿到 /tcp_pose 话题上
     // Main spin loop
     while (rclcpp::ok())
     {
         // Publish joint states at ~125Hz
         joint_states_callback(joint_states_pub);
+        tcp_pose_callback(tcp_pose_pub);
         rate.sleep();
         rclcpp::spin_some(node);
     }

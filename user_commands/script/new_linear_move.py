@@ -5,16 +5,14 @@ from typing import List, Dict, Optional
 
 import rclpy
 from rclpy.node import Node
-from rclpy.time import Time
-from rclpy.duration import Duration
 from PyQt5 import QtCore, QtWidgets
 
-import tf2_ros
+from geometry_msgs.msg import TwistStamped
 from jaka_msgs.msg import MyPoseCmd
 
 
 class NewLinearMoveWindow(QtWidgets.QWidget):
-    """基于 /tf 和 /pose_cmd 的笛卡尔控制窗口."""
+    """基于 /tcp_pose 和 /pose_cmd 的笛卡尔控制窗口."""
 
     AXES = [
         ("x", 0),
@@ -33,10 +31,8 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        # 是否使用实体机械臂：True 时界面采用毫米显示，内部仍用米计算
-        self.use_realrb: bool = False
-        # 位置显示缩放系数：仿真用 1.0（米），实物用 1000.0（毫米）
-        self.position_scale: float = 1.0
+        # 位置显示缩放系数：统一按实体机器人，界面用毫米显示，内部用米计算
+        self.position_scale: float = 1000.0
 
         # pose / target_pose 使用 [x, y, z, roll, pitch, yaw]，单位：m, rad
         self.pose: List[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -57,8 +53,7 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         # ROS 相关
         self.node: Optional[Node] = None
         self.pose_cmd_pub = None
-        self.tf_buffer: Optional[tf2_ros.Buffer] = None
-        self.tf_listener: Optional[tf2_ros.TransformListener] = None
+        self.tcp_pose_sub = None
         self.ros_timer: Optional[QtCore.QTimer] = None
 
         self.init_ros()
@@ -76,19 +71,13 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
             rclpy.init()
         self.node = rclpy.create_node("new_linear_move_ui")
 
-        # 读取参数：是否使用实体机械臂（决定 UI 显示单位）
-        self.node.declare_parameter("use_real_robot", False)
-        self.use_realrb = (
-            self.node.get_parameter("use_real_robot").get_parameter_value().bool_value
-        )
-        self.position_scale = 1000.0 if self.use_realrb else 1.0
-
         # 发布 /pose_cmd
         self.pose_cmd_pub = self.node.create_publisher(MyPoseCmd, "pose_cmd", 10)
 
-        # 使用 tf2_ros 订阅 /tf，后续通过 lookup_transform 获取末端在基坐标系下的位姿
-        self.tf_buffer = tf2_ros.Buffer()
-        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self.node, spin_thread=False)
+        # 订阅 /tcp_pose，直接获取末端在基坐标系下的位姿
+        self.tcp_pose_sub = self.node.create_subscription(
+            TwistStamped, "/tcp_pose", self.tcp_pose_callback, 10
+        )
 
         # 使用 QTimer 定期调用 spin_once，让订阅回调在 Qt 线程中执行
         self.ros_timer = QtCore.QTimer(self)
@@ -102,8 +91,6 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
     def on_ros_timer(self):
         # 处理 ROS 回调
         self.ros_spin_once()
-        # 尝试从 TF 中更新末端位姿
-        self.update_pose_from_tf()
 
     def shutdown_ros(self):
         if self.ros_timer is not None:
@@ -261,56 +248,23 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         self.update_step_display()
         self.node.get_logger().info(f"minus rotate_step to {self.rotate_step}")
 
-    # -------- 从 TF 更新当前末端位姿 --------
-    def update_pose_from_tf(self):
-        if self.tf_buffer is None:
-            return
-        try:
-            # 查询末端在基坐标系 BASE_FRAME 下的最新位姿
-            transform = self.tf_buffer.lookup_transform(
-                self.BASE_FRAME,
-                self.EEF_FRAME,
-                Time(),
-                timeout=Duration(seconds=0.1),
-            )
-        except Exception as exc:  # tf2_ros exceptions 在 Python 端不一定逐个可用
-            if self.node is not None:
-                self.node.get_logger().debug(f"lookup_transform failed: {exc}")
-            return
+    # -------- 从 /tcp_pose 更新当前末端位姿 --------
+    def tcp_pose_callback(self, msg: TwistStamped):
+        # /tcp_pose 中线速度部分为位置（m），角速度部分为姿态（度）
+        x = float(msg.twist.linear.x)
+        y = float(msg.twist.linear.y)
+        z = float(msg.twist.linear.z)
 
-        t = transform.transform.translation
-        r = transform.transform.rotation
+        rx_deg = float(msg.twist.angular.x)
+        ry_deg = float(msg.twist.angular.y)
+        rz_deg = float(msg.twist.angular.z)
 
-        x = float(t.x)
-        y = float(t.y)
-        z = float(t.z)
-        roll, pitch, yaw = self.quaternion_to_rpy(r.x, r.y, r.z, r.w)
+        rx = math.radians(rx_deg)
+        ry = math.radians(ry_deg)
+        rz = math.radians(rz_deg)
 
-        self.pose = [x, y, z, roll, pitch, yaw]
+        self.pose = [x, y, z, rx, ry, rz]
         self.update_pose_display()
-
-    @staticmethod
-    def quaternion_to_rpy(qx: float, qy: float, qz: float, qw: float):
-        """将四元数转换为 RPY（弧度）."""
-        # 参考标准 ZYX 顺序（yaw-pitch-roll）
-        # roll (x-axis rotation)
-        sinr_cosp = 2.0 * (qw * qx + qy * qz)
-        cosr_cosp = 1.0 - 2.0 * (qx * qx + qy * qy)
-        roll = math.atan2(sinr_cosp, cosr_cosp)
-
-        # pitch (y-axis rotation)
-        sinp = 2.0 * (qw * qy - qz * qx)
-        if abs(sinp) >= 1.0:
-            pitch = math.copysign(math.pi / 2.0, sinp)
-        else:
-            pitch = math.asin(sinp)
-
-        # yaw (z-axis rotation)
-        siny_cosp = 2.0 * (qw * qz + qx * qy)
-        cosy_cosp = 1.0 - 2.0 * (qy * qy + qz * qz)
-        yaw = math.atan2(siny_cosp, cosy_cosp)
-
-        return roll, pitch, yaw
 
     # -------- 发布 /pose_cmd --------
     def publish_pose_cmd(self):
@@ -328,7 +282,7 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
 
         self.pose_cmd_pub.publish(msg)
         # 日志中位置按当前显示单位输出，方便对照界面
-        unit = "mm" if self.use_realrb else "m"
+        unit = "mm"
         log_x = msg.x * self.position_scale
         log_y = msg.y * self.position_scale
         log_z = msg.z * self.position_scale
