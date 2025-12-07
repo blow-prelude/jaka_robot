@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+
+    <material name="dark_green">
+        <color rgba="0 0.4 0 1" />
+    </material>
+    <material name="blue">
+        <color rgba="0 0 1 1" />
+    </material>
+
+
+    <link name="gripper_base_link">
+        <inertial>
+            <origin xyz="0 0 0.03" rpy="0 0 0" />
+            <mass value="0.3" />
+            <inertia
+                ixx="0.00018"
+                ixy="0.0"
+                ixz="0.0"
+                iyy="0.00034"
+                iyz="0.0"
+                izz="0.00034" />
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.10 0.06 0.06" />
+            </geometry>
+            <origin xyz="0 0 0.03" rpy="0 0 0" />
+            <material name="dark_green" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.10 0.06 0.06" />
+            </geometry>
+            <origin xyz="0 0 0.03" rpy="0 0 0" />
+        </collision>
+    </link>
+
+
+    <link name="gripper_left_finger_link">
+        <inertial>
+            <origin xyz="0 0 0.025" rpy="0 0 0" />
+            <mass value="0.03" />
+            <inertia
+                ixx="1.5e-05"
+                ixy="0.0"
+                ixz="0.0"
+                iyy="6.5e-06"
+                iyz="0.0"
+                izz="9.3e-06" />
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.01 0.06 0.05" />
+            </geometry>
+            <origin xyz="0 0 0.025" rpy="0 0 0" />
+            <material name="blue" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.01 0.06 0.05" />
+            </geometry>
+            <origin xyz="0 0 0.025" rpy="0 0 0" />
+        </collision>
+    </link>
+
+
+    <link name="gripper_right_finger_link">
+        <inertial>
+            <origin xyz="0 0 0.025" rpy="0 0 0" />
+            <mass value="0.03" />
+            <inertia
+                ixx="1.5e-05"
+                ixy="0.0"
+                ixz="0.0"
+                iyy="6.5e-06"
+                iyz="0.0"
+                izz="9.3e-06" />
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.01 0.06 0.05" />
+            </geometry>
+            <origin xyz="0 0 0.025" rpy="0 0 0" />
+            <material name="blue" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.01 0.06 0.05" />
+            </geometry>
+            <origin xyz="0 0 0.025" rpy="0 0 0" />
+        </collision>
+    </link>
+
+    <!-- 抓取点的位置，用虚拟连杆占位 -->
+    <link name="grip_center_link">
+        <!-- 没有视觉和碰撞，只有惯性属性 -->
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.0001" />
+            <inertia ixx="1e-06" ixy="0" ixz="0" iyy="1e-06" iyz="0" izz="1e-06" />
+        </inertial>
+    </link>
+
+
+    <joint name="gripper_left_finger_joint" type="prismatic">
+        <parent link="gripper_base_link" />
+        <child link="gripper_left_finger_link" />
+        <origin xyz="-0.045 0 0.06" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit effort="1000.0" velocity="1.0" lower="0.0" upper="0.04" />
+    </joint>
+
+    <joint name="gripper_right_finger_joint" type="prismatic">
+        <parent link="gripper_base_link" />
+        <child link="gripper_right_finger_link" />
+        <origin xyz="0.045 0 0.06" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <mimic joint="gripper_left_finger_joint" multiplier="-1.0" />
+        <limit effort="1000.0" velocity="1.0" lower="-0.04" upper="0.0" />
+    </joint>
+
+    <!-- 抓取点 -->
+    <joint name="grip_center_joint" type="fixed">
+        <parent link="gripper_base_link" />
+        <child link="grip_center_link" />
+        <origin xyz="0 0 0.09" rpy="0 0 0" />
+    </joint>
+
+</robot>
