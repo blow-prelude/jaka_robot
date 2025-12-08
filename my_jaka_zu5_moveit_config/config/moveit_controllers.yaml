@@ -9,6 +9,8 @@ moveit_simple_controller_manager:
 
   arm_controller:
     type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
     joints:
       - joint_1
       - joint_2
@@ -18,5 +20,14 @@ moveit_simple_controller_manager:
       - joint_6
   gripper_controller:
     type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
     joints:
       - gripper_left_finger_joint
+
+trajectory_execution:
+  allowed_execution_duration_scaling: 1.5     # or 2.0, to allow 50-100% extra time
+  allowed_goal_duration_margin: 2.0          # extra seconds to wait
+  allowed_start_tolerance: 0.01  # Increase tolerance to reduce validation delay
+  execution_duration_monitoring: false
+  moveit_manage_controllers: true
