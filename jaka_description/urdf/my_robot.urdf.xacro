@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<robot name="jaka_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="jaka_zu5" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- 包含本包内的机器人本体与夹爪描述 -->
-    <xacro:include filename="my_jaka_zu5.xacro" />
-    <xacro:include filename="my_gripper.xacro" />
+    <xacro:include filename="jaka_zu5.xacro" />
+    <xacro:include filename="gripper.xacro" />
     <!-- 如需 ros2_control，可在此包含控制描述 -->
     <!-- <xacro:include filename="my_robot.ros2_control.xacro" /> -->
     
-    <link name="world" />
+    <!-- <link name="world" /> -->
     <!-- 将机械臂固定在世界坐标系中 -->
-    <joint name="world_joint" type="fixed">
+    <!-- <joint name="world_joint" type="fixed">
         <parent link="world" />
         <child link="Link_0" />
         <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint>
+    </joint> -->
 
     <!-- 将夹爪基座固定在机器人末端 tool_link 上 -->
     <joint name="gripper_base_joint" type="fixed">

@@ -160,7 +160,7 @@ def generate_demo_launch(moveit_config, launch_package_path=None):
 
     moveit_config = (
         MoveItConfigsBuilder(
-            robot_name="jaka_robot",
+            robot_name="jaka_zu5",
             package_name=os.path.basename(str(moveit_config.package_path))
         )
         .robot_description(
@@ -256,7 +256,7 @@ def generate_gazebo_launch(moveit_config, launch_package_path=None):
 
     ld.add_action(
         DeclareLaunchArgument(
-            "entity", default_value=os.path.basename(str(moveit_config.package_path)).replace("_moveit_config", ""), 
+            "entity", default_value="jaka_zu5", 
             description="Robot entity name (derived from package name)"
         )
     )
@@ -270,7 +270,7 @@ def generate_gazebo_launch(moveit_config, launch_package_path=None):
 
     moveit_config = (
         MoveItConfigsBuilder(
-            robot_name="jaka_robot",
+            robot_name="jaka_zu5",
             package_name=os.path.basename(str(moveit_config.package_path))
         )
         .robot_description(
@@ -414,7 +414,7 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
     # Declare arguments
     ld.add_action(
         DeclareLaunchArgument(
-            "entity", default_value="jaka_robot", 
+            "entity", default_value="jaka_zu5", 
             description="Robot entity name (derived from package name)"
         )
     )
@@ -443,7 +443,7 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
 
     moveit_config = (
         MoveItConfigsBuilder(
-            robot_name="jaka_robot",
+            robot_name="jaka_zu5",
             package_name=os.path.basename(str(moveit_config.package_path))
         )
         .robot_description(

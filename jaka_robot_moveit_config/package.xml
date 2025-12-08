@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>my_jaka_zu5_moveit_config</name>
+  <name>jaka_robot_moveit_config</name>
   <version>0.3.0</version>
   <description>
-     An automatically generated package with all the configuration and launch files for using the jaka_robot with the MoveIt Motion Planning Framework
+     An automatically generated package with all the configuration and launch files for using the jaka_zu5 with the MoveIt Motion Planning Framework
   </description>
-  <maintainer email="wtr@TODO.com">wtr</maintainer>
+  <maintainer email="114514@TODO.com">wtr</maintainer>
 
   <license>BSD</license>
 
@@ -14,7 +14,7 @@
   <url type="bugtracker">https://github.com/ros-planning/moveit2/issues</url>
   <url type="repository">https://github.com/ros-planning/moveit2</url>
 
-  <author email="wtr@TODO.com">wtr</author>
+  <author email="114514@TODO.com">wtr</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -33,7 +33,6 @@
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>jaka_description</exec_depend>
   <exec_depend>moveit_configs_utils</exec_depend>
-  <exec_depend>moveit_ros_move_group</exec_depend>
   <exec_depend>moveit_ros_visualization</exec_depend>
   <exec_depend>moveit_ros_warehouse</exec_depend>
   <exec_depend>moveit_setup_assistant</exec_depend>

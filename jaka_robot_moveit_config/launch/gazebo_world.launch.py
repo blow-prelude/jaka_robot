@@ -40,7 +40,7 @@ def generate_launch_description():
     # 避免依赖外部 LaunchConfiguration。
     moveit_config = (
         MoveItConfigsBuilder(
-            "jaka_robot", package_name="my_jaka_zu5_moveit_config"
+            "jaka_zu5", package_name="jaka_robot_moveit_config"
         )
         .robot_description(
             mappings={

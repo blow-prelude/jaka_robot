@@ -3,11 +3,11 @@ moveit_setup_assistant_config:
     package: jaka_description
     relative_path: urdf/my_robot.urdf.xacro
   srdf:
-    relative_path: config/jaka_robot.srdf
+    relative_path: config/jaka_zu5.srdf
   package_settings:
     author_name: wtr
-    author_email: wtr@TODO.com
-    generated_timestamp: 1765113161
+    author_email: 114514@TODO.com
+    generated_timestamp: 1765198389
   control_xacro:
     command:
       - position

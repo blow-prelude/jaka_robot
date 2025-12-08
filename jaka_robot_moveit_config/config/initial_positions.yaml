@@ -1,4 +1,4 @@
-# Default initial positions for jaka_robot's ros2_control fake system
+# Default initial positions for jaka_zu5's ros2_control fake system
 
 initial_positions:
   gripper_left_finger_joint: 0

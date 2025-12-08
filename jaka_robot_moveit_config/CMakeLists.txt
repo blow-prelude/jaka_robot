@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(my_jaka_zu5_moveit_config)
+project(jaka_robot_moveit_config)
 
 find_package(ament_cmake REQUIRED)
 

@@ -18,14 +18,12 @@ def generate_launch_description():
 
     # Build MoveIt config to derive the default entity name from the package path
     moveit_config = MoveItConfigsBuilder(
-        "jaka_robot", package_name="my_jaka_zu5_moveit_config"
+        "jaka_zu5", package_name="jaka_robot_moveit_config"
     ).to_moveit_configs()
 
     entity = DeclareLaunchArgument(
         "entity",
-        default_value=os.path.basename(
-            str(moveit_config.package_path).replace("_moveit_config", "")
-        ),
+        default_value="jaka_zu5",
         description="Robot entity name (derived from package name)",
     )
 

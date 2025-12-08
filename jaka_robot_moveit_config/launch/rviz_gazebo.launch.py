@@ -25,7 +25,7 @@ def generate_launch_description():
     # 构建 MoveIt 配置（此处直接启用 Gazebo 仿真相关的 xacro 分支）
     moveit_config = (
         MoveItConfigsBuilder(
-            "jaka_robot", package_name="my_jaka_zu5_moveit_config"
+            "jaka_zu5", package_name="jaka_robot_moveit_config"
         )
         .robot_description(
             mappings={
