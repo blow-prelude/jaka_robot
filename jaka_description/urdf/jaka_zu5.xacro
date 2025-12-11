@@ -429,13 +429,18 @@
     <child link="tool_link" />
   </joint>
 
+  <!-- 定义一个传动关系，从描述关节到硬件执行器 -->
   <transmission name="trans_joint_1">
+        <!-- 线型传动关系 -->
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_1">
+            <!-- 硬件接口为位置控制接口 -->
             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
+        <!-- 指定执行器 -->
         <actuator name="joint_1_motor">
             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <!-- 定义减速比 -->
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
@@ -495,7 +500,7 @@
         <!--创建ros2_control 硬件接口 -->
         <plugin name="ign_ros2_control::IgnitionROS2ControlPlugin" filename="libign_ros2_control-system.so">
           <!-- 运行 ros2_control 控制器（由 ros2_controllers.yaml 指定） -->
-          <parameters>$(find jaka_zu5_moveit_config)/config/ros2_controllers.yaml</parameters>
+          <parameters>$(find jaka_robot_moveit_config)/config/ros2_controllers.yaml</parameters>
           <robotNamespace>/</robotNamespace>
         </plugin>
     </gazebo>

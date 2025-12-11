@@ -8,13 +8,14 @@
     <!-- 如需 ros2_control，可在此包含控制描述 -->
     <!-- <xacro:include filename="my_robot.ros2_control.xacro" /> -->
     
-    <!-- <link name="world" /> -->
+    <link name="world" />
+    
     <!-- 将机械臂固定在世界坐标系中 -->
-    <!-- <joint name="world_joint" type="fixed">
+    <joint name="world_joint" type="fixed">
         <parent link="world" />
         <child link="Link_0" />
         <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint> -->
+    </joint>
 
     <!-- 将夹爪基座固定在机器人末端 tool_link 上 -->
     <joint name="gripper_base_joint" type="fixed">

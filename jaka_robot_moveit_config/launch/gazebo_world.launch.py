@@ -35,20 +35,6 @@ def generate_launch_description():
         ),
     )
 
-    # 构建与 MoveIt 相同的机器人描述，用于提供给 ros_gz_sim::create 节点
-    # 这个 launch 文件专门用于 Gazebo 仿真，因此这里固定 use_gazebo:=true，
-    # 避免依赖外部 LaunchConfiguration。
-    moveit_config = (
-        MoveItConfigsBuilder(
-            "jaka_zu5", package_name="jaka_robot_moveit_config"
-        )
-        .robot_description(
-            mappings={
-                "use_gazebo": "true",
-            }
-        )
-        .to_moveit_configs()
-    )
 
     # 1) 启动 Gazebo 仿真世界（这里使用 ros_gz_sim 的空世界）
     gazebo_launch = IncludeLaunchDescription(
@@ -69,12 +55,11 @@ def generate_launch_description():
             Node(
                 package="ros_gz_sim",
                 executable="create",
-                name="spawn_robot_from_description",
+                name="spawn_robot",
                 output="screen",
-                parameters=[moveit_config.robot_description],
                 arguments=[
-                    "-param",
-                    "robot_description",
+                    "-topic",
+                    "/robot_description",
                     "-z",
                     "0.06",  # 略微抬高，避免与地面初始穿插
                 ],
