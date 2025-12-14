@@ -176,8 +176,12 @@ class JointMoveWindow(QtWidgets.QWidget):
         self.ros_timer.start(50)
 
     def ros_spin_once(self):
-        if self.node is not None:
-            rclpy.spin_once(self.node, timeout_sec=0.0)
+        if self.node is not None and rclpy.ok():
+            try:
+                rclpy.spin_once(self.node, timeout_sec=0.0)
+            except Exception:
+                # 关闭过程中可能抛出异常，忽略
+                pass
 
 
     def update_current_joint_display(self):
@@ -191,10 +195,16 @@ class JointMoveWindow(QtWidgets.QWidget):
             self.ros_timer.stop()
 
         if self.node is not None:
-            self.node.destroy_node()
+            try:
+                self.node.destroy_node()
+            except Exception:
+                pass
 
         if rclpy.ok():
-            rclpy.shutdown()
+            try:
+                rclpy.shutdown()
+            except Exception:
+                pass
 
     def closeEvent(self, event):
         self.shutdown_ros()
@@ -312,4 +322,3 @@ class JointMoveWindow(QtWidgets.QWidget):
 
         # 更新 UI 显示
         self.update_current_joint_display()
-

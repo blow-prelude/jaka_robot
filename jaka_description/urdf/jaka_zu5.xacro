@@ -429,81 +429,110 @@
     <child link="tool_link" />
   </joint>
 
-  <!-- 定义一个传动关系，从描述关节到硬件执行器 -->
-  <transmission name="trans_joint_1">
-        <!-- 线型传动关系 -->
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_1">
-            <!-- 硬件接口为位置控制接口 -->
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <!-- 指定执行器 -->
-        <actuator name="joint_1_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <!-- 定义减速比 -->
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+  <ros2_control name="jaka_zu5_system" type="system">
+    <hardware>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
+    </hardware>
+
+    <!-- 定义关节 -->
+    <joint name="joint_1">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_2">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_3">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_4">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_5">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_6">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <!-- 定义传动关系：将关节映射到其物理执行器 -->
+    <transmission name="transmission_1">
+      <!-- 指定为线性传动关系 -->
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <!-- 指定执行器 -->
+      <actuator name="joint_1_motor" role="actuator_1"/>
+      <joint name="joint_1" role="joint_1">
+        <!-- 在这里定义减速比，例如 1:1 -->
+        <mechanical_reduction>1.0</mechanical_reduction>
+        <offset>0.0</offset>
+      </joint>
     </transmission>
-    <transmission name="trans_joint_2">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_2">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_2_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+    <transmission name="transmission_2">
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <actuator name="joint_2_motor" role="actuator_2"/>
+      <joint name="joint_2" role="joint_2">
+        <!-- 在这里定义减速比，例如 1:1 -->
+        <mechanical_reduction>1.0</mechanical_reduction>
+        <offset>0.0</offset>
+      </joint>
     </transmission>
-    <transmission name="trans_joint_3">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_3">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_3_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+    <transmission name="transmission_3">
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <actuator name="joint_3_motor" role="actuator_3"/>
+      <joint name="joint_3" role="joint_3">
+        <!-- 在这里定义减速比，例如 1:1 -->
+        <mechanical_reduction>1.0</mechanical_reduction>
+        <offset>0.0</offset>
+      </joint>
     </transmission>
-    <transmission name="trans_joint_4">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_4">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_4_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+    <transmission name="transmission_4">
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <actuator name="joint_4_motor" role="actuator_4"/>
+      <joint name="joint_4" role="joint_4">
+        <!-- 在这里定义减速比，例如 1:1 -->
+        <mechanical_reduction>1.0</mechanical_reduction>
+        <offset>0.0</offset>
+      </joint>
     </transmission>
-    <transmission name="trans_joint_5">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_5">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_5_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+    <transmission name="transmission_5">
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <actuator name="joint_5_motor" role="actuator_5"/>
+      <joint name="joint_5" role="joint_5">
+        <!-- 在这里定义减速比，例如 1:1 -->
+        <mechanical_reduction>1.0</mechanical_reduction>
+        <offset>0.0</offset>
+      </joint>
     </transmission>
-    <transmission name="trans_joint_6">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="joint_6">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_6_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+    <transmission name="transmission_6">
+      <plugin>transmission_interface/SimpleTransmission</plugin>
+      <actuator name="joint_6_motor" role="actuator_6"/>
+      <joint name="joint_6" role="joint_6">
+        <!-- 在这里定义减速比，例如 1:1 -->
+        <mechanical_reduction>1.0</mechanical_reduction>
+        <offset>0.0</offset>
+      </joint>
     </transmission>
- 
-    <gazebo> 
-        <!-- <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"> -->
-        <!--创建ros2_control 硬件接口 -->
-        <plugin name="ign_ros2_control::IgnitionROS2ControlPlugin" filename="libign_ros2_control-system.so">
-          <!-- 运行 ros2_control 控制器（由 ros2_controllers.yaml 指定） -->
-          <parameters>$(find jaka_robot_moveit_config)/config/ros2_controllers.yaml</parameters>
-          <robotNamespace>/</robotNamespace>
-        </plugin>
-    </gazebo>
+  </ros2_control>
+
+  <gazebo>
+      <!-- <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"> -->
+      <!-- 创建 ros2_control 硬件接口（Ignition / Gazebo 仿真） -->
+      <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libign_ros2_control-system.so">
+        <!-- 运行 ros2_control 控制器（由 ros2_controllers.yaml 指定 -->
+        <parameters>$(find jaka_robot_moveit_config)/config/ros2_controllers.yaml</parameters>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+  </gazebo>
 
 </robot>
-

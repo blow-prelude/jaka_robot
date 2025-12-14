@@ -2,9 +2,10 @@
 
 from PyQt5 import QtCore, QtWidgets
 
-from sim_linear_move_ui import LinearMoveWindow
+from sim_linear_move_ui import LinearMoveWindow 
 
 from sim_joint_move_ui import JointMoveWindow
+from sim_gripper_ui import GripperWindow
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
@@ -21,7 +22,7 @@ class MainWindow(QtWidgets.QWidget):
         self.btns = [
             "linear_move",
             "joint_move",
-            "temp01",
+            "gripper",
             "temp02",
             "temp03",
             "temp04"
@@ -30,7 +31,7 @@ class MainWindow(QtWidgets.QWidget):
         self.btns_cb = [
             self.linear_move_cb,
             self.joint_move_cb,
-            self.test01_cb,
+            self.gripper_cb,
             self.test02_cb,
             self.test03_cb,
             self.test04_cb
@@ -82,8 +83,8 @@ class MainWindow(QtWidgets.QWidget):
         win.show()
         self.child_windows.append(win)
 
-    def test01_cb(self):
-        win = SubWindow("Temp 01")
+    def gripper_cb(self):
+        win = GripperWindow()
         win.show()
         self.child_windows.append(win)
 

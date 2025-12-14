@@ -493,8 +493,8 @@
  
     <gazebo>
         <!-- <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"> -->
-        <!--创建ros2_control 硬件接口 -->
-        <plugin name="ign_ros2_control::IgnitionROS2ControlPlugin" filename="libign_ros2_control-system.so">
+        <!-- 创建 ros2_control 硬件接口（Ignition / Gazebo 仿真） -->
+        <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libign_ros2_control-system.so">
           <!-- 运行 ros2_control 控制器（由 ros2_controllers.yaml 指定） -->
           <parameters>$(find jaka_zu5_moveit_config)/config/ros2_controllers.yaml</parameters>
           <robotNamespace>/</robotNamespace>

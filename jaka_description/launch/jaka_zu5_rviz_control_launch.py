@@ -2,6 +2,7 @@ import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import Command
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
@@ -33,6 +34,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
+        arguments=['-d', FindPackageShare('jaka_description'),'config','jaka_zu5_urdf.rviz'],
         output='screen',
     )
 

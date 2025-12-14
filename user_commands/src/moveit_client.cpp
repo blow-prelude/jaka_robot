@@ -7,6 +7,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 
 #include <condition_variable>
+#include <map>
 #include <mutex>
 #include <optional>
 #include <thread>
@@ -22,6 +23,7 @@
 #include <moveit/robot_trajectory/robot_trajectory.h>
 #include <moveit/trajectory_processing/iterative_time_parameterization.h>
 
+#include <std_msgs/msg/float64_multi_array.hpp>
 
 
 using MoveGroupInterface = moveit::planning_interface::MoveGroupInterface;
@@ -35,9 +37,15 @@ public:
         // 默认使用zu5,
         std::string model = _node->declare_parameter<std::string>("model", "zu5");
         // 创建规划组
-        std::string PLANNING_GROUP = "jaka_" + model;
-        RCLCPP_INFO(_node->get_logger(), "Using PLANNING_GROUP: %s", PLANNING_GROUP.c_str());
-        _arm = std::make_shared<MoveGroupInterface>(_node,PLANNING_GROUP);
+        std::string ARM_GROUP = "jaka_" + model;
+        _arm = std::make_shared<MoveGroupInterface>(_node,ARM_GROUP);
+
+        // 创建夹爪规划组
+        std::string GRIPPER_GROUP = "gripper";
+        _gripper = std::make_shared<MoveGroupInterface>(_node,GRIPPER_GROUP);
+        
+        RCLCPP_INFO(_node->get_logger(), "Using ARM_GROUP: %s , GRIPPER_GROUP: %s", ARM_GROUP.c_str(),GRIPPER_GROUP.c_str());
+
 
         //设置目标位置所使用的参考坐标系
         std::string reference_frame = "Link_0";
@@ -45,14 +53,20 @@ public:
 
         //当运动规划失败后，允许重新规划
         _arm->allowReplanning(true);
+        _gripper->allowReplanning(true);
+
 
         //设置位置(单位：米)和姿态（单位：弧度）的允许误差
         _arm->setGoalPositionTolerance(0.001);
         _arm->setGoalOrientationTolerance(0.01);
+        _gripper->setGoalPositionTolerance(0.001);
+        _gripper->setGoalOrientationTolerance(0.01);
 
         //设置允许的最大速度和加速度
         _arm->setMaxAccelerationScalingFactor(1.0);
         _arm->setMaxVelocityScalingFactor(1.0);
+        _gripper->setMaxAccelerationScalingFactor(0.1);
+        _gripper->setMaxVelocityScalingFactor(0.1);
 
         //获取终端link的名称
         end_effector_link = _arm->getEndEffectorLink();  
@@ -61,6 +75,10 @@ public:
         // 订阅末端位姿移动话题
         _pose_cmd_sub = node->create_subscription<jaka_msgs::msg::MyPoseCmd>(
             "pose_cmd", 10, std::bind(&Commander::pose_cmd_callback, this, _1));
+
+        // 订阅夹爪控制话题
+        _gripper_cmd_sub = node->create_subscription<std_msgs::msg::Float64MultiArray>(
+            "gripper_cmd", 10, std::bind(&Commander::gripper_cmd_callback, this, _1));
 
         _worker = std::thread([this](){ this->process_commands(); });
     }
@@ -183,12 +201,26 @@ private:
     * params:const std::shared_ptr<MoveGroupInterface> &interface   控制器接口
     */{
         MoveGroupInterface::Plan plan;
-        bool success = (interface->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
+        std::string group_name = interface->getName();
+        int attempts = 0;
+        bool plan_success = false;
+        while(!plan_success && attempts <= this->max_tries){
+            plan_success = (interface->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
+            attempts++;
 
-        if(success){
-            RCLCPP_INFO(_node->get_logger(),"successfully plan ,now start to execute");
-            interface->execute(plan);
+            if(plan_success){
+                RCLCPP_INFO(_node->get_logger(),"%s successfully plan ,now start to execute",group_name.c_str());
+                interface->execute(plan);
+                return;
+            }
+
+            if(attempts%10==0){
+                RCLCPP_INFO(this->_node->get_logger(),"%s still trying after %d trying...",group_name.c_str(),attempts);
+            }
         }
+
+
+        RCLCPP_INFO(this->_node->get_logger(),"%s failed to plan after %d attempts.",group_name.c_str() , this->max_tries);
     }
 
 
@@ -199,6 +231,33 @@ private:
             _pending_pose_cmd = *msg;
         }
         _command_cv.notify_one();
+    }
+
+    void gripper_cmd_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg){
+        if (msg->data.empty()) {
+            RCLCPP_WARN(_node->get_logger(), "Received gripper command with empty data");
+            return;
+        }
+
+        const double left_target = msg->data[0];
+        const double right_target = (msg->data.size() >= 2) ? msg->data[1] : -left_target;
+
+        RCLCPP_INFO(
+            _node->get_logger(),
+            "Received gripper command: left %f, right %f",
+            left_target,
+            right_target);
+
+        _gripper->setStartStateToCurrentState();
+        const std::map<std::string, double> joint_targets = {
+            {"gripper_left_finger_joint", left_target},
+            {"gripper_right_finger_joint", right_target},
+        };
+        if (!_gripper->setJointValueTarget(joint_targets)) {
+            RCLCPP_ERROR(_node->get_logger(), "Failed to set gripper joint targets");
+            return;
+        }
+        plan_and_execute(_gripper);
     }
 
     void process_commands(){
@@ -234,8 +293,11 @@ private:
 
     // 机械臂控制器
     std::shared_ptr<MoveGroupInterface> _arm;
+    // 夹爪控制器
+    std::shared_ptr<MoveGroupInterface> _gripper;
 
     rclcpp::Subscription<jaka_msgs::msg::MyPoseCmd>::SharedPtr _pose_cmd_sub;
+    rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr _gripper_cmd_sub;
     std::mutex _command_mutex;
     std::condition_variable _command_cv;
     std::optional<jaka_msgs::msg::MyPoseCmd> _pending_pose_cmd;

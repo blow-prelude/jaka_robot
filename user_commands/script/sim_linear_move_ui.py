@@ -13,7 +13,7 @@ import tf2_ros
 from jaka_msgs.msg import MyPoseCmd
 
 
-class NewLinearMoveWindow(QtWidgets.QWidget):
+class LinearMoveWindow(QtWidgets.QWidget):
     """仿真用：基于 /tf 和 /pose_cmd 的笛卡尔控制窗口."""
 
     AXES = [
@@ -87,8 +87,12 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         self.ros_timer.start(20)
 
     def ros_spin_once(self):
-        if self.node is not None:
-            rclpy.spin_once(self.node, timeout_sec=0.0)
+        if self.node is not None and rclpy.ok():
+            try:
+                rclpy.spin_once(self.node, timeout_sec=0.0)
+            except Exception:
+                # 关闭过程中可能抛出异常，忽略
+                pass
 
     def on_ros_timer(self):
         # 处理 ROS 回调
@@ -100,9 +104,15 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         if self.ros_timer is not None:
             self.ros_timer.stop()
         if self.node is not None:
-            self.node.destroy_node()
+            try:
+                self.node.destroy_node()
+            except Exception:
+                pass
         if rclpy.ok():
-            rclpy.shutdown()
+            try:
+                rclpy.shutdown()
+            except Exception:
+                pass
 
     # -------- UI 构建 --------
     def _build_ui(self):
@@ -332,14 +342,3 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
     def closeEvent(self, event):
         self.shutdown_ros()
         event.accept()
-
-
-def main():
-    app = QtWidgets.QApplication(sys.argv)
-    window = NewLinearMoveWindow()
-    window.show()
-    app.exec_()
-
-
-if __name__ == "__main__":
-    main()

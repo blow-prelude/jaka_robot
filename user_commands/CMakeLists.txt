@@ -12,6 +12,8 @@ find_package(moveit_ros_planning_interface REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(jaka_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 add_executable(moveit_client src/moveit_client.cpp)
 ament_target_dependencies(
@@ -22,7 +24,9 @@ ament_target_dependencies(
   geometry_msgs
   tf2
   jaka_msgs
+  std_msgs
 )
+
 
 
 # SDK 头文件和库，只给 rob_shutdown 用
@@ -50,6 +54,11 @@ install(
 install(
   PROGRAMS
     script/sim_joint_move_ui.py 
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(
+  PROGRAMS
+    script/sim_gripper_ui.py 
   DESTINATION lib/${PROJECT_NAME}
 )
 install(

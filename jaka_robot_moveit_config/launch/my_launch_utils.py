@@ -275,7 +275,10 @@ def generate_gazebo_launch(moveit_config, launch_package_path=None):
         )
         .robot_description(
             mappings={
-                "use_gazebo": LaunchConfiguration("use_gazebo"),  # Ensure Gazebo simulation is enabled
+                # Gazebo 仿真启用 Ignition / gz_ros2_control 硬件接口
+                "use_gazebo": LaunchConfiguration("use_gazebo"),
+                # Gazebo 下不使用 RViz 假仿真硬件接口
+                "use_rviz_sim": "false",
             }
         )
         .to_moveit_configs()
@@ -370,20 +373,8 @@ def generate_gazebo_launch(moveit_config, launch_package_path=None):
     move_group = generate_move_group_launch(moveit_config)
     ld.add_action(move_group)
 
-    # Start the controller manager
-    ld.add_action(
-        Node(
-            package="controller_manager",
-            executable="ros2_control_node",
-            parameters=[
-                moveit_config.robot_description,
-                str(moveit_config.package_path / "config/ros2_controllers.yaml"),
-            ],
-            condition=IfCondition(LaunchConfiguration("use_gazebo")),
-        )
-    )
-
-    # Start controllers
+    # 控制器由 Gazebo 中的 gz_ros2_control 插件内部的 controller_manager 提供，
+    # 这里只负责加载各个控制器
     ld.add_action(
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -448,7 +439,10 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
         )
         .robot_description(
             mappings={
-                "use_gazebo": LaunchConfiguration("use_gazebo"),  # Ensure Gazebo simulation is enabled
+                # Gazebo 仿真启用 Ignition / gz_ros2_control 硬件接口
+                "use_gazebo": LaunchConfiguration("use_gazebo"),
+                # Gazebo 下不使用 RViz 假仿真硬件接口
+                "use_rviz_sim": "false",
             }
         )
         .to_moveit_configs()
@@ -558,6 +552,7 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
             condition=IfCondition(LaunchConfiguration("db")),
         )
     )
+
 
     # Start the controller manager
     ld.add_action(

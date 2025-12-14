@@ -85,8 +85,12 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         self.ros_timer.start(20)
 
     def ros_spin_once(self):
-        if self.node is not None:
-            rclpy.spin_once(self.node, timeout_sec=0.0)
+        if self.node is not None and rclpy.ok():
+            try:
+                rclpy.spin_once(self.node, timeout_sec=0.0)
+            except Exception:
+                # 关闭过程中可能抛出异常，忽略
+                pass
 
     def on_ros_timer(self):
         # 处理 ROS 回调
@@ -96,9 +100,15 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
         if self.ros_timer is not None:
             self.ros_timer.stop()
         if self.node is not None:
-            self.node.destroy_node()
+            try:
+                self.node.destroy_node()
+            except Exception:
+                pass
         if rclpy.ok():
-            rclpy.shutdown()
+            try:
+                rclpy.shutdown()
+            except Exception:
+                pass
 
     # -------- UI 构建 --------
     def _build_ui(self):
