@@ -4,11 +4,11 @@ from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
-from launch_ros.actions import Node
-
 from moveit_configs_utils.launch_utils import DeclareBooleanLaunchArg
 from moveit_configs_utils.moveit_configs_builder import MoveItConfigsBuilder
 from moveit_configs_utils.launches import generate_rsp_launch
+
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -31,6 +31,8 @@ def generate_launch_description():
             mappings={
                 # 该启动文件专门用于 Gazebo 仿真，因此这里固定为 true
                 "use_gazebo": "true",
+                # Gazebo 下由 gz_ros2_control 提供硬件接口，不使用 RViz 假仿真硬件
+                "use_rviz_sim": "false",
             }
         )
         .to_moveit_configs()
@@ -100,7 +102,8 @@ def generate_launch_description():
         )
     )
 
-    # 6) 启动 ros2_control 控制器管理器，使控制指令作用于 Gazebo 中的机器人
+
+    # Start the controller manager
     launch_description.add_action(
         Node(
             package="controller_manager",
@@ -108,13 +111,11 @@ def generate_launch_description():
             parameters=[
                 moveit_config.robot_description,
                 str(moveit_config.package_path / "config/ros2_controllers.yaml"),
-                {"use_sim_time": LaunchConfiguration("use_sim_time")},
             ],
             condition=IfCondition(LaunchConfiguration("use_gazebo")),
         )
     )
 
-    # 启动并加载各个控制器
     launch_description.add_action(
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(

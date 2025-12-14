@@ -469,18 +469,6 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
         )
     )
 
-    # # 2) Launch Gazebo Classic (from gazebo_ros)
-    # gazebo_launch = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         os.path.join(get_package_share_directory("gazebo_ros"), "launch", "gazebo.launch.py")
-    #     ),
-    #     launch_arguments={
-    #         "gazebo_world": "worlds/empty.world",
-    #         "gazebo_ros_init": "true",
-    #         "gazebo_ros_factory": "true",
-    #     }.items()
-    # )
-    # ld.add_action(gazebo_launch)
 
     # 2) Launch Ignition Gazebo (from ros_gz_sim)
     gazebo_launch = IncludeLaunchDescription(
@@ -493,23 +481,6 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
     )
     ld.add_action(gazebo_launch)
 
-    # # 3) Spawn the robot into Gazebo Classic
-    # spawn_robot = TimerAction(
-    #     period=5.0,  # Wait for Gazebo to start
-    #     actions=[
-    #         Node(
-    #             package="gazebo_ros",
-    #             executable="spawn_entity.py",
-    #             arguments=[
-    #                 "-entity", LaunchConfiguration("entity"),
-    #                 "-topic", "/robot_description",
-    #                 "-x", "0", "-y", "0", "-z", "0.06"
-    #             ],
-    #             output="screen"
-    #         ),
-    #     ],
-    # )
-    # ld.add_action(spawn_robot)
 
     # 3) Spawn the robot in Ignition Gazebo using ros_gz_sim's create.py
     spawn_robot = TimerAction(

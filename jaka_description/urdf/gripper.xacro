@@ -129,14 +129,24 @@
     </joint>
 
 
+
     <ros2_control name="gripper_system" type="system">
        <hardware>
-           <plugin>ign_ros2_control/IgnitionSystem</plugin>
-           <command_interface name="position"/>
-           <state_interface name="position"/>
-           <state_interface name="velocity"/>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            
        </hardware>
+
+        <joint name="gripper_left_finger_joint">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="gripper_right_finger_joint">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
    </ros2_control>
-
-
+   
 </robot>
