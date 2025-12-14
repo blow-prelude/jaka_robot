@@ -104,17 +104,17 @@ def generate_launch_description():
 
 
     # Start the controller manager
-    launch_description.add_action(
-        Node(
-            package="controller_manager",
-            executable="ros2_control_node",
-            parameters=[
-                moveit_config.robot_description,
-                str(moveit_config.package_path / "config/ros2_controllers.yaml"),
-            ],
-            condition=IfCondition(LaunchConfiguration("use_gazebo")),
-        )
-    )
+    # launch_description.add_action(
+    #     Node(
+    #         package="controller_manager",
+    #         executable="ros2_control_node",
+    #         parameters=[
+    #             moveit_config.robot_description,
+    #             str(moveit_config.package_path / "config/ros2_controllers.yaml"),
+    #         ],
+    #         condition=IfCondition(LaunchConfiguration("use_gazebo")),
+    #     )
+    # )
 
     launch_description.add_action(
         IncludeLaunchDescription(

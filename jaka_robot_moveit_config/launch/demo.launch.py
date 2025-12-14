@@ -1,5 +1,4 @@
 from moveit_configs_utils import MoveItConfigsBuilder
-
 import os, sys
 from ament_index_python.packages import get_package_share_directory
 pkg_share = get_package_share_directory('jaka_robot_moveit_config')

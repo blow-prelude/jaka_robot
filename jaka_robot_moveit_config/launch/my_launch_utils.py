@@ -217,6 +217,9 @@ def generate_demo_launch(moveit_config, launch_package_path=None):
     )
 
     # Fake joint driver
+
+
+    # Start controller manager (ros2_control_node) for RViz simulation mode
     ld.add_action(
         Node(
             package="controller_manager",
