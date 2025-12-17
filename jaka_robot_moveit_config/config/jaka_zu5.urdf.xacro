@@ -4,15 +4,18 @@
     <xacro:arg name="use_gazebo" default="false"/>
     <xacro:arg name="use_rviz_sim" default="true"/>
 
+    <!-- Arguments to pass to my_robot.urdf.xacro -->
+    <xacro:arg name="include_gripper" default="true"/>
+    <xacro:arg name="include_ros2_control" default="false"/>  <!-- We'll use the control from jaka_zu5.ros2_control.xacro -->
+    <xacro:arg name="include_gazebo_plugins" default="$(arg use_gazebo)"/>
+
     <!-- Import jaka_zu5 urdf file -->
     <xacro:include filename="$(find jaka_description)/urdf/my_robot.urdf.xacro" />
 
     <!-- Import control_xacro -->
     <xacro:include filename="jaka_zu5.ros2_control.xacro" />
 
-
-    <!-- <xacro:jaka_zu5_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/> -->
+    <!-- Use the control macro -->
     <xacro:jaka_zu5_ros2_control name="jaka_zu5_hardware" initial_positions_file="$(arg initial_positions_file)" use_gazebo="$(arg use_gazebo)" use_rviz_sim="$(arg use_rviz_sim)" />
-
 
 </robot>

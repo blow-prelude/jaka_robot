@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="jaka_zu5_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- LINK -->
   <!-- <link name="base_link" /> -->
@@ -429,111 +429,5 @@
     <child link="tool_link" />
   </joint>
 
-  <ros2_control name="jaka_zu5_system" type="system">
   
-    <hardware>
-      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
-    </hardware>
-
-    <!-- 定义关节 -->
-    <joint name="joint_1">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="joint_2">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="joint_3">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="joint_4">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="joint_5">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="joint_6">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <!-- 定义传动关系：将关节映射到其物理执行器 -->
-    <transmission name="transmission_1">
-      <!-- 指定为线性传动关系 -->
-      <plugin>transmission_interface/SimpleTransmission</plugin>
-      <!-- 指定执行器 -->
-      <actuator name="joint_1_motor" role="actuator_1"/>
-      <joint name="joint_1" role="joint_1">
-        <!-- 在这里定义减速比，例如 1:1 -->
-        <mechanical_reduction>1.0</mechanical_reduction>
-        <offset>0.0</offset>
-      </joint>
-    </transmission>
-    <transmission name="transmission_2">
-      <plugin>transmission_interface/SimpleTransmission</plugin>
-      <actuator name="joint_2_motor" role="actuator_2"/>
-      <joint name="joint_2" role="joint_2">
-        <!-- 在这里定义减速比，例如 1:1 -->
-        <mechanical_reduction>1.0</mechanical_reduction>
-        <offset>0.0</offset>
-      </joint>
-    </transmission>
-    <transmission name="transmission_3">
-      <plugin>transmission_interface/SimpleTransmission</plugin>
-      <actuator name="joint_3_motor" role="actuator_3"/>
-      <joint name="joint_3" role="joint_3">
-        <!-- 在这里定义减速比，例如 1:1 -->
-        <mechanical_reduction>1.0</mechanical_reduction>
-        <offset>0.0</offset>
-      </joint>
-    </transmission>
-    <transmission name="transmission_4">
-      <plugin>transmission_interface/SimpleTransmission</plugin>
-      <actuator name="joint_4_motor" role="actuator_4"/>
-      <joint name="joint_4" role="joint_4">
-        <!-- 在这里定义减速比，例如 1:1 -->
-        <mechanical_reduction>1.0</mechanical_reduction>
-        <offset>0.0</offset>
-      </joint>
-    </transmission>
-    <transmission name="transmission_5">
-      <plugin>transmission_interface/SimpleTransmission</plugin>
-      <actuator name="joint_5_motor" role="actuator_5"/>
-      <joint name="joint_5" role="joint_5">
-        <!-- 在这里定义减速比，例如 1:1 -->
-        <mechanical_reduction>1.0</mechanical_reduction>
-        <offset>0.0</offset>
-      </joint>
-    </transmission>
-    <transmission name="transmission_6">
-      <plugin>transmission_interface/SimpleTransmission</plugin>
-      <actuator name="joint_6_motor" role="actuator_6"/>
-      <joint name="joint_6" role="joint_6">
-        <!-- 在这里定义减速比，例如 1:1 -->
-        <mechanical_reduction>1.0</mechanical_reduction>
-        <offset>0.0</offset>
-      </joint>
-    </transmission>
-  </ros2_control>
-
-  <gazebo>
-      <!-- <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"> -->
-      <!-- 创建 ros2_control 硬件接口（Ignition / Gazebo 仿真） -->
-      <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libign_ros2_control-system.so">
-        <!-- 运行 ros2_control 控制器（由 ros2_controllers.yaml 指定 -->
-        <parameters>$(find jaka_robot_moveit_config)/config/ros2_controllers.yaml</parameters>
-        <robotNamespace>/</robotNamespace>
-      </plugin>
-  </gazebo>
-
 </robot>

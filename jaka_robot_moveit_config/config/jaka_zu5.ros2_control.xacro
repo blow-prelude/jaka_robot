@@ -7,11 +7,13 @@
             <!-- Include hardware plugin conditionally if rviz in simulation mode is enabled -->
             <hardware>
               <xacro:if value="${use_gazebo}">
-                  <plugin>gz_ros2_control/IgnitionSystem</plugin>
-              </xacro:if>      
+                  <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+              </xacro:if>
               <xacro:if value="${use_rviz_sim}">
-                  <plugin>mock_components/GenericSystem</plugin>
-              </xacro:if>        
+                  <plugin>fake_components/GenericSystem</plugin>
+                  <param name="mock_sensor_commands">false</param>
+                  <param name="state_following_offset">0.0</param>
+              </xacro:if>
             </hardware>
 
             

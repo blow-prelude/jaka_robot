@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- Main robot URDF file that combines all robot components -->
 <robot name="jaka_zu5" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- 包含本包内的机器人本体与夹爪描述 -->
-    <xacro:include filename="jaka_zu5.xacro" />
-    <xacro:include filename="gripper.xacro" />
-    <!-- 如需 ros2_control，可在此包含控制描述 -->
-    <!-- <xacro:include filename="my_robot.ros2_control.xacro" /> -->
-    
-    <link name="world" />
-    
-    <!-- 将机械臂固定在世界坐标系中 -->
-    <joint name="world_joint" type="fixed">
-        <parent link="world" />
-        <child link="Link_0" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint>
+  <!-- Define arguments for configuration -->
+  <xacro:arg name="use_gazebo" default="false"/>
+  <xacro:arg name="include_gripper" default="true"/>
+  <xacro:arg name="include_ros2_control" default="true"/>
+  <xacro:arg name="include_gazebo_plugins" default="false"/>
 
-    <!-- 将夹爪基座固定在机器人末端 tool_link 上 -->
-    <joint name="gripper_base_joint" type="fixed">
-        <parent link="tool_link" />
-        <child link="gripper_base_link" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint>
+  <!-- Include robot arm definition -->
+  <xacro:include filename="$(find jaka_description)/urdf/jaka_zu5.xacro" />
+
+  <!-- Include gripper definition if needed -->
+  <xacro:if value="$(arg include_gripper)">
+    <xacro:include filename="$(find jaka_description)/urdf/gripper.xacro" />
+  </xacro:if>
+
+  <!-- Include ros2_control configuration -->
+  <xacro:if value="$(arg include_ros2_control)">
+    <xacro:include filename="$(find jaka_description)/urdf/ros2_control.xacro" />
+  </xacro:if>
+
+  <!-- Include gazebo plugins and transmissions -->
+  <xacro:if value="$(arg include_gazebo_plugins)">
+    <xacro:include filename="$(find jaka_description)/urdf/gazebo.xacro" />
+  </xacro:if>
+
+  <!-- World link for ground truth -->
+  <link name="world" />
+
+  <!-- Fix robot arm to world coordinate system -->
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link="Link_0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
 
 </robot>
