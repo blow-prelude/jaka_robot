@@ -12,7 +12,7 @@ from sensor_msgs.msg import JointState
 from jaka_msgs.msg import MyPoseCmd
 
 
-class NewJointMoveWindow(QtWidgets.QWidget):
+class JointMoveWindow(QtWidgets.QWidget):
     """基于 /pose_cmd 的笛卡尔位姿输入窗口（cartesian_path = False）。"""
 
     def __init__(self):
@@ -254,7 +254,7 @@ class NewJointMoveWindow(QtWidgets.QWidget):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    window = NewJointMoveWindow()
+    window = JointMoveWindow()
     window.show()
     app.exec_()
 

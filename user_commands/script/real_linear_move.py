@@ -11,7 +11,7 @@ from geometry_msgs.msg import TwistStamped
 from jaka_msgs.msg import MyPoseCmd
 
 
-class NewLinearMoveWindow(QtWidgets.QWidget):
+class LinearMoveWindow(QtWidgets.QWidget):
     """基于 /tcp_pose 和 /pose_cmd 的笛卡尔控制窗口."""
 
     AXES = [
@@ -309,7 +309,7 @@ class NewLinearMoveWindow(QtWidgets.QWidget):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    window = NewLinearMoveWindow()
+    window = LinearMoveWindow()
     window.show()
     app.exec_()
 

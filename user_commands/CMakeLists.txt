@@ -63,18 +63,18 @@ install(
 )
 install(
   PROGRAMS
-    script/new_main_window.py 
+    script/real_main_window.py 
   DESTINATION lib/${PROJECT_NAME}
-  RENAME new_main_window 
+  RENAME real_main_window 
 )
 install(
   PROGRAMS
-    script/new_linear_move.py 
+    script/real_linear_move.py 
   DESTINATION lib/${PROJECT_NAME}
 )
 install(
   PROGRAMS
-    script/new_joint_move.py 
+    script/real_joint_move.py 
   DESTINATION lib/${PROJECT_NAME}
 )
 install(TARGETS 
