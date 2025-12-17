@@ -37,7 +37,8 @@ class LinearMoveWindow(QtWidgets.QWidget):
         self.position_scale: float = 1.0
 
         # pose / target_pose 使用 [x, y, z, roll, pitch, yaw]，单位：m, rad
-        self.pose: List[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.init_pose: List[float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.pose: List[float] = self.init_pose
         self.target_pose: List[float] = list(self.pose)
 
         # 平移步长（作用于 x,y,z）
@@ -234,7 +235,7 @@ class LinearMoveWindow(QtWidgets.QWidget):
 
     def on_reset_to_current(self):
         # 将目标位姿重置为当前末端位姿并发布一次
-        self.target_pose = list(self.pose)
+        self.target_pose = list(self.init_pose)
         self.node.get_logger().info(
             f"reset target pose to current pose: {self.target_pose}"
         )

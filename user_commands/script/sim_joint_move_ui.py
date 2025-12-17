@@ -6,7 +6,8 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 
-from jaka_msgs.srv import Move , GetIK
+
+from jaka_msgs.msg import MyPoseCmd
 
 
 class JointMoveWindow(QtWidgets.QWidget):
@@ -69,67 +70,12 @@ class JointMoveWindow(QtWidgets.QWidget):
             grid.addLayout(cell_layout, row, col)
             self.pose_inputs[axis] = edit
 
-        # joint_value 区域：3 行 2 列的固定标签 joint1~joint6
-        joint_label = QtWidgets.QLabel("joint_value")
-        joint_label.setAlignment(QtCore.Qt.AlignLeft)
-        joint_label.setStyleSheet("font-size: 14px;")
 
-        joint_grid = QtWidgets.QGridLayout()
-        joint_grid.setSpacing(10)
-
-        self.joint_value_labels = {}
-        for idx, name in enumerate(self.joint_names):
-            row = idx // 2
-            col = idx % 2
-
-            name_label = QtWidgets.QLabel(name)
-            name_label.setAlignment(QtCore.Qt.AlignCenter)
-            name_label.setFixedSize(60, 40)
-
-            value_label = QtWidgets.QLabel("")
-            value_label.setAlignment(QtCore.Qt.AlignCenter)
-
-            cell_layout = QtWidgets.QHBoxLayout()
-            cell_layout.addWidget(name_label)
-            cell_layout.addWidget(value_label)
-
-            joint_grid.addLayout(cell_layout, row, col)
-            self.joint_value_labels[name] = value_label
-        # current_joint_value 区域：实时显示订阅到的关节角
-        current_joint_label = QtWidgets.QLabel("current_joint_value")
-        current_joint_label.setAlignment(QtCore.Qt.AlignLeft)
-        current_joint_label.setStyleSheet("font-size: 14px;")
-
-        current_joint_grid = QtWidgets.QGridLayout()
-        current_joint_grid.setSpacing(10)
-
-        self.current_joint_value_labels = {}
-        for idx, name in enumerate(self.joint_names):
-            row = idx // 2
-            col = idx % 2
-
-            name_label = QtWidgets.QLabel(name)
-            name_label.setAlignment(QtCore.Qt.AlignCenter)
-            name_label.setFixedSize(60, 40)
-
-            value_label = QtWidgets.QLabel("")
-            value_label.setAlignment(QtCore.Qt.AlignCenter)
-
-            cell_layout = QtWidgets.QHBoxLayout()
-            cell_layout.addWidget(name_label)
-            cell_layout.addWidget(value_label)
-
-            current_joint_grid.addLayout(cell_layout, row, col)
-            self.current_joint_value_labels[name] = value_label
-
-        # 底部按钮：get IK 和 exec
+        # 底部按钮：exec
         button_layout = QtWidgets.QHBoxLayout()
-        self.get_ik_button = QtWidgets.QPushButton("get IK")
         self.exec_button = QtWidgets.QPushButton("exec")
-        self.get_ik_button.setFixedSize(100, 40)
         self.exec_button.setFixedSize(100, 40)
         button_layout.addStretch(1)
-        button_layout.addWidget(self.get_ik_button)
         button_layout.addWidget(self.exec_button)
         button_layout.addStretch(1)
 
@@ -138,17 +84,12 @@ class JointMoveWindow(QtWidgets.QWidget):
         layout.addWidget(title)
         layout.addWidget(pose_label)
         layout.addLayout(grid)
-        layout.addWidget(joint_label)
-        layout.addLayout(joint_grid)
-        layout.addWidget(current_joint_label)
-        layout.addLayout(current_joint_grid)
         layout.addLayout(button_layout)
         layout.addStretch(1)
 
         self.setLayout(layout)
 
         # 连接按钮信号
-        self.get_ik_button.clicked.connect(self.get_ik_cb)
         self.exec_button.clicked.connect(self.exec_cb)
 
     # ---------------- ROS 相关 ----------------
@@ -157,18 +98,13 @@ class JointMoveWindow(QtWidgets.QWidget):
             rclpy.init()
 
         self.node = rclpy.create_node("joint_move_ui")
-        # 订阅话题/jaka_driver/joint_position ，得到各个关节的角度
-        self.joint_state_sub = self.node.create_subscription(
-            JointState,
-            "/jaka_driver/joint_position",
-            self.joint_state_callback,
-            10,
-        )
 
-        # 创建 客户端，求运动学逆解
-        self.get_ik_client = self.node.create_client(GetIK,"/jaka_driver/get_ik")
-        # 创建关节运动客户端，发送关节运动请求
-        self.joint_move_client = self.node.create_client(Move,"/jaka_driver/joint_move")
+        # 创建发布者，用于发布末端位姿命令
+        self.pose_cmd_pub = self.node.create_publisher(
+            MyPoseCmd,
+            "/pose_cmd",
+            10
+        )
 
         # 使用 QTimer 定期调用 spin_once，让订阅回调在 Qt 线程中执行
         self.ros_timer = QtCore.QTimer(self)
@@ -184,11 +120,28 @@ class JointMoveWindow(QtWidgets.QWidget):
                 pass
 
 
-    def update_current_joint_display(self):
-        for i, name in enumerate(self.joint_names):
-            value_label = self.current_joint_value_labels.get(name)
-            if value_label is not None:
-                value_label.setText(f"{self.current_joint_positions[i]:.4f}")
+    def publish_pose_cmd(self):
+        """从UI获取末端位姿数据并发布到/pose_cmd话题"""
+        # 检查并获取处理后的 TCP 值
+        cartesian_pose = self.check_pose_value()
+        if cartesian_pose is None:
+            return
+
+        msg = MyPoseCmd()
+        msg.x = float(cartesian_pose[0]) / 1000.0  # 转换为米
+        msg.y = float(cartesian_pose[1]) / 1000.0  # 转换为米
+        msg.z = float(cartesian_pose[2]) / 1000.0  # 转换为米
+        msg.rx = float(cartesian_pose[3])
+        msg.ry = float(cartesian_pose[4])
+        msg.rz = float(cartesian_pose[5])
+        msg.cartesian_path = False
+
+        self.pose_cmd_pub.publish(msg)
+        # 日志中位置按毫米单位输出，方便对照界面
+        self.node.get_logger().info(
+            f"publish /pose_cmd (mm): x={cartesian_pose[0]:.4f}, y={cartesian_pose[1]:.4f}, z={cartesian_pose[2]:.4f}, "
+            f"rx={msg.rx:.4f}, ry={msg.ry:.4f}, rz={msg.rz:.4f}, cartesian_path={msg.cartesian_path}"
+        )
 
     def shutdown_ros(self):
         if self.ros_timer is not None:
@@ -211,63 +164,10 @@ class JointMoveWindow(QtWidgets.QWidget):
         event.accept()
 
 
-    def get_ik_cb(self):
-        if not self.get_ik_client.wait_for_service(timeout_sec=0.5):
-            self.node.get_logger().warn("get_ik service unavailable")
-            return
-
-        # 检查并获取处理后的 TCP 值
-        cartesian_pose = self.check_pose_value()
-        if cartesian_pose is None:
-            return
-
-        req = GetIK.Request()
-        req.ref_joint = list(map(float, self.current_joint_positions))
-        req.cartesian_pose = cartesian_pose
-
-        future = self.get_ik_client.call_async(req)
-        rclpy.spin_until_future_complete(self.node, future)
-        if future.result() is None:
-            self.node.get_logger().warn("get_ik call failed")
-            return
-
-        res = future.result()
-        # 将返回的 joint 保存下来，供 exec 使用
-        self.last_ik_result = list(res.joint)
-        # 在 joint_value 区域显示这组解
-        for i, name in enumerate(self.joint_names):
-            if i < len(self.last_ik_result):
-                label = self.joint_value_labels.get(name)
-                if label is not None:
-                    label.setText(f"{self.last_ik_result[i]:.4f}")
-
-
-
     def exec_cb(self):
-        if not self.joint_move_client.wait_for_service(timeout_sec=0.5):
-            self.node.get_logger().warn("joint_move service unavailable")
-            return
-
-        if not hasattr(self, "last_ik_result"):
-            self.node.get_logger().warn("no IK result available, please click get IK first")
-            return
-
-        req = Move.Request()
-        req.pose = list(self.last_ik_result)
-        req.has_ref = True
-        req.ref_joint = list(map(float, self.current_joint_positions))
-        req.mvvelo = 1.5
-        req.mvacc = 2.5
-        req.mvtime = 0.0
-        req.mvradii = 0.0
-        req.coord_mode = 0
-        req.index = 0
-
-        # 请求服务
-        future = self.joint_move_client.call_async(req)
-        rclpy.spin_until_future_complete(self.node, future)
-        if future.result() is None:
-            self.node.get_logger().warn("joint_move call failed")
+        """执行按钮回调函数，发布末端位姿命令"""
+        self.check_pose_value()
+        self.publish_pose_cmd()
 
     def check_pose_value(self):
         """该函数负责检查输入的TCP是否合法，x,y需要在-900到900之间，z需要在-350到900之间
@@ -314,11 +214,4 @@ class JointMoveWindow(QtWidgets.QWidget):
         return processed
 
 
-    def joint_state_callback(self, msg: JointState):
-        # 将数据保存到变量中
-        for i, name in enumerate(self.joint_names):
-            if i < len(msg.position):
-                self.current_joint_positions[i] = msg.position[i]
 
-        # 更新 UI 显示
-        self.update_current_joint_display()
