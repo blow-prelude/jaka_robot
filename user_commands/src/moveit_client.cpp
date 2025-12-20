@@ -116,6 +116,8 @@ public:
         q.setRPY(roll, pitch, yaw);
         q = q.normalize();
 
+        std::string arm_name = this->_arm->getName();
+
         geometry_msgs::msg::PoseStamped target_pose;
         target_pose.header.frame_id = "Link_0";
         target_pose.pose.position.x = x;
@@ -128,7 +130,7 @@ public:
 
         _arm->setStartStateToCurrentState();
 
-        RCLCPP_INFO(_node->get_logger(),"try to move to a pose target");
+        RCLCPP_INFO(_node->get_logger(),"%s try to move to a pose target",arm_name.c_str());
         if(!cartesian_path){
             _arm->setPoseTarget(target_pose);
             plan_and_execute(_arm);
@@ -151,12 +153,12 @@ public:
                 attempts++;
         
                 if(attempts % 10 == 0)
-                    RCLCPP_INFO(_node->get_logger(), "Still trying after %d attempts...", attempts);
+                    RCLCPP_INFO(_node->get_logger(), "%s Still trying after %d attempts, fraction=%f", arm_name.c_str(),attempts,fraction);
             }
 
 
             if(fraction == 1){
-                RCLCPP_INFO(_node->get_logger(),"successfullly do cartesian plan");
+                RCLCPP_INFO(_node->get_logger(),"%s successfullly do cartesian plan",arm_name.c_str());
 
                 // 生成机械臂的运动规划数据
 	            moveit::planning_interface::MoveGroupInterface::Plan plan;
@@ -187,7 +189,7 @@ public:
             }
 
             else{
-                RCLCPP_INFO(_node->get_logger(),"Path planning failed with only %0.6f success after %d attempts.", fraction, max_tries);
+                RCLCPP_INFO(_node->get_logger(),"%s Path planning failed with only %0.6f success after %d attempts.", arm_name.c_str(),fraction, max_tries);
             }
         }
     }

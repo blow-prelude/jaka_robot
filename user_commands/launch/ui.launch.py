@@ -12,7 +12,13 @@ def generate_launch_description():
     rviz_launch_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(moveit_config_share, "launch", "demo.launch.py")
-        )
+        ),
+        launch_arguments={"use_rviz_sim": "false"}.items()
+    )
+    moveit_client_node = Node(
+        package="user_commands",
+        executable="moveit_client",
+        output="screen",
     )
     main_window_node = Node(
         package="user_commands",
@@ -22,8 +28,10 @@ def generate_launch_description():
 
 
     start_main_window = TimerAction(period=4.0, actions=[main_window_node])
+    start_client = TimerAction(period=2.0, actions=[moveit_client_node])
 
     return LaunchDescription([
         rviz_launch_node,
+        start_client,
         start_main_window
     ])
