@@ -5,8 +5,7 @@
   <!-- Define arguments for configuration -->
   <xacro:arg name="use_gazebo" default="false"/>
   <xacro:arg name="include_gripper" default="true"/>
-  <xacro:arg name="include_ros2_control" default="true"/>
-  <xacro:arg name="include_gazebo_plugins" default="false"/>
+  <xacro:arg name="include_gazebo_plugins" default="true"/>
 
   <!-- Include robot arm definition -->
   <xacro:include filename="$(find jaka_description)/urdf/jaka_zu5.xacro" />
@@ -16,10 +15,6 @@
     <xacro:include filename="$(find jaka_description)/urdf/gripper.xacro" />
   </xacro:if>
 
-  <!-- Include ros2_control configuration -->
-  <xacro:if value="$(arg include_ros2_control)">
-    <xacro:include filename="$(find jaka_description)/urdf/ros2_control.xacro" />
-  </xacro:if>
 
   <!-- Include gazebo plugins and transmissions -->
   <xacro:if value="$(arg include_gazebo_plugins)">

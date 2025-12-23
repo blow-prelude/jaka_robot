@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:macro name="jaka_zu5_ros2_control" params="name initial_positions_file use_gazebo use_rviz_sim">
+    <xacro:macro name="jaka_zu5_ros2_control" params="initial_positions_file use_gazebo use_rviz_sim">
         <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
 
-        <ros2_control name="${name}" type="system">
-            <!-- Include hardware plugin conditionally if rviz in simulation mode is enabled -->
+        <!-- ARM Control System - Handles joint_1 to joint_6 -->
+        <ros2_control name="jaka_arm_hardware" type="system">
             <hardware>
               <xacro:if value="${use_gazebo}">
                   <plugin>gz_ros2_control/GazeboSimSystem</plugin>
@@ -16,7 +16,6 @@
               </xacro:if>
             </hardware>
 
-            
             <joint name="joint_1">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -59,6 +58,21 @@
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
+        </ros2_control>
+
+        <!-- Gripper Control System - Handles gripper finger joints -->
+        <ros2_control name="jaka_gripper_hardware" type="system">
+            <hardware>
+              <xacro:if value="${use_gazebo}">
+                  <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+              </xacro:if>
+              <xacro:if value="${use_rviz_sim}">
+                  <plugin>fake_components/GenericSystem</plugin>
+                  <param name="mock_sensor_commands">false</param>
+                  <param name="state_following_offset">0.0</param>
+              </xacro:if>
+            </hardware>
+
             <joint name="gripper_left_finger_joint">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -73,7 +87,6 @@
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-
         </ros2_control>
     </xacro:macro>
 </robot>

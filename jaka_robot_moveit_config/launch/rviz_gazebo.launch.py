@@ -32,7 +32,7 @@ def generate_launch_description():
                 # 该启动文件专门用于 Gazebo 仿真，因此这里固定为 true
                 "use_gazebo": "true",
                 # Gazebo 下由 gz_ros2_control 提供硬件接口，不使用 RViz 假仿真硬件
-                "use_rviz_sim": "false",
+                "use_rviz_sim": "false"
             }
         )
         .to_moveit_configs()

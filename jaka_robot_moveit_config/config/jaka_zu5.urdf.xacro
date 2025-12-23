@@ -16,6 +16,6 @@
     <xacro:include filename="jaka_zu5.ros2_control.xacro" />
 
     <!-- Use the control macro -->
-    <xacro:jaka_zu5_ros2_control name="jaka_zu5_hardware" initial_positions_file="$(arg initial_positions_file)" use_gazebo="$(arg use_gazebo)" use_rviz_sim="$(arg use_rviz_sim)" />
+    <xacro:jaka_zu5_ros2_control initial_positions_file="$(arg initial_positions_file)" use_gazebo="$(arg use_gazebo)" use_rviz_sim="$(arg use_rviz_sim)" />
 
 </robot>

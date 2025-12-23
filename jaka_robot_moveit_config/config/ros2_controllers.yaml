@@ -3,17 +3,23 @@ controller_manager:
   ros__parameters:
     update_rate: 1000  # Hz
 
+    # Arm controllers for jaka_arm_hardware
     jaka_zu5_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-
+    # Gripper controllers for jaka_gripper_hardware
     gripper_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-    joint_state_broadcaster:
+    # Joint state broadcasters for both hardware systems
+    arm_joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    gripper_joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
 
+# Arm controller configuration - controls jaka_arm_hardware
 jaka_zu5_controller:
   ros__parameters:
     joints:
@@ -28,6 +34,10 @@ jaka_zu5_controller:
     state_interfaces:
       - position
       - velocity
+    # Specify which hardware this controller belongs to
+    hardware_name: jaka_arm_hardware
+
+# Gripper controller configuration - controls jaka_gripper_hardware
 gripper_controller:
   ros__parameters:
     joints:
@@ -38,5 +48,27 @@ gripper_controller:
     state_interfaces:
       - position
       - velocity
+    # Specify which hardware this controller belongs to
+    hardware_name: jaka_gripper_hardware
+
+# Arm joint state broadcaster - publishes arm joint states
+arm_joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    hardware_name: jaka_arm_hardware
+
+# Gripper joint state broadcaster - publishes gripper joint states
+gripper_joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - gripper_left_finger_joint
+      - gripper_right_finger_joint
+    hardware_name: jaka_gripper_hardware
 
 
