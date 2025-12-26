@@ -5,12 +5,24 @@
     <xacro:arg name="use_rviz_sim" default="true"/>
 
     <!-- Arguments to pass to my_robot.urdf.xacro -->
-    <xacro:arg name="include_gripper" default="true"/>
-    <xacro:arg name="include_ros2_control" default="false"/>  <!-- We'll use the control from jaka_zu5.ros2_control.xacro -->
-    <xacro:arg name="include_gazebo_plugins" default="$(arg use_gazebo)"/>
+    <!-- <xacro:arg name="include_ros2_control" default="false"/>  We'll use the control from jaka_zu5.ros2_control.xacro -->
+
 
     <!-- Import jaka_zu5 urdf file -->
     <xacro:include filename="$(find jaka_description)/urdf/my_robot.urdf.xacro" />
+
+      <!-- 添加相机 -->
+  <xacro:include filename="$(find jaka_description)/urdf/camera.xacro" />
+  <xacro:camera_v0 parent="gripper_base_link">
+        <origin xyz="0 -0.06 0.03" rpy="${-PI/2} ${-PI/2} 0"/>
+  </xacro:camera_v0>
+  <xacro:camera_gazebo_v0/>
+
+  <gazebo>
+        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+            <!-- <render_engine>ogre2</render_engine> -->
+        </plugin>
+    </gazebo>
 
     <!-- Import control_xacro -->
     <xacro:include filename="jaka_zu5.ros2_control.xacro" />

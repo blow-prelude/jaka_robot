@@ -19,7 +19,7 @@
 			</visual>
 			<collision>
 				<geometry>
-					<mesh filename="package://jaka_description/meshes/camera/camera.stl"/>
+					<mesh filename="packa ge://jaka_description/meshes/camera/camera.stl"/>
 				</geometry>
 			</collision>
 			<inertial>

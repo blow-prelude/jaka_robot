@@ -2,33 +2,16 @@
 <!-- Main robot URDF file that combines all robot components -->
 <robot name="jaka_zu5" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Define arguments for configuration -->
-  <xacro:arg name="use_gazebo" default="false"/>
-  <xacro:arg name="include_gripper" default="true"/>
-  <xacro:arg name="include_gazebo_plugins" default="true"/>
-
   <xacro:property name="PI" value="3.14159274"/>
 
   <!-- Include robot arm definition -->
   <xacro:include filename="$(find jaka_description)/urdf/jaka_zu5.xacro" />
 
   <!-- Include gripper definition if needed -->
-  <xacro:if value="$(arg include_gripper)">
-    <xacro:include filename="$(find jaka_description)/urdf/gripper.xacro" />
-  </xacro:if>
+  <xacro:include filename="$(find jaka_description)/urdf/gripper.xacro" />
 
-  <!-- 添加相机 -->
-  <xacro:include filename="$(find jaka_description)/urdf/camera.xacro" />
-  <xacro:camera_v0 parent="gripper_base_link">
-        <origin xyz="0 -0.06 0.03" rpy="${-PI/2} ${-PI/2} 0"/>
-  </xacro:camera_v0>
-  <xacro:camera_gazebo_v0/>
-
-
-  <!-- Include gazebo plugins and transmissions -->
-  <xacro:if value="$(arg include_gazebo_plugins)">
-    <xacro:include filename="$(find jaka_description)/urdf/gazebo.xacro" />
-  </xacro:if>
+  <!-- 添加传动配置 -->
+  <xacro:include filename="$(find jaka_description)/urdf/jaka_zu5.gazebo" />
 
   <!-- World link for ground truth -->
   <link name="world" />
