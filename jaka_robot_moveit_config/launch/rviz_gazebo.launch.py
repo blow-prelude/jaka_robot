@@ -11,6 +11,7 @@ from moveit_configs_utils.launches import generate_rsp_launch
 from launch_ros.actions import Node
 
 
+
 def generate_launch_description():
     """
     Launch a full RViz + Gazebo demo:
@@ -124,5 +125,15 @@ def generate_launch_description():
             condition=IfCondition(LaunchConfiguration("use_gazebo")),
         )
     )
+
+    # 7) 启动相机话题桥接
+    launch_description.add_action(
+      IncludeLaunchDescription(
+          PythonLaunchDescriptionSource(
+              str(launch_package_path / "gazebo_ros_bridge.launch.py")
+          ),
+      )
+  )
+
 
     return launch_description

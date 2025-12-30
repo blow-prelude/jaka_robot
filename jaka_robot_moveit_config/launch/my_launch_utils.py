@@ -26,6 +26,7 @@ from moveit_configs_utils.moveit_configs_builder import MoveItConfigsBuilder
 from launch.event_handlers import OnProcessExit
 
 
+
 def generate_move_group_launch(moveit_config):
     ld = LaunchDescription()
 
@@ -101,7 +102,21 @@ def generate_move_group_launch(moveit_config):
     )
     return ld
 
-
+def generate_spawn_controllers_launch(moveit_config):
+    controller_names = moveit_config.trajectory_execution.get(
+        "moveit_simple_controller_manager", {}
+    ).get("controller_names", [])
+    ld = LaunchDescription()
+    for controller in controller_names:
+        ld.add_action(
+            Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=[controller],
+                output="screen",
+            )
+        )
+    return ld
 
 def generate_demo_launch(moveit_config, launch_package_path=None):
     """
@@ -552,3 +567,34 @@ def generate_demo_gazebo_launch(moveit_config, launch_package_path=None):
     )
 
     return ld
+
+
+def generate_gazebo_ros_bridge():
+    """
+    启动ros_gz_bridge桥接Gazebo和ROS2之间的相机话题
+    """
+
+    # 桥接配置列表: (ROS2话题, ROS2消息类型, Gazebo消息类型)
+    bridge_config = [
+        # RGB图像
+        "/camera/image_raw@sensor_msgs/msg/Image[ignition.msgs.Image",
+        # 深度图像
+        "/camera/depth_raw@sensor_msgs/msg/Image[ignition.msgs.Image",
+        # 相机信息
+        "/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo",
+        # 点云
+        "/camera/depth_raw/points@sensor_msgs/msg/PointCloud2[ignition.msgs.PointCloudPacked",
+    ]
+
+    bridge_node = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        name="ros_gz_camera_bridge",
+        arguments=bridge_config,
+        output="screen",
+        parameters=[
+            {"use_sim_time": True}
+        ]
+    )
+
+    return LaunchDescription([bridge_node])
