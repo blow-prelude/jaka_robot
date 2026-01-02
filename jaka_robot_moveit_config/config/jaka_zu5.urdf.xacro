@@ -12,13 +12,13 @@
     <xacro:include filename="$(find jaka_description)/urdf/my_robot.urdf.xacro" />
 
       <!-- 添加相机 -->
-  <xacro:include filename="$(find jaka_description)/urdf/camera.xacro" />
-  <xacro:camera_v0 parent="gripper_base_link">
-        <origin xyz="0 -0.06 0.03" rpy="${-PI/2} ${-PI/2} 0"/>
-  </xacro:camera_v0>
-  <xacro:camera_gazebo_v0/>
+    <xacro:include filename="$(find jaka_description)/urdf/camera.xacro" />
+    <xacro:camera_v0 parent="gripper_base_link">
+            <origin xyz="0 -0.06 0.03" rpy="${-PI/2} ${-PI/2} 0"/>
+    </xacro:camera_v0>
+    <xacro:camera_gazebo_v0/>
 
-  <gazebo>
+    <gazebo>
         <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
             <!-- <render_engine>ogre2</render_engine> -->
         </plugin>

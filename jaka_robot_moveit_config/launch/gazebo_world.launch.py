@@ -16,19 +16,24 @@ from moveit_configs_utils.moveit_configs_builder import MoveItConfigsBuilder
 
 def generate_launch_description():
     """
-    Launch an empty Ignition Gazebo world and spawn the robot model
+    Launch a custom Ignition Gazebo world and spawn the robot model
     using the same URDF as MoveIt.
 
     这里直接通过 ros_gz_sim 的 `-param` 选项从本节点参数中加载模型，
     不依赖 /robot_description 话题，也不依赖外部的 use_gazebo LaunchArgument。
     """
 
+    # 获取自定义世界文件路径（使用src目录中的world文件）
+    world_file_path = "/home/wtr/programs/cpp/ros2/jaka/src/user_commands/world/sim_world.sdf"
+
     # Arguments
     gz_args = LaunchConfiguration("gz_args")
 
     declare_gz_args = DeclareLaunchArgument(
         "gz_args",
-        default_value="empty.sdf -r",
+        # default_value=world_file_path + " -r",
+        default_value="empty.sdf",
+
         description=(
             "Arguments passed to ros_gz_sim gz_sim.launch.py, "
             "e.g. 'empty.sdf -r' for an empty world running immediately."
@@ -36,7 +41,7 @@ def generate_launch_description():
     )
 
 
-    # 1) 启动 Gazebo 仿真世界（这里使用 ros_gz_sim 的空世界）
+    # 1) 启动 Gazebo 仿真世界（加载自定义世界文件 sim_world.sdf）
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -50,7 +55,7 @@ def generate_launch_description():
 
     # 2) 通过 ros_gz_sim create，从本节点参数 robot_description 中读取模型并生成实体
     spawn_robot = TimerAction(
-        period=5.0,  # 等待仿真世界就绪
+        period=2.0,  # 等待仿真世界就绪
         actions=[
             Node(
                 package="ros_gz_sim",

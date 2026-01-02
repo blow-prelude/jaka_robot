@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, TimerAction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
@@ -104,36 +104,29 @@ def generate_launch_description():
     )
 
 
-    # Start the controller manager
-    # launch_description.add_action(
-    #     Node(
-    #         package="controller_manager",
-    #         executable="ros2_control_node",
-    #         parameters=[
-    #             moveit_config.robot_description,
-    #             str(moveit_config.package_path / "config/ros2_controllers.yaml"),
-    #         ],
-    #         condition=IfCondition(LaunchConfiguration("use_gazebo")),
-    #     )
-    # )
-
+    # gz_ros2_control 插件在 Gazebo 内部提供 controller_manager
+    # 这里只负责启动各个控制器（joint_state_broadcaster 和 trajectory_controller）
     launch_description.add_action(
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 str(launch_package_path / "spawn_controllers.launch.py")
             ),
-            condition=IfCondition(LaunchConfiguration("use_gazebo")),
         )
     )
 
-    # 7) 启动相机话题桥接
+    # 7) 启动相机话题桥接（延迟启动，确保其他组件已就绪）
     launch_description.add_action(
-      IncludeLaunchDescription(
-          PythonLaunchDescriptionSource(
-              str(launch_package_path / "gazebo_ros_bridge.launch.py")
-          ),
-      )
-  )
+        TimerAction(
+            period=8.0,  # 延迟8秒启动，等待Gazebo和控制器完全就绪
+            actions=[
+                IncludeLaunchDescription(
+                    PythonLaunchDescriptionSource(
+                        str(launch_package_path / "gazebo_ros_bridge.launch.py")
+                    ),
+                )
+            ],
+        )
+    )
 
 
     return launch_description
