@@ -5,7 +5,6 @@ from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
     IncludeLaunchDescription,
-    TimerAction,
 )
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
@@ -31,8 +30,8 @@ def generate_launch_description():
 
     declare_gz_args = DeclareLaunchArgument(
         "gz_args",
-        # default_value=world_file_path + " -r",
-        default_value="empty.sdf",
+        default_value=world_file_path + " -r",
+        # default_value="empty.sdf",
 
         description=(
             "Arguments passed to ros_gz_sim gz_sim.launch.py, "
@@ -54,21 +53,16 @@ def generate_launch_description():
     )
 
     # 2) 通过 ros_gz_sim create，从本节点参数 robot_description 中读取模型并生成实体
-    spawn_robot = TimerAction(
-        period=2.0,  # 等待仿真世界就绪
-        actions=[
-            Node(
-                package="ros_gz_sim",
-                executable="create",
-                name="spawn_robot",
-                output="screen",
-                arguments=[
-                    "-topic",
-                    "/robot_description",
-                    "-z",
-                    "0.06",  # 略微抬高，避免与地面初始穿插
-                ],
-            )
+    spawn_robot = Node(
+        package="ros_gz_sim",
+        executable="create",
+        name="spawn_robot",
+        output="screen",
+        arguments=[
+            "-topic",
+            "/robot_description",
+            "-z",
+            "0.06",  # 略微抬高，避免与地面初始穿插
         ],
     )
 
